@@ -1,0 +1,123 @@
+/**
+ * @flow
+ */
+
+'use strict';
+
+import React, {
+  Component
+} from 'react';
+
+import {
+  AppRegistry,
+  StyleSheet,
+  TabBarIOS,
+  TouchableHighlight,
+  Text,
+  View,
+} from 'react-native';
+
+
+class S1 extends Component {
+  render() {
+    return (
+      <View style={[styles.tabContent, {backgroundColor: 'green'}]}>
+        <TouchableHighlight>
+        <Text style={styles.tabText}>Slide 1</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+};
+
+class S2 extends Component {
+  render() {
+    return (
+      <View style={[styles.tabContent, {backgroundColor: 'green'}]}>
+        <TouchableHighlight>
+        <Text style={styles.tabText}>Slide 2</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+};
+
+export type Slide = {
+  module: Object,
+};
+
+export const Slides: Array<Slide> = [
+  {
+    key: 'S1',
+    module: S1
+  },
+  {
+    key: 'S2',
+    module: S2
+  },
+];
+
+
+
+class SlideContainer extends React.Component {
+
+  state = {
+    selectedTab: 0
+  };
+
+  _renderTabBarItem = (slide?: Slide, i?: number) => {
+    var tab = i || 0;
+    return (
+      <TabBarIOS.Item
+        title={slide.key}
+        selected={this.state.selectedTab === tab}
+        onPress={() => {
+          this.setState({
+            selectedTab: tab,
+          });
+        }}>
+        {slide.module}
+      </TabBarIOS.Item>
+    )
+  };
+
+  render() {
+    var tabBarItems = this.props.slides.map(this._renderTabBarItem.bind(this));
+    return React.cloneElement(
+      <TabBarIOS
+        unselectedTintColor="yellow"
+        tintColor="white"
+        unselectedItemTintColor="red"
+        barTintColor="darkslateblue">
+      {tabBarItems}
+      </TabBarIOS>
+    );
+  }
+};
+
+class SlideApp extends Component {
+  render() {
+    return (
+      <SlideContainer slides={Slides}/>
+    );
+  }
+};
+
+var styles = StyleSheet.create({
+  tabContent: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  tabText: {
+    color: 'white',
+    margin: 50,
+    fontSize: 100
+  },
+  bodyText: {
+    marginTop: 100,
+    fontSize: 100
+  }
+});
+
+module.exports = SlideApp;
+AppRegistry.registerComponent('RNAppleTVTalk', () => SlideApp);
