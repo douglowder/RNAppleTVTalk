@@ -9,7 +9,6 @@
 .*/node_modules/.*/node_modules/fbjs/.*
 
 .*/node_modules/react-native-experimental-navigation/.*
-.*/node_modules/react-native-router-flux/.*
 .*/node_modules/react-native-keyboard-aware-scroll-view/.*
 .*/node_modules/react-static-container/.*
 
