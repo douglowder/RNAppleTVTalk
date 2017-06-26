@@ -44,7 +44,9 @@ class Slide extends Component {
       <View style={styles.container}>
         {this.renderLeft()}
         <Text style={styles.title}>{this.props.title}</Text>
-        {this.props.children}
+        <View style={styles.contentContainer}>
+          {this.props.children}
+        </View>
         {this.renderRight()}
       </View>
     );

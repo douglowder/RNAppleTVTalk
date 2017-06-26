@@ -17,6 +17,13 @@ export default styles = StyleSheet.create({
     fontSize: 60,
     color: 'white'
   },
+  contentContainer: {
+    height: 800,
+    width: 1000,
+    margin: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   nextButtonContainer: {
     position:'absolute',
     top:540,
