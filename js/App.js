@@ -1,6 +1,10 @@
+/*
+ * App
+ * @flow
+ */
 import React, {
   Component
- } from 'react';
+} from 'react';
 
 import {
   Router,
@@ -10,10 +14,10 @@ import {
 
 import {
   Text,
-  TouchableHighlight,
-  TouchableOpacity,
   View,
 } from 'react-native';
+
+import Slide from './Slide';
 
 const styles = require('./styles').default;
 
@@ -21,27 +25,27 @@ class PageOne extends Component {
   render() {
     const goToPageTwo = () => Actions.pageTwo({text: 'Hello World!'});
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>This is PageOne!</Text>
-        <TouchableOpacity onPress={goToPageTwo} style={styles.nextButtonContainer}>
-          <Text style={styles.body}>
-            Next
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-    )
+      <Slide title='This is Page One'
+             rightAction={goToPageTwo}>
+        <Text style={styles.body}>
+          Page One Text
+        </Text>
+      </Slide>
+    );
   }
 }
 
 class PageTwo extends Component {
   render() {
+    const goToPageOne = () => Actions.pageOne({});
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>This is PageTwo!</Text>
-        <Text style={styles.body}>{this.props.text}</Text>
-      </View>
-    )
+      <Slide title='This is Page Two'
+             leftAction={goToPageOne}>
+        <Text style={styles.body}>
+          {this.props.text}
+        </Text>
+      </Slide>
+    );
   }
 }
 
