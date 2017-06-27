@@ -16,13 +16,18 @@ import {
   Text,
   View,
   TabBarIOS,
+  TouchableOpacity
 } from 'react-native';
 
 import Slide from './Slide';
 
+import Game2048 from './Game2048';
+
 import ListViewGridLayoutExample from './ListViewGridLayoutExample';
 
 import Icon from './Icon';
+
+import CustomEventDemo from './CustomEventDemo';
 
 const styles = require('./styles').default;
 
@@ -123,6 +128,37 @@ class App extends Component {
               </Text>
               <ListViewGridLayoutExample removeClippedSubviews={false} />
             </View>
+            </View>
+          </Slide>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="TV remote demo"
+          selected={this.state && this.state.selectedTab === 2}
+          onPress={() => {
+            this.setState({
+              selectedTab: 2,
+            });
+          }}>
+          <Slide title="Siri remote custom events">
+            <View>
+              <View style={{flexDirection: 'row'}}>
+                <View style={styles.listViewDemoContainer}>
+                  <TouchableOpacity>
+                    <Text style={styles.body}>
+                      Custom event demo
+                    </Text>
+                  </TouchableOpacity>
+                  <CustomEventDemo/>
+                </View>
+                <View style={styles.listViewDemoContainer}>
+                  <TouchableOpacity>
+                    <Text style={styles.body}>
+                      2048 game
+                    </Text>
+                  </TouchableOpacity>
+                  <Game2048 />
+                </View>
+              </View>
             </View>
           </Slide>
         </TabBarIOS.Item>

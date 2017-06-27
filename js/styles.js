@@ -24,7 +24,7 @@ export default styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   contentContainer: {
-    height: 800,
+    height: 700,
     width: 1000,
     margin: 0,
     justifyContent: 'center',
@@ -50,6 +50,12 @@ export default styles = StyleSheet.create({
     position:'absolute',
     top:540,
     left:100
+  },
+  customEventDemoContainer: {
+    height: 400,
+    width: 600,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
     position:'absolute',
