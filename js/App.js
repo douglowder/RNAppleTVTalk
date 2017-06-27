@@ -15,6 +15,7 @@ import {
 import {
   Text,
   View,
+  TabBarIOS,
 } from 'react-native';
 
 import Slide from './Slide';
@@ -26,7 +27,7 @@ const styles = require('./styles').default;
 const pages = require('./PageList');
 
 
-class App extends Component {
+class SlideShow extends Component {
   renderSlide(i: number) {
     return (
       <Slide title={pages[i].title}
@@ -60,6 +61,49 @@ class App extends Component {
         </Scene>
       </Router>
     )
+  }
+}
+
+class App extends Component {
+
+  state: {
+    selectedTab: number
+  }
+
+  componentDidMount() {
+    this.setState({
+      selectedTab: 0
+    });
+  }
+
+  render() {
+    return (
+      <TabBarIOS
+        unselectedTintColor="white"
+        tintColor="red"
+        barTintColor="darkslateblue">
+        <TabBarIOS.Item
+          title="Slide Show"
+          selected={this.state && this.state.selectedTab === 0}
+          onPress={() => {
+            this.setState({
+              selectedTab: 0,
+            });
+          }}>
+          <SlideShow />
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="ListView demo"
+          selected={this.state && this.state.selectedTab === 1}
+          onPress={() => {
+            this.setState({
+              selectedTab: 1,
+            });
+          }}>
+          <ListViewGridLayoutExample removeClippedSubviews={false} />
+        </TabBarIOS.Item>
+      </TabBarIOS>
+    );
   }
 }
 

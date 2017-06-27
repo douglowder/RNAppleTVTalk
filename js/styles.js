@@ -18,9 +18,9 @@ export default styles = StyleSheet.create({
     color: 'white'
   },
   contentContainer: {
-    height: 800,
+    height: 600,
     width: 1000,
-    margin: 50,
+    margin: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
