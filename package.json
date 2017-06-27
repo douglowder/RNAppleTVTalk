@@ -9,13 +9,15 @@
     "jest": "jest"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "flow-bin": "0.42.0",
     "lodash": "^4.17.4",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
     "react-native-button": "^1.8.2",
     "react-native-drawer": "^2.3.0",
-    "react-native-router-flux": "^3.39.1"
+    "react-native-router-flux": "https://github.com/dlowder-salesforce/react-native-router-flux#dlowder-fix"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

@@ -1,5 +1,5 @@
 /*
- * Pages
+ * PageList
  * @flow
  */
 import React, {
