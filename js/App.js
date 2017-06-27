@@ -22,10 +22,11 @@ import Slide from './Slide';
 
 import ListViewGridLayoutExample from './ListViewGridLayoutExample';
 
+import Icon from './Icon';
+
 const styles = require('./styles').default;
 
 const pages = require('./PageList');
-
 
 class SlideShow extends Component {
   renderSlide(i: number) {
@@ -100,8 +101,29 @@ class App extends Component {
               selectedTab: 1,
             });
           }}>
-          <Slide title="ListViewGridLayoutExample">
-            <ListViewGridLayoutExample removeClippedSubviews={false} />
+          <Slide title="Grid layout with list views">
+            <View style={{flexDirection: 'row'}}>
+            <View style={styles.listViewDemoContainer}>
+              <Icon name='error'
+                    color='red'
+                    width={40}
+                    height={40}/>
+              <Text style={styles.listViewDemoText}>
+                removeClippedSubviews=&#123;true&#125;
+              </Text>
+              <ListViewGridLayoutExample removeClippedSubviews={true} />
+            </View>
+            <View style={styles.listViewDemoContainer}>
+              <Icon name='check'
+                    color='green'
+                    width={40}
+                    height={40}/>
+              <Text style={styles.listViewDemoText}>
+                removeClippedSubviews=&#123;false&#125;
+              </Text>
+              <ListViewGridLayoutExample removeClippedSubviews={false} />
+            </View>
+            </View>
           </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>

@@ -24,11 +24,22 @@ export default styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   contentContainer: {
-    height: 600,
+    height: 800,
     width: 1000,
     margin: 0,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  listViewDemoContainer: {
+    height: 600,
+    width: 700,
+    margin: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  listViewDemoText: {
+    fontSize: 40,
+    color: 'white'
   },
   nextButtonContainer: {
     position:'absolute',

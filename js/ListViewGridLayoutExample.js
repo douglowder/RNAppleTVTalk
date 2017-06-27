@@ -2,9 +2,7 @@
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * ListViewGridLayoutExample from https://github.com/facebook/react-native
  *
  * @flow
  * @providesModule ListViewGridLayoutExample
@@ -117,7 +115,7 @@ var hashCode = function(str) {
   return hash;
 };
 
-var scale = Platform.isTVOS ? 3 : 1;
+var scale = Platform.isTVOS ? 2 : 1;
 
 var styles = StyleSheet.create({
   list: {

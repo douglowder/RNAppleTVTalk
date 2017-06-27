@@ -24,6 +24,8 @@ import {
   Title,
 } from './StyledComponents';
 
+import Icon from './Icon';
+
 const styles = require('./styles').default;
 
 class Slide extends Component {
@@ -38,13 +40,17 @@ class Slide extends Component {
   renderLeft() {
     if (this.props.leftKey) {
       return (
-          <TouchableHighlight onPress={() => this.leftAction()}
+          <TouchableOpacity onPress={() => this.leftAction()}
                               style={styles.prevButtonContainer}
                               activeOpacity={0.8}
                               underlayColor='white'>
-            <Image style={{width: 100, height: 100}}
-                 source={{uri: 'arrow-left'}}/>
-          </TouchableHighlight>
+            <View>
+              <Icon width={100}
+                    height={100}
+                    name='left'
+                    color='white'/>
+            </View>
+          </TouchableOpacity>
         );
     } else {
       return null;
@@ -54,13 +60,17 @@ class Slide extends Component {
   renderRight() {
     if (this.props.rightKey) {
       return (
-        <TouchableHighlight onPress={() => this.rightAction()}
+        <TouchableOpacity onPress={() => this.rightAction()}
                             style={styles.nextButtonContainer}
                             activeOpacity={0.8}
                             underlayColor='white'>
-            <Image style={{width: 100, height: 100}}
-                 source={{uri: 'arrow-right'}}/>
-        </TouchableHighlight>
+          <View>
+            <Icon width={100}
+                  height={100}
+                  name='right'
+                  color='white'/>
+          </View>
+        </TouchableOpacity>
       );
     } else {
       return null;

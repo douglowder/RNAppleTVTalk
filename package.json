@@ -17,7 +17,8 @@
     "react-native": "0.44.0",
     "react-native-button": "^1.8.2",
     "react-native-drawer": "^2.3.0",
-    "react-native-router-flux": "https://github.com/dlowder-salesforce/react-native-router-flux#dlowder-fix"
+    "react-native-router-flux": "https://github.com/dlowder-salesforce/react-native-router-flux#dlowder-fix",
+    "react-native-svg": "^5.2.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
