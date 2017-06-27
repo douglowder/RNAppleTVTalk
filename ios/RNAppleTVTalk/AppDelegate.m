@@ -18,7 +18,28 @@
 {
   NSURL *jsCodeLocation;
 
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
+                                                                  fallbackResource:nil];
+#if TARGET_OS_SIMULATOR
+  if (getenv("CI_USE_PACKAGER")) {
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
+                                                                    fallbackResource:nil];
+    if(jsCodeLocation == nil) {
+      NSLog(@"The React Native packager is not running.  Please run 'npm start' from the RN directory.");
+      return nil;
+    }
+  } else
+#endif
+  {
+    NSString *jsCodePath = [[NSBundle mainBundle] pathForResource:@"RNAppleTVTalk.bundle" ofType:@"js"];
+    jsCodeLocation = [NSURL fileURLWithPath:jsCodePath];
+    if(jsCodeLocation == nil) {
+      NSLog(@"The Insights JS bundle doesn't exist.  Please generate it and add it to the top level of the Salesforce1 project.");
+      return nil;
+    }
+  }
+  
+
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"RNAppleTVTalk"
