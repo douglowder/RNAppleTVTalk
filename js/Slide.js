@@ -8,27 +8,41 @@ import {
   View,
 } from 'react-native';
 
+import {
+  Router,
+  Scene,
+  Actions
+} from 'react-native-router-flux';
+
 const styles = require('./styles').default;
 
 class Slide extends Component {
+  leftAction() {
+    this.props.leftKey && Actions.pop({});
+  }
+
+  rightAction() {
+    this.props.rightKey && Actions.pushScene(this.props.rightKey,{});
+  }
+
   renderLeft() {
-    if(this.props.leftAction) {
+    if (this.props.leftKey) {
       return (
-        <TouchableOpacity onPress={this.props.leftAction} style={styles.prevButtonContainer}>
-          <Text style={styles.body}>
-            Prev
-          </Text>
-        </TouchableOpacity>
-      );
+          <TouchableOpacity onPress={() => this.leftAction()} style={styles.prevButtonContainer}>
+            <Text style={styles.body}>
+              Prev
+            </Text>
+          </TouchableOpacity>
+        );
     } else {
       return null;
     }
   }
 
   renderRight() {
-    if(this.props.rightAction) {
+    if (this.props.rightKey) {
       return (
-        <TouchableOpacity onPress={this.props.rightAction} style={styles.nextButtonContainer}>
+        <TouchableOpacity onPress={() => this.rightAction()} style={styles.nextButtonContainer}>
           <Text style={styles.body}>
             Next
           </Text>

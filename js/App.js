@@ -23,71 +23,40 @@ import ListViewGridLayoutExample from './ListViewGridLayoutExample';
 
 const styles = require('./styles').default;
 
-class PageOne extends Component {
-  render() {
-    const goToPageTwo = () => Actions.pageTwo({text: 'Hello World!'});
-    return (
-      <Slide title='This is Page One'
-             rightAction={goToPageTwo}>
-        <Text style={styles.body}>
-          Page One Text
-        </Text>
-      </Slide>
-    );
-  }
-}
+const pages = require('./PageList');
 
-class PageTwo extends Component {
-  render() {
-    const goToPageOne = () => Actions.pageOne({});
-    const goToPageThree = () => Actions.pageThree({});
-    return (
-      <Slide title='This is Page Two'
-             leftAction={goToPageOne}
-             rightAction={goToPageThree}>
-        <Text style={styles.body}>
-          {this.props.text}
-        </Text>
-      </Slide>
-    );
-  }
-}
-
-class PageThree extends Component {
-  render() {
-    const goToPageTwo = () => Actions.pageTwo({text: 'Hello World!'});
-    const goToPageFour = () => Actions.pageFour({});
-    return (
-      <Slide title='<ListViewGridLayoutExample removeClippedSubviews={true}/>'
-             leftAction={goToPageTwo}
-             rightAction={goToPageFour}>
-        <ListViewGridLayoutExample removeClippedSubviews={true}/>
-      </Slide>
-    );
-  }
-}
-
-class PageFour extends Component {
-  render() {
-    const goToPageThree = () => Actions.pageThree({});
-    return (
-      <Slide title='<ListViewGridLayoutExample removeClippedSubviews={false}/>'
-             leftAction={goToPageThree}>
-        <ListViewGridLayoutExample removeClippedSubviews={false}/>
-      </Slide>
-    );
-  }
-}
 
 class App extends Component {
+  renderSlide(i: number) {
+    return (
+      <Slide title={pages[i].title}
+             leftKey={(i > 0) ? pages[i-1].key : null}
+             rightKey={(i < pages.length - 1 ? pages[i+1].key : null)}>
+          {pages[i].body}
+      </Slide>
+    );
+  }
+
+  renderScene(i: number) {
+    return (
+      <Scene key={pages[i].key}
+             component={() => this.renderSlide(i)}
+             hideNavBar
+             hideTabBar
+             title={pages[i].title}
+             initial={i === 0} />
+    );
+  }
+
   render() {
+    var scenes = [];
+    for (var i=0; i<pages.length; i++) {
+      scenes.push(this.renderScene(i));
+    }
     return (
       <Router>
         <Scene key="root">
-          <Scene key="pageOne" component={PageOne} hideNavBar hideTabBar title="PageOne" initial={true} />
-          <Scene key="pageTwo" component={PageTwo} hideNavBar hideTabBar title="PageTwo" />
-          <Scene key="pageThree" component={PageThree} hideNavBar hideTabBar title="PageThree" />
-          <Scene key="pageFour" component={PageFour} hideNavBar hideTabBar title="PageFour" />
+          {scenes}
         </Scene>
       </Router>
     )
