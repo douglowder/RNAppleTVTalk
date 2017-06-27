@@ -22,9 +22,10 @@ class Title extends Component {
 }
 
 class BulletedList extends Component {
-  _renderLine(text: string) {
+  _renderLine(text: string, i: number) {
     return (
-      <View style={{flexDirection: 'row'}}>
+      <View key={"" + i}
+            style={{flexDirection: 'row'}}>
         <Text style={styles.body}>{'\u2022'}</Text>
         <Text style={[styles.body,{flex: 1, paddingLeft: 5}]}>{text}</Text>
       </View>
