@@ -100,7 +100,9 @@ class App extends Component {
               selectedTab: 1,
             });
           }}>
-          <ListViewGridLayoutExample removeClippedSubviews={false} />
+          <Slide title="ListViewGridLayoutExample">
+            <ListViewGridLayoutExample removeClippedSubviews={false} />
+          </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>
     );

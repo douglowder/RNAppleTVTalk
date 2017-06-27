@@ -7,8 +7,10 @@ import React, {
 } from 'react';
 
 import {
+  Image,
   Text,
   TouchableOpacity,
+  TouchableHighlight,
   View,
 } from 'react-native';
 
@@ -32,11 +34,13 @@ class Slide extends Component {
   renderLeft() {
     if (this.props.leftKey) {
       return (
-          <TouchableOpacity onPress={() => this.leftAction()} style={styles.prevButtonContainer}>
-            <Text style={styles.body}>
-              Prev
-            </Text>
-          </TouchableOpacity>
+          <TouchableHighlight onPress={() => this.leftAction()}
+                              style={styles.prevButtonContainer}
+                              activeOpacity={0.8}
+                              underlayColor='white'>
+            <Image style={{width: 100, height: 100}}
+                 source={{uri: 'arrow-left'}}/>
+          </TouchableHighlight>
         );
     } else {
       return null;
@@ -46,11 +50,13 @@ class Slide extends Component {
   renderRight() {
     if (this.props.rightKey) {
       return (
-        <TouchableOpacity onPress={() => this.rightAction()} style={styles.nextButtonContainer}>
-          <Text style={styles.body}>
-            Next
-          </Text>
-        </TouchableOpacity>
+        <TouchableHighlight onPress={() => this.rightAction()}
+                            style={styles.nextButtonContainer}
+                            activeOpacity={0.8}
+                            underlayColor='white'>
+            <Image style={{width: 100, height: 100}}
+                 source={{uri: 'arrow-right'}}/>
+        </TouchableHighlight>
       );
     } else {
       return null;

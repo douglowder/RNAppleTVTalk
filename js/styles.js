@@ -34,4 +34,9 @@ export default styles = StyleSheet.create({
     top:540,
     left:100
   },
+  logo: {
+    position:'absolute',
+    top:50,
+    right:50
+  }
 });
