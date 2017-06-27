@@ -17,6 +17,12 @@ export default styles = StyleSheet.create({
     fontSize: 60,
     color: 'white'
   },
+  bulletedListContainer: {
+    height: 600,
+    width: 1000,
+    margin: 0,
+    alignItems: 'flex-start',
+  },
   contentContainer: {
     height: 600,
     width: 1000,

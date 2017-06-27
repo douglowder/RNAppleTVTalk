@@ -20,6 +20,10 @@ import {
   Actions
 } from 'react-native-router-flux';
 
+import {
+  Title,
+} from './StyledComponents';
+
 const styles = require('./styles').default;
 
 class Slide extends Component {
@@ -67,7 +71,7 @@ class Slide extends Component {
     return (
       <View style={styles.container}>
         {this.renderLeft()}
-        <Text style={styles.title}>{this.props.title}</Text>
+        <Title text={this.props.title}/>
         <View style={styles.contentContainer}>
           {this.props.children}
         </View>

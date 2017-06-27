@@ -11,7 +11,10 @@ import {
   View,
 } from 'react-native';
 
-import ListViewGridLayoutExample from './ListViewGridLayoutExample';
+import {
+  Title,
+  BulletedList,
+} from './StyledComponents';
 
 const styles = require('./styles').default;
 
@@ -20,7 +23,11 @@ const pages = [
     "key" : "pageOne",
     "title": "Page One",
     "body": (
-      <Text style={styles.body}>Page One text</Text>
+      <BulletedList lines={[
+                            'Line 1',
+                            'Line 22',
+                            'The quick brown fox jumped over the lazy dog many times'
+                          ]} />
     )
   },
   {
