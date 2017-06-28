@@ -110,9 +110,9 @@ class App extends Component {
       <TabBarIOS
         unselectedTintColor="white"
         tintColor="red"
-        barTintColor="#1589ee">
+        barTintColor="#07b">
         <TabBarIOS.Item
-          title="Slide Show"
+          title="Presentation"
           selected={this.state && this.state.selectedTab === 0}
           onPress={() => {
             this.setState({

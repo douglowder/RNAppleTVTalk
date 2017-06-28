@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
   },
   title: {
     fontSize: 100,
-    color: '#1589ee',
+    color: '#07b',
   },
   body: {
     fontSize: 60,
@@ -39,7 +39,7 @@ export default styles = StyleSheet.create({
   },
   listViewDemoText: {
     fontSize: 40,
-    color: 'white'
+    color: '#333333'
   },
   nextButtonContainer: {
     position:'absolute',

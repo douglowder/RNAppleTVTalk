@@ -55,21 +55,42 @@ const pages = [
         </View>
         <View>
         <Image style={{width: 800, height: 450}}
-               source={{uri: 'appletv'}}
-        />
+               source={{uri: 'appletv'}} />
         </View>
       </View>
     )
   },
   {
-    "key" : "pageTwo",
-    "title": "Page Two",
+    "key" : "iOStvOS1",
+    "title": "tvOS === iOS",
     "body": (
       <BulletedList lines={[
-                            'Line 1',
-                            'Line 22',
-                            'The quick brown fox jumped over the lazy dog many times'
+                            'Xcode, Objective C, Swift',
+                            'tvOS has most iOS Foundation APIs ',
+                            'tvOS has most iOS UIKit APIs'
                           ]} />
+    )
+  },
+  {
+    "key" : "iOStvOS2",
+    "title": "tvOS !== iOS",
+    "body": (
+      <BulletedList lines={[
+                            'No browser or web views',
+                            'No sliders, no switches, no status bar',
+                            'Completely different UI input!!'
+                          ]} />
+    )
+  },
+  {
+    "key" : "focusEngine",
+    "title": "tvOS focus engine",
+    "body": (
+      <View>
+        <Image style={{width: 1000, height: 600}}
+               source={{uri: 'focusengine'}} />
+      </View>
+
     )
   },
 ];
