@@ -33,6 +33,9 @@ import {
   Text,
   View,
   Image,
+  TouchableHighlight,
+  TouchableOpacity,
+  Button
 } from 'react-native';
 
 import {
@@ -40,6 +43,8 @@ import {
   BulletedList,
   SlideText,
 } from './StyledComponents';
+
+import Icon from './Icon';
 
 const styles = require('./styles').default;
 
@@ -78,19 +83,52 @@ const pages = [
       <BulletedList lines={[
                             'No browser or web views',
                             'No sliders, no switches, no status bar',
-                            'Completely different UI input!!'
+                            'Cannot persist data in documents directory'
                           ]} />
     )
   },
   {
-    "key" : "focusEngine",
-    "title": "tvOS focus engine",
+    "key" : "iOSTVOS3",
+    "title": "tvOS !== iOS",
     "body": (
       <View>
+      <SlideText text='Completely different UI input:' />
+      <SlideText text='Apple TV focus engine' />
         <Image style={{width: 1000, height: 600}}
                source={{uri: 'focusengine'}} />
       </View>
 
+    )
+  },
+  {
+    "key" : "focusEngineToTouchable",
+    "title" : "Surfacing focus changes",
+    "body" : (
+      <View>
+        <BulletedList lines={[
+          'Native: RCTTVView fires notification',
+          'Native: Event emitter fires JS event',
+          'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method'
+        ]} />
+      </View>
+
+    )
+  },
+  {
+    "key" : "quickStart",
+    "title" : "Quick start",
+    "body" : (
+      <View style={{flexDirection: 'row'}}>
+        <BulletedList lines={[
+          'react-native init AwesomeTVApp --version 0.44.3',
+          'Open AwesomeTVApp.xcodeproj',
+          'Change to AwesomeTVApp-tvOS scheme',
+          'Build and run'
+        ]} />
+        <Image style={{width: 499, height: 305}}
+               source={{uri: 'awesometvapp'}} />
+
+      </View>
     )
   },
 ];
