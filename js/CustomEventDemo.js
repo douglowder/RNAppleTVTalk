@@ -65,7 +65,7 @@ class CustomEventDemo extends Component {
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, function(cmp, evt) {
-      evt && evt.eventType && cmp.setState({
+      evt && evt.eventType && evt.eventType !== 'blur' && evt.eventType !== 'focus' && cmp.setState({
         eventFired: evt.eventType
       });
     });

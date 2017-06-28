@@ -164,7 +164,7 @@ class App extends Component {
           }}>
           <Slide title="Siri remote custom events">
             <View>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
                 <View style={styles.listViewDemoContainer}>
                   <TouchableOpacity>
                     <Text style={styles.body}>

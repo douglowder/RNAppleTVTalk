@@ -7,15 +7,15 @@ export default styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1589ee',
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 100,
-    color: 'white'
+    color: '#1589ee'
   },
   body: {
     fontSize: 60,
-    color: 'white'
+    color: '#333333'
   },
   bulletedListContainer: {
     height: 600,

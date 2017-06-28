@@ -71,7 +71,7 @@ class Slide extends Component {
               <Icon width={100}
                     height={100}
                     name='left'
-                    color='white'/>
+                    color='#1589ee'/>
             </View>
           </TouchableOpacity>
         );
@@ -91,7 +91,7 @@ class Slide extends Component {
             <Icon width={100}
                   height={100}
                   name='right'
-                  color='white'/>
+                  color='#1589ee'/>
           </View>
         </TouchableOpacity>
       );
@@ -105,6 +105,11 @@ class Slide extends Component {
       <View style={styles.container}>
         {this.renderLeft()}
         <Title text={this.props.title}/>
+        <View style={styles.logo}>
+        <Image style={{width: 287, height: 201}}
+               source={{uri: 'SFDC_logo'}}
+        />
+        </View>
         <View style={styles.contentContainer}>
           {this.props.children}
         </View>
