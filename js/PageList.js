@@ -32,26 +32,32 @@ import React, {
 import {
   Text,
   View,
+  Image,
 } from 'react-native';
 
 import {
   Title,
   BulletedList,
+  SlideText,
 } from './StyledComponents';
 
 const styles = require('./styles').default;
 
 const pages = [
   {
-    "key" : "pageOne",
-    "title": "Page One",
+    "key" : "titlePage",
+    "title": "React Native\non the Apple TV Platform",
     "body": (
-      <View>
-      <BulletedList lines={[
-                            'Line 1',
-                            'Line 22',
-                            'The quick brown fox jumped over the lazy dog many times'
-                          ]} />
+      <View style={{flexDirection: 'row'}}>
+        <View>
+          <SlideText text="Doug Lowder"/>
+          <SlideText text="<dlowder@salesforce.com>" />
+        </View>
+        <View>
+        <Image style={{width: 800, height: 450}}
+               source={{uri: 'appletv'}}
+        />
+        </View>
       </View>
     )
   },
@@ -59,7 +65,11 @@ const pages = [
     "key" : "pageTwo",
     "title": "Page Two",
     "body": (
-      <Text style={styles.body}>Page Two text</Text>
+      <BulletedList lines={[
+                            'Line 1',
+                            'Line 22',
+                            'The quick brown fox jumped over the lazy dog many times'
+                          ]} />
     )
   },
 ];

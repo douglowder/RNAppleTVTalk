@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
   },
   title: {
     fontSize: 100,
-    color: '#1589ee'
+    color: '#1589ee',
   },
   body: {
     fontSize: 60,

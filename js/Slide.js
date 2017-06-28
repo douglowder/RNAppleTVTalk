@@ -71,7 +71,7 @@ class Slide extends Component {
               <Icon width={100}
                     height={100}
                     name='left'
-                    color='#1589ee'/>
+                    color='#07b'/>
             </View>
           </TouchableOpacity>
         );
@@ -91,7 +91,7 @@ class Slide extends Component {
             <Icon width={100}
                   height={100}
                   name='right'
-                  color='#1589ee'/>
+                  color='#07b'/>
           </View>
         </TouchableOpacity>
       );
