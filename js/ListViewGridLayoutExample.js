@@ -21,19 +21,19 @@ var {
   View,
 } = ReactNative;
 
-var THUMB_URLS = [
-  require('./Thumbnails/like.png'),
-  require('./Thumbnails/dislike.png'),
-  require('./Thumbnails/call.png'),
-  require('./Thumbnails/fist.png'),
-  require('./Thumbnails/bandaged.png'),
-  require('./Thumbnails/flowers.png'),
-  require('./Thumbnails/heart.png'),
-  require('./Thumbnails/liking.png'),
-  require('./Thumbnails/party.png'),
-  require('./Thumbnails/poke.png'),
-  require('./Thumbnails/superlike.png'),
-  require('./Thumbnails/victory.png'),
+var THUMB_NAMES = [
+  'like',
+  'dislike',
+  'call',
+  'fist',
+  'bandaged',
+  'flowers',
+  'heart',
+  'liking',
+  'party',
+  'poke',
+  'superlike',
+  'victory',
 ];
 
 var ListViewGridLayoutExample = React.createClass({
@@ -74,12 +74,12 @@ var ListViewGridLayoutExample = React.createClass({
 
   _renderRow: function(rowData: string, sectionID: number, rowID: number) {
     var rowHash = Math.abs(hashCode(rowData));
-    var imgSource = THUMB_URLS[rowHash % THUMB_URLS.length];
+    var imgSource = THUMB_NAMES[rowHash % THUMB_NAMES.length];
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)} underlayColor="transparent">
         <View>
           <View style={styles.row}>
-            <Image style={styles.thumb} source={imgSource} />
+            <Image style={styles.thumb} source={{uri: imgSource}} />
             <Text style={styles.text}>
               {rowData}
             </Text>
