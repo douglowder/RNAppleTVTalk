@@ -18,8 +18,6 @@
 {
   NSURL *jsCodeLocation;
 
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
-                                                                  fallbackResource:nil];
 #if TARGET_OS_SIMULATOR
   if (getenv("CI_USE_PACKAGER")) {
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
@@ -38,6 +36,9 @@
       return nil;
     }
   }
+  
+  //Debugging on real device on local network
+  //jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.6:8081/index.ios.bundle?dev=true"];
   
 
 
