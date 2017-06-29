@@ -116,11 +116,12 @@ const pages = [
   },
   {
     "key" : "quickStart",
-    "title" : "Quick start",
+    "title" : "Try it yourself!",
     "body" : (
+      <View>
+        <SlideText text='react-native init AwesomeTVApp --version 0.44.3'/>
       <View style={{flexDirection: 'row'}}>
         <BulletedList lines={[
-          'react-native init AwesomeTVApp --version 0.44.3',
           'Open AwesomeTVApp.xcodeproj',
           'Change to AwesomeTVApp-tvOS scheme',
           'Build and run'
@@ -128,6 +129,7 @@ const pages = [
         <Image style={{width: 499, height: 305}}
                source={{uri: 'awesometvapp'}} />
 
+      </View>
       </View>
     )
   },
