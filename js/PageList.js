@@ -50,40 +50,52 @@ const styles = require('./styles').default;
 
 const parallaxExamples = [
   {
-    enabled: true,
-    shiftDistanceX: 2.0,
-    shiftDistanceY: 2.0,
-    tiltAngle: 0.05,
-    magnification: 1.0,
+    'name':'default',
+    'value': {
+      enabled: true,
+      shiftDistanceX: 2.0,
+      shiftDistanceY: 2.0,
+      tiltAngle: 0.05,
+      magnification: 1.0,
+    },
   },
   {
-    enabled: false,
+    'name': 'enabled = false',
+    'value': {
+      enabled: false,
+    },
   },
   {
-    enabled: true,
-    shiftDistanceX: 2.0,
-    shiftDistanceY: 2.0,
-    tiltAngle: 0.05,
-    magnification: 2.0,
+    'name': 'magnification = 1.5',
+    'value': {
+      enabled: true,
+      shiftDistanceX: 2.0,
+      shiftDistanceY: 2.0,
+      tiltAngle: 0.05,
+      magnification: 1.5,
+    }
   },
   {
-    enabled: true,
-    shiftDistanceX: 2.0,
-    shiftDistanceY: 2.0,
-    tiltAngle: 0.2,
-    magnification: 1.0,
+    'name': 'tiltAngle = 0.2',
+    'value': {
+      enabled: true,
+      shiftDistanceX: 2.0,
+      shiftDistanceY: 2.0,
+      tiltAngle: 0.2,
+      magnification: 1.0,
+    }
   }
 ];
 
 const renderParallaxExamples = function() {
   return parallaxExamples.map(function(props) {
     return (
-      <TouchableOpacity tvParallaxProperties={props}>
+      <TouchableOpacity tvParallaxProperties={props.value}>
         <Image style={{width: 287, height: 201}}
-               source={{uri: 'SFDC_logo'}}
+               source={{uri: 'react-logo'}}
         />
-        <Text style={{width: 287, fontSize: 30}}>
-          {JSON.stringify(props)}
+        <Text style={{width: 287, fontSize: 40}}>
+          {props.name}
         </Text>
       </TouchableOpacity>
     )
@@ -160,8 +172,11 @@ const pages = [
     "key": "parallax",
     "title": "Parallax Animations",
     "body" : (
-      <View style={{flexDirection: 'row'}}>
-        {renderParallaxExamples()}
+      <View>
+        <SlideText text='&lt;TouchableOpacity tvParallaxProperties={...}&gt;' />
+        <View style={{flexDirection: 'row'}}>
+          {renderParallaxExamples()}
+        </View>
       </View>
     )
   },
