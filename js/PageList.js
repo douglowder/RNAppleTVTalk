@@ -48,6 +48,48 @@ import Icon from './Icon';
 
 const styles = require('./styles').default;
 
+const parallaxExamples = [
+  {
+    enabled: true,
+    shiftDistanceX: 2.0,
+    shiftDistanceY: 2.0,
+    tiltAngle: 0.05,
+    magnification: 1.0,
+  },
+  {
+    enabled: false,
+  },
+  {
+    enabled: true,
+    shiftDistanceX: 2.0,
+    shiftDistanceY: 2.0,
+    tiltAngle: 0.05,
+    magnification: 2.0,
+  },
+  {
+    enabled: true,
+    shiftDistanceX: 2.0,
+    shiftDistanceY: 2.0,
+    tiltAngle: 0.2,
+    magnification: 1.0,
+  }
+];
+
+const renderParallaxExamples = function() {
+  return parallaxExamples.map(function(props) {
+    return (
+      <TouchableOpacity tvParallaxProperties={props}>
+        <Image style={{width: 287, height: 201}}
+               source={{uri: 'SFDC_logo'}}
+        />
+        <Text style={{width: 287, fontSize: 30}}>
+          {JSON.stringify(props)}
+        </Text>
+      </TouchableOpacity>
+    )
+  });
+};
+
 const pages = [
   {
     "key" : "titlePage",
@@ -112,6 +154,15 @@ const pages = [
         ]} />
       </View>
 
+    )
+  },
+  {
+    "key": "parallax",
+    "title": "Parallax Animations",
+    "body" : (
+      <View style={{flexDirection: 'row'}}>
+        {renderParallaxExamples()}
+      </View>
     )
   },
   {
