@@ -32,7 +32,7 @@
     NSString *jsCodePath = [[NSBundle mainBundle] pathForResource:@"RNAppleTVTalk.bundle" ofType:@"js"];
     jsCodeLocation = [NSURL fileURLWithPath:jsCodePath];
     if(jsCodeLocation == nil) {
-      NSLog(@"The Insights JS bundle doesn't exist.  Please generate it and add it to the top level of the Salesforce1 project.");
+      NSLog(@"The JS bundle doesn't exist.  Please generate it and add it to the top level of the project.");
       return nil;
     }
   }
