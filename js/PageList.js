@@ -90,6 +90,7 @@ const parallaxExamples = [
 const renderParallaxExamples = function() {
   return parallaxExamples.map(function(props) {
     return (
+      <View style={{margin: 20}}>
       <TouchableOpacity tvParallaxProperties={props.value}>
         <Image style={{width: 287, height: 201}}
                source={{uri: 'react-logo'}}
@@ -98,6 +99,7 @@ const renderParallaxExamples = function() {
           {props.name}
         </Text>
       </TouchableOpacity>
+      </View>
     )
   });
 };
@@ -120,19 +122,32 @@ const pages = [
     )
   },
   {
+    "key" : "whatIsTVOS",
+    "title" : "Apple TV",
+    "body": (
+      <BulletedList lines={[
+                            'Set top box for HDTVs',
+                            'Interaction via a remote control with trackpad',
+                            'Has its own App Store',
+                            'Great for content, data display, games'
+                           ]} />
+    )
+  },
+  {
     "key" : "iOStvOS1",
-    "title": "tvOS === iOS",
+    "title": "tvOS much like iOS",
     "body": (
       <BulletedList lines={[
                             'Xcode, Objective C, Swift',
                             'tvOS has most iOS Foundation APIs ',
-                            'tvOS has most iOS UIKit APIs'
+                            'tvOS has most iOS UIKit APIs',
+                            '90% of tvOS RN native code is common with iOS'
                           ]} />
     )
   },
   {
     "key" : "iOStvOS2",
-    "title": "tvOS !== iOS",
+    "title": "tvOS is not iOS",
     "body": (
       <BulletedList lines={[
                             'No browser or web views',
@@ -143,12 +158,13 @@ const pages = [
   },
   {
     "key" : "iOSTVOS3",
-    "title": "tvOS !== iOS",
+    "title": "tvOS is not iOS",
     "body": (
       <View>
+      <SlideText text='No touchscreen!' />
       <SlideText text='Completely different UI input:' />
       <SlideText text='Apple TV focus engine' />
-        <Image style={{width: 1000, height: 600}}
+        <Image style={{width: 800, height: 400}}
                source={{uri: 'focusengine'}} />
       </View>
 

@@ -106,7 +106,7 @@ class Slide extends Component {
         {this.renderLeft()}
         <Title text={this.props.title}/>
         <View style={styles.logo}>
-        <Image style={{width: 287, height: 201}}
+        <Image style={{width: 143, height: 100}}
                source={{uri: 'SFDC_logo'}}
         />
         </View>

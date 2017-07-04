@@ -46,6 +46,8 @@ import Slide from './Slide';
 
 import Game2048 from './Game2048';
 
+import MediaKitDemo from './MediaKitDemo';
+
 import ListViewGridLayoutExample from './ListViewGridLayoutExample';
 
 import Icon from './Icon';
@@ -183,6 +185,18 @@ class App extends Component {
                 </View>
               </View>
             </View>
+          </Slide>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title='Media Kit demo'
+          selected={this.state && this.state.selectedTab === 3}
+          onPress={() => {
+            this.setState({
+              selectedTab: 3,
+            });
+          }}>
+          <Slide title="Media Kit demo">
+            <MediaKitDemo/>
           </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>
