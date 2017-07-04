@@ -9,7 +9,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+const width = 1080;
+const height = 640;
 
 import {Video} from 'react-native-media-kit';
 
@@ -42,9 +43,9 @@ export default class MediaKitDemo extends Component {
   render() {
     return (
       <ScrollView
-        style={{flex: 1, backgroundColor: '#efefef'}}>
+        style={{flex: 1, backgroundColor: '#ffffff'}}>
         <Video
-          style={{width: 720, height: 480, marginTop: 50, backgroundColor: 'black'}}
+          style={{width: this.state.width, height: this.state.height, marginTop: 50, backgroundColor: 'black'}}
           autoplay={false}
           preload='none'
           loop={true}
