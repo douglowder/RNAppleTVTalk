@@ -141,6 +141,17 @@ const pages = [
     )
   },
   {
+    "key": "tvOSTips",
+    "title": "UI Tips",
+    "body": (
+      <BulletedList lines={[
+                             'Large sizes for fonts and views (2x - 3x phone)',
+                             'TabBarIOS for top menu navigation',
+                             'List views need removeClippedSubviews=false'
+                           ]} />
+    )
+  },
+  {
     "key" : "quickStart",
     "title" : "Try it yourself!",
     "body" : (
@@ -159,6 +170,17 @@ const pages = [
       </View>
     )
   },
+  {
+    "key" : "thanks",
+    "title" : "Thanks",
+    "body" : (
+      <BulletedList lines={[
+                            'Salesforce',
+                            'Pieter De Baets (@javache)',
+                            'Facebook React Native core team',
+                           ]} />
+    )
+  }
 ];
 
 module.exports = pages;
