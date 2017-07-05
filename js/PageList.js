@@ -46,63 +46,9 @@ import {
 
 import Icon from './Icon';
 
+import ParallaxExamples from './ParallaxExamples';
+
 const styles = require('./styles').default;
-
-const parallaxExamples = [
-  {
-    'name':'default',
-    'value': {
-      enabled: true,
-      shiftDistanceX: 2.0,
-      shiftDistanceY: 2.0,
-      tiltAngle: 0.05,
-      magnification: 1.0,
-    },
-  },
-  {
-    'name': 'enabled = false',
-    'value': {
-      enabled: false,
-    },
-  },
-  {
-    'name': 'magnification = 1.5',
-    'value': {
-      enabled: true,
-      shiftDistanceX: 2.0,
-      shiftDistanceY: 2.0,
-      tiltAngle: 0.05,
-      magnification: 1.5,
-    }
-  },
-  {
-    'name': 'tiltAngle = 0.2',
-    'value': {
-      enabled: true,
-      shiftDistanceX: 2.0,
-      shiftDistanceY: 2.0,
-      tiltAngle: 0.2,
-      magnification: 1.0,
-    }
-  }
-];
-
-const renderParallaxExamples = function() {
-  return parallaxExamples.map(function(props) {
-    return (
-      <View style={{margin: 20}}>
-      <TouchableOpacity tvParallaxProperties={props.value}>
-        <Image style={{width: 287, height: 201}}
-               source={{uri: 'react-logo'}}
-        />
-        <Text style={{width: 287, fontSize: 40}}>
-          {props.name}
-        </Text>
-      </TouchableOpacity>
-      </View>
-    )
-  });
-};
 
 const pages = [
   {
@@ -190,9 +136,7 @@ const pages = [
     "body" : (
       <View>
         <SlideText text='&lt;TouchableOpacity tvParallaxProperties={...}&gt;' />
-        <View style={{flexDirection: 'row'}}>
-          {renderParallaxExamples()}
-        </View>
+        <ParallaxExamples />
       </View>
     )
   },
