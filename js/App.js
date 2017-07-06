@@ -195,7 +195,7 @@ class App extends Component {
               selectedTab: 3,
             });
           }}>
-          <Slide title="Media Kit demo">
+          <Slide title="react-native-media-kit demo app">
             <MediaKitDemo/>
           </Slide>
         </TabBarIOS.Item>

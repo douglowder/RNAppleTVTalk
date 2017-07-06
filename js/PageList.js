@@ -152,6 +152,17 @@ const pages = [
     )
   },
   {
+    "key": "tvOSShippingApp",
+    "title": "RN Apple TV apps have shipped!",
+    "body": (
+      <View>
+        <SlideText text='https://tv.unsplash.com/' />
+        <Image style={{width: 1056*0.8, height:679*0.8}}
+               source={{uri: 'unsplash'}} />
+      </View>
+    )
+  },
+  {
     "key" : "quickStart",
     "title" : "Try it yourself!",
     "body" : (
