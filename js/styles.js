@@ -2,6 +2,9 @@ import {
   StyleSheet,
 } from 'react-native';
 
+const blue = '#00a1e0';
+const gray = '#7c868d';
+
 export default styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -11,11 +14,11 @@ export default styles = StyleSheet.create({
   },
   title: {
     fontSize: 100,
-    color: '#07b',
+    color: blue,
   },
   body: {
     fontSize: 60,
-    color: '#333333'
+    color: gray
   },
   bulletedListContainer: {
     height: 500,
@@ -39,7 +42,7 @@ export default styles = StyleSheet.create({
   },
   listViewDemoText: {
     fontSize: 40,
-    color: '#333333'
+    color: gray
   },
   nextButtonContainer: {
     position:'absolute',
@@ -59,7 +62,12 @@ export default styles = StyleSheet.create({
   },
   logo: {
     position:'absolute',
-    top:50,
-    right:50
+    bottom:20,
+    right:40
+  },
+  forest: {
+    position:'absolute',
+    bottom:0,
+    right:0
   }
 });

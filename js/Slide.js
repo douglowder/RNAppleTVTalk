@@ -104,12 +104,15 @@ class Slide extends Component {
     return (
       <View style={styles.container}>
         {this.renderLeft()}
-        <Title text={this.props.title}/>
+        <View style={styles.forest}>
+        <Image style={{width: 752, height: 360}} source={{uri: 'forest2'}} />
+        </View>
         <View style={styles.logo}>
-        <Image style={{width: 143, height: 100}}
+        <Image style={{width: 90, height: 60}}
                source={{uri: 'SFDC_logo'}}
         />
         </View>
+        <Title text={this.props.title}/>
         <View style={styles.contentContainer}>
           {this.props.children}
         </View>
