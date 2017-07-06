@@ -48,6 +48,8 @@ import Game2048 from './Game2048';
 
 import MediaKitDemo from './MediaKitDemo';
 
+import VictoryDemo from './VictoryDemo';
+
 import ListViewGridLayoutExample from './ListViewGridLayoutExample';
 
 import Icon from './Icon';
@@ -98,12 +100,12 @@ class SlideShow extends Component {
 class App extends Component {
 
   state: {
-    selectedTab: number
+    selectedTab: string
   }
 
   componentDidMount() {
     this.setState({
-      selectedTab: 0
+      selectedTab: 'slideShow'
     });
   }
 
@@ -112,23 +114,23 @@ class App extends Component {
       <TabBarIOS
         unselectedTintColor="white"
         tintColor="red"
-        barTintColor="#07b">
+        barTintColor='#00a1e0'>
         <TabBarIOS.Item
           title="Presentation"
-          selected={this.state && this.state.selectedTab === 0}
+          selected={this.state && this.state.selectedTab === 'slideShow'}
           onPress={() => {
             this.setState({
-              selectedTab: 0,
+              selectedTab: 'slideShow',
             });
           }}>
           <SlideShow />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="ListView demo"
-          selected={this.state && this.state.selectedTab === 1}
+          selected={this.state && this.state.selectedTab === 'listViewDemo'}
           onPress={() => {
             this.setState({
-              selectedTab: 1,
+              selectedTab: 'listViewDemo',
             });
           }}>
           <Slide title="Grid layout with list views">
@@ -158,10 +160,10 @@ class App extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="TV remote demo"
-          selected={this.state && this.state.selectedTab === 2}
+          selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
           onPress={() => {
             this.setState({
-              selectedTab: 2,
+              selectedTab: 'tvRemoteDemo',
             });
           }}>
           <Slide title="Siri remote custom events">
@@ -189,14 +191,26 @@ class App extends Component {
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title='Media Kit demo'
-          selected={this.state && this.state.selectedTab === 3}
+          selected={this.state && this.state.selectedTab === 'mediaKitDemo'}
           onPress={() => {
             this.setState({
-              selectedTab: 3,
+              selectedTab: 'mediaKitDemo',
             });
           }}>
           <Slide title="react-native-media-kit demo app">
             <MediaKitDemo/>
+          </Slide>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title='Data viz demo'
+          selected={this.state && this.state.selectedTab === 'dataVizDemo'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'dataVizDemo',
+            });
+          }}>
+          <Slide title="victory-native demo app">
+            <VictoryDemo/>
           </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>

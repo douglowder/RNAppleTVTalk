@@ -34,6 +34,7 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2D6342A61F0B60920025EBDB /* libreact-native-media-kit-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6342A51F0B60920025EBDB /* libreact-native-media-kit-tvOS.a */; };
+		2D69AE6F1F0EBE6D0023F112 /* libART-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D69AE6E1F0EBE6D0023F112 /* libART-tvOS.a */; };
 		2D6EFC421F02D1910009757A /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6EFC411F02D1910009757A /* libRNSVG-tvOS.a */; };
 		2D9522F81F01DD8700B0477E /* RNAppleTVTalk.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 2D9522F71F01DD8700B0477E /* RNAppleTVTalk.bundle.js */; };
 		2D95230F1F01E0C600B0477E /* RNAppleTVTalk.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 2D9522F71F01DD8700B0477E /* RNAppleTVTalk.bundle.js */; };
@@ -126,6 +127,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 2D6342981F0B602E0025EBDB;
 			remoteInfo = "react-native-media-kit-tvOS";
+		};
+		2D69AE2E1F0EBDF80023F112 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = ART;
+		};
+		2D69AE6D1F0EBE6D0023F112 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D69AE511F0EBE240023F112;
+			remoteInfo = "ART-tvOS";
 		};
 		2D6EFC3D1F02D1030009757A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -284,6 +299,7 @@
 		2D02E47B1E0B4A5D006451C7 /* RNAppleTVTalk-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RNAppleTVTalk-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* RNAppleTVTalk-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNAppleTVTalk-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6342731F0B60090025EBDB /* react-native-media-kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "react-native-media-kit.xcodeproj"; path = "../node_modules/react-native-media-kit/ios/react-native-media-kit.xcodeproj"; sourceTree = "<group>"; };
+		2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
 		2D6EFC201F02D1030009757A /* RNSVG.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		2D9522F71F01DD8700B0477E /* RNAppleTVTalk.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RNAppleTVTalk.bundle.js; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -322,6 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D69AE6F1F0EBE6D0023F112 /* libART-tvOS.a in Frameworks */,
 				2D6342A61F0B60920025EBDB /* libreact-native-media-kit-tvOS.a in Frameworks */,
 				2D6EFC421F02D1910009757A /* libRNSVG-tvOS.a in Frameworks */,
 				2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */,
@@ -460,6 +477,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2D69AE2B1F0EBDF70023F112 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D69AE2F1F0EBDF80023F112 /* libART.a */,
+				2D69AE6E1F0EBE6D0023F112 /* libART-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2D6EFC211F02D1030009757A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +516,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */,
 				2D6342731F0B60090025EBDB /* react-native-media-kit.xcodeproj */,
 				2D6EFC201F02D1030009757A /* RNSVG.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
@@ -651,6 +678,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 2D69AE2B1F0EBDF70023F112 /* Products */;
+					ProjectRef = 2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -782,6 +813,20 @@
 			fileType = archive.ar;
 			path = "libreact-native-media-kit-tvOS.a";
 			remoteRef = 2D6342A41F0B60920025EBDB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2D69AE2F1F0EBDF80023F112 /* libART.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libART.a;
+			remoteRef = 2D69AE2E1F0EBDF80023F112 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2D69AE6E1F0EBE6D0023F112 /* libART-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libART-tvOS.a";
+			remoteRef = 2D69AE6D1F0EBE6D0023F112 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2D6EFC3E1F02D1030009757A /* libRNSVG.a */ = {
