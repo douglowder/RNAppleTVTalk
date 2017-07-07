@@ -14,7 +14,7 @@
  * Neither the name of salesforce.com, inc. nor the names of its contributors may be used to endorse or
  * promote products derived from this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
@@ -67,7 +67,7 @@ class SmallSlideText extends Component {
 class BulletedList extends Component {
   _renderLine(text: string, i: number) {
     return (
-      <View key={"" + i}
+      <View key={'' + i}
             style={{flexDirection: 'row'}}>
         <Text style={styles.body}>{'\u2022'}</Text>
         <Text style={[styles.body,{flex: 1, paddingLeft: 5}]}>{text}</Text>

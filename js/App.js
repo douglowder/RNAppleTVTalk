@@ -14,7 +14,7 @@
  * Neither the name of salesforce.com, inc. nor the names of its contributors may be used to endorse or
  * promote products derived from this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
@@ -89,7 +89,7 @@ class SlideShow extends Component {
     }
     return (
       <Router>
-        <Scene key="root">
+        <Scene key='root'>
           {scenes}
         </Scene>
       </Router>
@@ -112,11 +112,11 @@ class App extends Component {
   render() {
     return (
       <TabBarIOS
-        unselectedTintColor="white"
-        tintColor="red"
+        unselectedTintColor='white'
+        tintColor='red'
         barTintColor='#00a1e0'>
         <TabBarIOS.Item
-          title="Presentation"
+          title='Presentation'
           selected={this.state && this.state.selectedTab === 'slideShow'}
           onPress={() => {
             this.setState({
@@ -126,14 +126,14 @@ class App extends Component {
           <SlideShow />
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="ListView demo"
+          title='ListView demo'
           selected={this.state && this.state.selectedTab === 'listViewDemo'}
           onPress={() => {
             this.setState({
               selectedTab: 'listViewDemo',
             });
           }}>
-          <Slide title="Grid layout with list views">
+          <Slide title='Grid layout with list views'>
             <View style={{flexDirection: 'row'}}>
             <View style={styles.listViewDemoContainer}>
               <Icon name='error'
@@ -159,14 +159,14 @@ class App extends Component {
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="TV remote demo"
+          title='TV remote demo'
           selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
           onPress={() => {
             this.setState({
               selectedTab: 'tvRemoteDemo',
             });
           }}>
-          <Slide title="Siri remote custom events">
+          <Slide title='Siri remote custom events'>
             <View>
               <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
                 <View style={styles.listViewDemoContainer}>
@@ -197,7 +197,7 @@ class App extends Component {
               selectedTab: 'mediaKitDemo',
             });
           }}>
-          <Slide title="react-native-media-kit demo app">
+          <Slide title='react-native-media-kit demo app'>
             <MediaKitDemo/>
           </Slide>
         </TabBarIOS.Item>
@@ -209,7 +209,7 @@ class App extends Component {
               selectedTab: 'dataVizDemo',
             });
           }}>
-          <Slide title="victory-native demo app">
+          <Slide title='victory-native demo app'>
             <VictoryDemo/>
           </Slide>
         </TabBarIOS.Item>

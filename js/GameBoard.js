@@ -6,6 +6,7 @@
  * modified for Apple TV.
  *
  * @flow
+ * @providesModule GameBoard
  */
 'use strict';
 

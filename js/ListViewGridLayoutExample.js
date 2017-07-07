@@ -75,7 +75,7 @@ var ListViewGridLayoutExample = React.createClass({
     var rowHash = Math.abs(hashCode(rowData));
     var imgSource = THUMB_NAMES[rowHash % THUMB_NAMES.length];
     return (
-      <TouchableHighlight onPress={() => this._pressRow(rowID)} underlayColor="transparent">
+      <TouchableHighlight onPress={() => this._pressRow(rowID)} underlayColor='transparent'>
         <View>
           <View style={styles.row}>
             <Image style={styles.thumb} source={{uri: imgSource}} />

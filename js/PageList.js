@@ -14,7 +14,7 @@
  * Neither the name of salesforce.com, inc. nor the names of its contributors may be used to endorse or
  * promote products derived from this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED
  * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
  * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
@@ -53,15 +53,15 @@ const styles = require('./styles').default;
 
 const pages = [
   {
-    "key" : "titlePage",
-    "title": "React Native\non the Apple TV Platform",
-    "body": (
+    'key' : 'titlePage',
+    'title': 'React Native\non the Apple TV Platform',
+    'body': (
       <View style={{flexDirection: 'row'}}>
         <View style={{margin: 20}}>
-          <SlideText text="Doug Lowder"/>
-          <SmallSlideText text="Principal Software Engineer, Salesforce" />
-          <SmallSlideText text="dlowder@salesforce.com" />
-          <SmallSlideText text="Twitter: @douglowder" />
+          <SlideText text='Doug Lowder'/>
+          <SmallSlideText text='Principal Software Engineer, Salesforce' />
+          <SmallSlideText text='dlowder@salesforce.com' />
+          <SmallSlideText text='Twitter: @douglowder' />
         </View>
         <View>
         <Image style={{width: 800, height: 450}}
@@ -71,12 +71,12 @@ const pages = [
     )
   },
   {
-    "key" : "RNatSalesforce",
-    "title" : "React Native at Salesforce",
-    "body" : (
+    'key' : 'RNatSalesforce',
+    'title' : 'React Native at Salesforce',
+    'body' : (
       <View style={{flexDirection: 'row'}}>
       <View style={{width: 600}}>
-      <SmallSlideText text="React Native is supported by the Salesforce Mobile SDK" />
+      <SmallSlideText text='React Native is supported by the Salesforce Mobile SDK' />
       <Text style={{fontSize: 30, margin: 20, color: 'black'}}>
         https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm
       </Text>
@@ -91,9 +91,9 @@ const pages = [
     )
   },
   {
-    "key" : "whatIsTVOS",
-    "title" : "Apple TV",
-    "body": (
+    'key' : 'whatIsTVOS',
+    'title' : 'Apple TV',
+    'body': (
       <BulletedList lines={[
                             'Set top box for HDTVs',
                             'Interaction via a remote control with trackpad',
@@ -103,9 +103,9 @@ const pages = [
     )
   },
   {
-    "key" : "iOStvOS1",
-    "title": "tvOS much like iOS",
-    "body": (
+    'key' : 'iOStvOS1',
+    'title': 'tvOS much like iOS',
+    'body': (
       <BulletedList lines={[
                             'Xcode, Objective C, Swift',
                             'tvOS has most iOS Foundation APIs ',
@@ -115,9 +115,9 @@ const pages = [
     )
   },
   {
-    "key" : "iOStvOS2",
-    "title": "tvOS is not iOS",
-    "body": (
+    'key' : 'iOStvOS2',
+    'title': 'tvOS is not iOS',
+    'body': (
       <BulletedList lines={[
                             'No browser or web views',
                             'No sliders, no switches, no status bar',
@@ -126,9 +126,9 @@ const pages = [
     )
   },
   {
-    "key" : "iOSTVOS3",
-    "title": "tvOS is not iOS",
-    "body": (
+    'key' : 'iOSTVOS3',
+    'title': 'tvOS is not iOS',
+    'body': (
       <View>
       <SlideText text='No touchscreen!' />
       <SlideText text='Completely different UI input:' />
@@ -140,9 +140,9 @@ const pages = [
     )
   },
   {
-    "key" : "focusEngineToTouchable",
-    "title" : "Surfacing focus changes",
-    "body" : (
+    'key' : 'focusEngineToTouchable',
+    'title' : 'Surfacing focus changes',
+    'body' : (
       <View>
         <BulletedList lines={[
           'Native: RCTTVView fires notification',
@@ -154,9 +154,9 @@ const pages = [
     )
   },
   {
-    "key": "parallax",
-    "title": "Parallax Animations",
-    "body" : (
+    'key': 'parallax',
+    'title': 'Parallax Animations',
+    'body' : (
       <View>
         <SlideText text='&lt;TouchableOpacity tvParallaxProperties={...}&gt;' />
         <ParallaxExamples />
@@ -164,9 +164,9 @@ const pages = [
     )
   },
   {
-    "key": "tvOSTips",
-    "title": "UI Tips",
-    "body": (
+    'key': 'tvOSTips',
+    'title': 'UI Tips',
+    'body': (
       <BulletedList lines={[
                              'Large sizes for fonts and views (2x - 3x phone)',
                              'TabBarIOS for top menu navigation',
@@ -175,9 +175,9 @@ const pages = [
     )
   },
   {
-    "key": "tvOSShippingApp",
-    "title": "RN Apple TV apps have shipped!",
-    "body": (
+    'key': 'tvOSShippingApp',
+    'title': 'RN Apple TV apps have shipped!',
+    'body': (
       <View>
         <SlideText text='https://tv.unsplash.com/' />
         <Image style={{width: 1056*0.8, height:679*0.8}}
@@ -186,9 +186,9 @@ const pages = [
     )
   },
   {
-    "key" : "quickStart",
-    "title" : "Try it yourself!",
-    "body" : (
+    'key' : 'quickStart',
+    'title' : 'Try it yourself!',
+    'body' : (
       <View>
         <SlideText text='react-native init AwesomeTVApp --version 0.44.3'/>
       <View style={{flexDirection: 'row'}}>
@@ -205,9 +205,9 @@ const pages = [
     )
   },
   {
-    "key" : "thanks",
-    "title" : "Thanks",
-    "body" : (
+    'key' : 'thanks',
+    'title' : 'Thanks',
+    'body' : (
       <BulletedList lines={[
                             'Salesforce',
                             'Pieter De Baets (@javache)',
