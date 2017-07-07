@@ -45,7 +45,7 @@ export default class MediaKitDemo extends Component {
           loop={true}
           controls={this.state.controls}
           muted={this.state.muted}
-          src={'terpsichore.mp4'}
+          src={'bach-handel-corelli.mp4'}
         />
 
         <View
