@@ -20,6 +20,10 @@ export default styles = StyleSheet.create({
     fontSize: 60,
     color: gray
   },
+  bodySmall: {
+    fontSize: 40,
+    color: gray
+  },
   bulletedListContainer: {
     height: 500,
     width: 1000,

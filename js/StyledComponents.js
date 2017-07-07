@@ -54,6 +54,16 @@ class SlideText extends Component {
   }
 }
 
+class SmallSlideText extends Component {
+  render() {
+    return (
+      <Text style={styles.bodySmall}>
+        {this.props.text}
+      </Text>
+    );
+  }
+}
+
 class BulletedList extends Component {
   _renderLine(text: string, i: number) {
     return (
@@ -77,5 +87,6 @@ class BulletedList extends Component {
 module.exports = {
   Title,
   BulletedList,
-  SlideText
+  SlideText,
+  SmallSlideText
 };

@@ -42,6 +42,7 @@ import {
   Title,
   BulletedList,
   SlideText,
+  SmallSlideText
 } from './StyledComponents';
 
 import Icon from './Icon';
@@ -56,14 +57,36 @@ const pages = [
     "title": "React Native\non the Apple TV Platform",
     "body": (
       <View style={{flexDirection: 'row'}}>
-        <View>
+        <View style={{margin: 20}}>
           <SlideText text="Doug Lowder"/>
-          <SlideText text="<dlowder@salesforce.com>" />
+          <SmallSlideText text="Principal Software Engineer, Salesforce" />
+          <SmallSlideText text="dlowder@salesforce.com" />
+          <SmallSlideText text="Twitter: @douglowder" />
         </View>
         <View>
         <Image style={{width: 800, height: 450}}
-               source={{uri: 'appletv'}} />
+               source={{uri: 'appletv2'}} />
         </View>
+      </View>
+    )
+  },
+  {
+    "key" : "RNatSalesforce",
+    "title" : "React Native at Salesforce",
+    "body" : (
+      <View style={{flexDirection: 'row'}}>
+      <View style={{width: 600}}>
+      <SmallSlideText text="React Native is supported by the Salesforce Mobile SDK" />
+      <Text style={{fontSize: 30, margin: 20, color: 'black'}}>
+        https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm
+      </Text>
+      <SmallSlideText text='"Dreamhouse" demo app on React Native shown at Dreamforce last year' />
+      <Text style={{fontSize: 30, margin: 20, color: 'black'}}>
+        https://github.com/ForceDotComLabs/dreamhouse-mobile-react
+      </Text>
+      </View>
+      <Image style={{width: 707, height: 671}}
+             source={{uri: 'dreamhouse'}} />
       </View>
     )
   },
