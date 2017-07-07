@@ -5,7 +5,6 @@
  * ListViewGridLayoutExample from https://github.com/facebook/react-native
  *
  * @flow
- * @providesModule ListViewGridLayoutExample
  */
 'use strict';
 

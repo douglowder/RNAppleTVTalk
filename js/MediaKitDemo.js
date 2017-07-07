@@ -1,3 +1,10 @@
+/*
+ * Demo code from
+ *
+ * https://github.com/ldn0x7dc/react-native-media-kit
+ *
+ * modified for Apple TV
+ */
 'use strict';
 
 import React, { Component } from 'react';

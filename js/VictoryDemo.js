@@ -1,6 +1,9 @@
-/*global setInterval*/
-/* demo.js is loaded by both index.ios.js and index.android.js */
-
+/*
+ * Modified from FormidableLabs code at
+ *
+ * https://github.com/FormidableLabs/victory-native-demo
+ *
+ */
 import { random, range } from "lodash";
 import React, { Component } from "react";
 import {
