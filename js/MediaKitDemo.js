@@ -37,7 +37,31 @@ export default class MediaKitDemo extends Component {
   render() {
     return (
       <View
-        style={{flex: 1, backgroundColor: '#ffffff'}}>
+        style={{margin: 0, flex: 1, backgroundColor: '#ffffff', alignItems:'flex-start'}}>
+
+        <View
+          style={{flexDirection: 'row', height: 50}}>
+          <TouchableOpacity
+            onPress={() => {
+              this.setState({
+                muted: !this.state.muted
+              })
+            }}
+            style={{width: 400, alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{fontSize: 30}}>toggle muted</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.setState({
+                controls: !this.state.controls
+              })
+            }}
+            style={{width: 400, alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{fontSize: 30}}>toggle controls</Text>
+          </TouchableOpacity>
+
+        </View>
+
         <Video
           style={{width: this.state.width, height: this.state.height, marginTop: 50, backgroundColor: 'black'}}
           autoplay={false}
@@ -48,19 +72,6 @@ export default class MediaKitDemo extends Component {
           src={'bach-handel-corelli.mp4'}
         />
 
-        <View
-          style={{flexDirection: 'row', height: 40}}>
-          <TouchableOpacity
-            onPress={() => {
-              this.setState({
-                muted: !this.state.muted
-              })
-            }}
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>toggle muted</Text>
-          </TouchableOpacity>
-
-        </View>
       </View>
     );
   }
