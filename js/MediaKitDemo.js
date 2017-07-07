@@ -16,8 +16,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const width = 1080;
-const height = 640;
+const width = 1280;
+const height = 720;
 
 import {Video} from 'react-native-media-kit';
 
@@ -30,13 +30,13 @@ export default class MediaKitDemo extends Component {
   state = {
     muted: false,
     width: width,
-    height: width / (16/9),
-    controls: false
+    height: height,
+    controls: true
   };
 
   render() {
     return (
-      <ScrollView
+      <View
         style={{flex: 1, backgroundColor: '#ffffff'}}>
         <Video
           style={{width: this.state.width, height: this.state.height, marginTop: 50, backgroundColor: 'black'}}
@@ -59,18 +59,9 @@ export default class MediaKitDemo extends Component {
             style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <Text>toggle muted</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.setState({
-                controls: !this.state.controls
-              })
-            }}
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>toggle controls</Text>
-          </TouchableOpacity>
 
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
