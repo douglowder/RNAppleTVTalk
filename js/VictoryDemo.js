@@ -3,6 +3,7 @@
  *
  * https://github.com/FormidableLabs/victory-native-demo
  *
+ * @flow
  */
 import { random, range } from 'lodash';
 import React, { Component } from 'react';
@@ -80,7 +81,16 @@ const candleData = [
 const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi');
 
 class VictoryDemo extends Component {
-  constructor(props) {
+  state: {
+    scrollEnabled: boolean,
+    y: Function,
+    style: Object,
+    transitionData: Object,
+    randomData: Object,
+    staticRandomData: Object,
+    data: Object
+  }
+  constructor(props: Object) {
     super(props);
     this.state = {
       scrollEnabled: true,
@@ -94,10 +104,10 @@ class VictoryDemo extends Component {
   }
   getYFunction() {
     const n = random(2, 7);
-    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
+    return (data: Object) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
   }
 
-  generateRandomData(points = 6) {
+  generateRandomData(points: number = 6) {
     return range(1, points + 1).map((i) => ({x: i, y: i + random(-1, 2)}));
   }
 
@@ -126,7 +136,7 @@ class VictoryDemo extends Component {
     });
   }
 
-  changeScroll(scrollEnabled) {
+  changeScroll(scrollEnabled: boolean) {
     this.setState({scrollEnabled});
   }
 

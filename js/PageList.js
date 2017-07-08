@@ -95,11 +95,11 @@ const pages = [
     'title' : 'Apple TV',
     'body': (
       <BulletedList lines={[
-                            'Set top box for HDTVs',
-                            'Interaction via a remote control with trackpad',
-                            'Has its own App Store',
-                            'Great for content, data display, games'
-                           ]} />
+        'Set top box for HDTVs',
+        'Interaction via a remote control with trackpad',
+        'Has its own App Store',
+        'Great for content, data display, games'
+      ]} />
     )
   },
   {
@@ -137,6 +137,21 @@ const pages = [
                source={{uri: 'focusengine'}} />
       </View>
 
+    )
+  },
+  {
+    'key' : 'rntvostimeline',
+    'title' : 'React Native for Apple TV',
+    'body' : (
+      <View>
+        <BulletedList lines={[
+          'Begun mid-2016',
+          'Merged to facebook/react-native master',
+          'Works in releases 0.43 and later',
+          'Compilation is tested in Travis CI',
+        ]} />
+        <SmallSlideText text='https://facebook.github.io/react-native/docs/building-for-apple-tv.html' />
+      </View>
     )
   },
   {

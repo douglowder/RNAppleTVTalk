@@ -4,6 +4,7 @@
  * https://github.com/ldn0x7dc/react-native-media-kit
  *
  * modified for Apple TV
+ * @flow
  */
 'use strict';
 
