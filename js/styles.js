@@ -73,5 +73,16 @@ export default styles = StyleSheet.create({
     position:'absolute',
     bottom:0,
     right:0
-  }
+  },
+  textInput: {
+    borderWidth: 0.5,
+    backgroundColor: '#dddddd',
+    borderColor: '#0f0f0f',
+    flex: 1,
+    margin: 20,
+    fontSize: 40,
+    padding: 4,
+    maxHeight: 60,
+  },
+
 });

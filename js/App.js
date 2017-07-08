@@ -36,10 +36,12 @@ import {
 } from 'react-native-router-flux';
 
 import {
-  Text,
-  View,
+  ScrollView,
   TabBarIOS,
-  TouchableOpacity
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 import Slide from './Slide';
@@ -124,6 +126,41 @@ class App extends Component {
             });
           }}>
           <SlideShow />
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title='Text input demo'
+          selected={this.state && this.state.selectedTab === 'textInputDemo'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'textInputDemo',
+            });
+          }}>
+          <Slide title='Text input example'>
+              <TextInput
+                style={[styles.textInput,{color: 'blue'}]}
+                defaultValue="Blue"
+              />
+              <TextInput
+                style={[styles.textInput,{color: 'green'}]}
+                defaultValue="Green"
+              />
+              <TextInput
+                autoCapitalize="none"
+                defaultValue="No capitalization"
+                style={styles.textInput}
+              />
+              <TextInput
+                autoCapitalize="sentences"
+                defaultValue="Capitalize sentences"
+                style={styles.textInput}
+              />
+              <TextInput
+                autoCorrect={true}
+                defaultValue="Auto correct"
+                style={styles.textInput}
+              />
+
+          </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title='ListView demo'
