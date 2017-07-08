@@ -190,7 +190,7 @@ const pages = [
     'title' : 'Try it yourself!',
     'body' : (
       <View>
-        <SlideText text='react-native init AwesomeTVApp --version 0.44.3'/>
+        <SlideText text='react-native init AwesomeTVApp'/>
       <View style={{flexDirection: 'row'}}>
         <BulletedList lines={[
           'Open AwesomeTVApp.xcodeproj',
