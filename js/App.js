@@ -58,6 +58,8 @@ import Icon from './Icon';
 
 import CustomEventDemo from './CustomEventDemo';
 
+import TextInputDemo from './TextInputDemo';
+
 const styles = require('./styles').default;
 
 const pages = require('./PageList');
@@ -136,30 +138,7 @@ class App extends Component {
             });
           }}>
           <Slide title='Text input example'>
-              <TextInput
-                style={[styles.textInput,{color: 'blue'}]}
-                defaultValue="Blue"
-              />
-              <TextInput
-                style={[styles.textInput,{color: 'green'}]}
-                defaultValue="Green"
-              />
-              <TextInput
-                autoCapitalize="none"
-                defaultValue="No capitalization"
-                style={styles.textInput}
-              />
-              <TextInput
-                autoCapitalize="sentences"
-                defaultValue="Capitalize sentences"
-                style={styles.textInput}
-              />
-              <TextInput
-                autoCorrect={true}
-                defaultValue="Auto correct"
-                style={styles.textInput}
-              />
-
+            <TextInputDemo />
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item

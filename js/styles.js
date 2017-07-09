@@ -83,6 +83,7 @@ export default styles = StyleSheet.create({
     fontSize: 40,
     padding: 4,
     maxHeight: 60,
+    width: '100%'
   },
 
 });
