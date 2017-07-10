@@ -161,7 +161,7 @@ const pages = [
       <View>
         <BulletedList lines={[
           'Native: RCTTVView fires notification',
-          'Native: Event emitter fires JS event',
+          'Native: RCTTVNavigationEventEmitter fires JS event',
           'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method'
         ]} />
       </View>
@@ -176,6 +176,33 @@ const pages = [
         <SlideText text='&lt;TouchableOpacity tvParallaxProperties={...}&gt;' />
         <ParallaxExamples />
       </View>
+    )
+  },
+  {
+    'key' : 'customEventHandling',
+    'title' : 'Custom handling of TV remote events',
+    'body' : (
+      <View>
+        <BulletedList lines={[
+          'Native: RCTTVRemoteHandler gesture recognizers fire notifications',
+          'Native: RCTTVNavigationEventEmitter fires JS event',
+          'JS: TVEventHandler instances receive the event'
+        ]} />
+
+      </View>
+
+    )
+  },
+  {
+    'key' : 'customEventHandling2',
+    'title' : 'Custom handling of TV remote events',
+    'body' : (
+      <View>
+        <View style={{height: 50}} />
+      <Image style={{width: 768*1.2, height: 616*1.2}}
+             source={{uri: 'tveventhandler'}} />
+      </View>
+
     )
   },
   {

@@ -26,13 +26,13 @@ export default styles = StyleSheet.create({
   },
   bulletedListContainer: {
     height: 500,
-    width: 1000,
+    width: 1200,
     margin: 0,
     alignItems: 'flex-start',
   },
   contentContainer: {
     height: 700,
-    width: 1000,
+    width: 1200,
     margin: 0,
     justifyContent: 'center',
     alignItems: 'center',

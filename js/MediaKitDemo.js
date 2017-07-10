@@ -41,7 +41,7 @@ export default class MediaKitDemo extends Component {
         style={{margin: 0, flex: 1, backgroundColor: '#ffffff', alignItems:'flex-start'}}>
 
         <View
-          style={{flexDirection: 'row', height: 50}}>
+          style={{flexDirection: 'row', height: 30}}>
           <TouchableOpacity
             onPress={() => {
               this.setState({
@@ -64,7 +64,7 @@ export default class MediaKitDemo extends Component {
         </View>
 
         <Video
-          style={{width: this.state.width, height: this.state.height, marginTop: 50, backgroundColor: 'black'}}
+          style={{width: this.state.width, height: this.state.height, marginTop: 20, backgroundColor: 'black'}}
           autoplay={false}
           preload='none'
           loop={true}
