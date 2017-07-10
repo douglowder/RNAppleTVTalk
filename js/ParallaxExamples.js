@@ -81,8 +81,8 @@ class ParallaxExamples extends Component {
   renderParallaxExamples() {
     return parallaxExamples.map(function(props) {
       return (
-        <View style={{margin: 20}} key={props.name} >
-        <TouchableOpacity tvParallaxProperties={props.value}>
+        <View style={{margin: 20, backgroundColor: '#ddddff'}} key={props.name} >
+        <TouchableOpacity activeOpacity={0.7} tvParallaxProperties={props.value}>
           <Image style={{width: 287, height: 201}}
                  source={{uri: 'react-logo'}}
           />
