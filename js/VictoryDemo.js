@@ -8,6 +8,7 @@
 import { random, range } from 'lodash';
 import React, { Component } from 'react';
 import {
+  Image,
   ScrollView,
   StyleSheet,
   Platform,
@@ -155,6 +156,9 @@ class VictoryDemo extends Component {
   }
   render() {
     return (
+      <View style={{alignItems: 'center', margin: 20}}>
+        <Image style={{width: 400, height: 88}}
+               source={{uri: 'formidable'}} />
       <View style={{flexDirection: 'row'}}>
       <View style={{alignItems: 'center'}}>
       <SlideText text='&lt;VictoryBar/&gt;'/>
@@ -230,6 +234,8 @@ class VictoryDemo extends Component {
       </View>
 
       </View>
+      </View>
+
     );
   }
 }
