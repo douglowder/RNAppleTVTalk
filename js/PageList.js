@@ -225,8 +225,8 @@ const pages = [
     'body' : (
       <BulletedList lines={[
                             'Salesforce',
-                            'Pieter De Baets (@javache)',
-                            'Facebook React Native core team',
+                            'Facebook React Native team, esp. Pieter (@javache)',
+                            'Chain React organizers'
                            ]} />
     )
   }
