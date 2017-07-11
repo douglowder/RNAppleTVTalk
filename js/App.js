@@ -39,6 +39,7 @@ import {
   ScrollView,
   TabBarIOS,
   Text,
+  Image,
   TextInput,
   TouchableOpacity,
   View,
@@ -69,7 +70,7 @@ class SlideShow extends Component {
     return (
       <Slide title={pages[i].title}
              leftKey={(i > 0) ? pages[i-1].key : null}
-             rightKey={(i < pages.length - 1 ? pages[i+1].key : null)}>
+             rightKey={(i < pages.length - 1 ? pages[i+1].key : 'thankyou')}>
           {pages[i].body}
       </Slide>
     );
@@ -86,11 +87,31 @@ class SlideShow extends Component {
     );
   }
 
+  renderThankYou() {
+    return (
+      <Image resizeMode='contain'
+             source={{uri: 'thankyou'}}
+             style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}} />
+    );
+  }
+
+  renderThankYouScene() {
+    return (
+      <Scene key='thankyou'
+             component={() => this.renderThankYou()}
+             hideTabBar
+             hideNavBar
+             title='Thank you'
+             initial={false} />
+    );
+  }
+
   render() {
     var scenes = [];
     for (var i=0; i<pages.length; i++) {
       scenes.push(this.renderScene(i));
     }
+    scenes.push(this.renderThankYouScene());
     return (
       <Router>
         <Scene key='root'>
