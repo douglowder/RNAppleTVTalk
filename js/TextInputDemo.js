@@ -50,16 +50,6 @@ class TextInputDemo extends Component {
           defaultValue="Green"
         />
         <TextInput
-          style={styles.textInput}
-          autoCapitalize="none"
-          defaultValue="No capitalization"
-        />
-        <TextInput
-          style={styles.textInput}
-          autoCapitalize="sentences"
-          defaultValue="Capitalize sentences"
-        />
-        <TextInput
           width={500}
           style={styles.textInput}
           autoCorrect={true}
