@@ -33,8 +33,6 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		2D1607151F10303D007C90D2 /* terpsichore.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2D1607141F10303D007C90D2 /* terpsichore.mp4 */; };
-		2D1607161F10303D007C90D2 /* terpsichore.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2D1607141F10303D007C90D2 /* terpsichore.mp4 */; };
 		2D3461841F103980009FDDF5 /* bach-handel-corelli.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3461831F103980009FDDF5 /* bach-handel-corelli.mp4 */; };
 		2D3461A41F103984009FDDF5 /* bach-handel-corelli.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2D3461831F103980009FDDF5 /* bach-handel-corelli.mp4 */; };
 		2D6342A61F0B60920025EBDB /* libreact-native-media-kit-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6342A51F0B60920025EBDB /* libreact-native-media-kit-tvOS.a */; };
@@ -328,7 +326,6 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* RNAppleTVTalk-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RNAppleTVTalk-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* RNAppleTVTalk-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNAppleTVTalk-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D1607141F10303D007C90D2 /* terpsichore.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = terpsichore.mp4; path = RNAppleTVTalk/terpsichore.mp4; sourceTree = "<group>"; };
 		2D3461831F103980009FDDF5 /* bach-handel-corelli.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "bach-handel-corelli.mp4"; path = "RNAppleTVTalk/bach-handel-corelli.mp4"; sourceTree = "<group>"; };
 		2D6342731F0B60090025EBDB /* react-native-media-kit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "react-native-media-kit.xcodeproj"; path = "../node_modules/react-native-media-kit/ios/react-native-media-kit.xcodeproj"; sourceTree = "<group>"; };
 		2D69AE2A1F0EBDF70023F112 /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
@@ -474,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				2D3461831F103980009FDDF5 /* bach-handel-corelli.mp4 */,
-				2D1607141F10303D007C90D2 /* terpsichore.mp4 */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -1043,7 +1039,6 @@
 			files = (
 				2D3461841F103980009FDDF5 /* bach-handel-corelli.mp4 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				2D1607151F10303D007C90D2 /* terpsichore.mp4 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1053,7 +1048,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3461A41F103984009FDDF5 /* bach-handel-corelli.mp4 in Resources */,
-				2D1607161F10303D007C90D2 /* terpsichore.mp4 in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
