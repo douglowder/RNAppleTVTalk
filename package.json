@@ -13,8 +13,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "flow-bin": "0.42.0",
     "lodash": "^4.17.4",
-    "react": "16.0.0-alpha.6",
-    "react-native": "https://github.com/dlowder-salesforce/react-native#0.44.3-tvos",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.46.1",
     "react-native-button": "^1.8.2",
     "react-native-drawer": "^2.3.0",
     "react-native-media-kit": "https://github.com/dlowder-salesforce/react-native-media-kit#master",
@@ -33,7 +33,7 @@
     "react-native-experimental-navigation": "0.26.x",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "1.0.1",
-    "react-test-renderer": "~15.4.1"
+    "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
     "preset": "react-native",
