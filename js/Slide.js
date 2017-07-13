@@ -45,21 +45,25 @@ import Icon from './Icon';
 
 const styles = require('./styles').default;
 
+const blue = '#00a1e0';
+const gray = '#7c868d';
+const lightgray = '#dddddd';
+
 class Slide extends Component {
   renderLeft() {
     if (this.props.leftAction) {
       return (
-          <TouchableOpacity onPress={() => this.props.leftAction()}
+          <TouchableHighlight onPress={() => this.props.leftAction()}
                               style={styles.prevButtonContainer}
-                              activeOpacity={0.8}
-                              underlayColor='white'>
+                              activeOpacity={0.6}
+                              underlayColor={lightgray}>
             <View>
               <Icon width={100}
                     height={100}
                     name='left'
-                    color='#07b'/>
+                    color={blue}/>
             </View>
-          </TouchableOpacity>
+          </TouchableHighlight>
         );
     } else {
       return null;
@@ -69,17 +73,17 @@ class Slide extends Component {
   renderRight() {
     if (this.props.rightAction) {
       return (
-        <TouchableOpacity onPress={() => this.props.rightAction()}
+        <TouchableHighlight onPress={() => this.props.rightAction()}
                             style={styles.nextButtonContainer}
-                            activeOpacity={0.8}
-                            underlayColor='white'>
+                            activeOpacity={0.6}
+                            underlayColor={lightgray}>
           <View>
             <Icon width={100}
                   height={100}
                   name='right'
-                  color='#07b'/>
+                  color={blue}/>
           </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
       );
     } else {
       return null;
