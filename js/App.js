@@ -30,12 +30,6 @@ import React, {
 } from 'react';
 
 import {
-  Router,
-  Scene,
-  Actions
-} from 'react-native-router-flux';
-
-import {
   ScrollView,
   TabBarIOS,
   Text,
@@ -44,6 +38,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
+import SlideShow from './SlideShow';
 
 import Slide from './Slide';
 
@@ -63,64 +59,6 @@ import TextInputDemo from './TextInputDemo';
 
 const styles = require('./styles').default;
 
-const pages = require('./PageList');
-
-class SlideShow extends Component {
-  renderSlide(i: number) {
-    return (
-      <Slide title={pages[i].title}
-             leftKey={(i > 0) ? pages[i-1].key : null}
-             rightKey={(i < pages.length - 1 ? pages[i+1].key : 'thankyou')}>
-          {pages[i].body}
-      </Slide>
-    );
-  }
-
-  renderScene(i: number) {
-    return (
-      <Scene key={pages[i].key}
-             component={() => this.renderSlide(i)}
-             hideNavBar
-             hideTabBar
-             title={pages[i].title}
-             initial={i === 0} />
-    );
-  }
-
-  renderThankYou() {
-    return (
-      <Image resizeMode='contain'
-             source={{uri: 'thankyou'}}
-             style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}} />
-    );
-  }
-
-  renderThankYouScene() {
-    return (
-      <Scene key='thankyou'
-             component={() => this.renderThankYou()}
-             hideTabBar
-             hideNavBar
-             title='Thank you'
-             initial={false} />
-    );
-  }
-
-  render() {
-    var scenes = [];
-    for (var i=0; i<pages.length; i++) {
-      scenes.push(this.renderScene(i));
-    }
-    scenes.push(this.renderThankYouScene());
-    return (
-      <Router>
-        <Scene key='root'>
-          {scenes}
-        </Scene>
-      </Router>
-    )
-  }
-}
 
 class App extends Component {
 
