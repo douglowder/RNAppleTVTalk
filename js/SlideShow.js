@@ -30,12 +30,6 @@ import React, {
 } from 'react';
 
 import {
-  Router,
-  Scene,
-  Actions
-} from 'react-native-router-flux';
-
-import {
   ScrollView,
   TabBarIOS,
   Text,
@@ -50,25 +44,26 @@ import Slide from './Slide';
 const pages = require('./PageList');
 
 class SlideShow extends Component {
-  renderSlide(i: number) {
-    return (
-      <Slide title={pages[i].title}
-             leftKey={(i > 0) ? pages[i-1].key : null}
-             rightKey={(i < pages.length - 1 ? pages[i+1].key : 'thankyou')}>
-          {pages[i].body}
-      </Slide>
-    );
+
+  state: {
+    i: number
   }
 
-  renderScene(i: number) {
-    return (
-      <Scene key={pages[i].key}
-             component={() => this.renderSlide(i)}
-             hideNavBar
-             hideTabBar
-             title={pages[i].title}
-             initial={i === 0} />
-    );
+  constructor(props: Object) {
+    super(props);
+    this.state = {i:0};
+  }
+
+  leftAction() {
+    this.setState({
+      i: ( this.state.i === 0 ? pages.length - 1 : this.state.i - 1)
+    });
+  }
+
+  rightAction() {
+    this.setState({
+      i: (this.state.i === pages.length - 1 ? 0 : this.state.i + 1)
+    });
   }
 
   renderThankYou() {
@@ -79,30 +74,14 @@ class SlideShow extends Component {
     );
   }
 
-  renderThankYouScene() {
-    return (
-      <Scene key='thankyou'
-             component={() => this.renderThankYou()}
-             hideTabBar
-             hideNavBar
-             title='Thank you'
-             initial={false} />
-    );
-  }
-
   render() {
-    var scenes = [];
-    for (var i=0; i<pages.length; i++) {
-      scenes.push(this.renderScene(i));
-    }
-    scenes.push(this.renderThankYouScene());
     return (
-      <Router>
-        <Scene key='root'>
-          {scenes}
-        </Scene>
-      </Router>
-    )
+      <Slide title={pages[this.state.i].title}
+             leftAction={() => this.leftAction()}
+             rightAction={() => this.rightAction()}>
+          {pages[this.state.i].body}
+      </Slide>
+    );
   }
 }
 

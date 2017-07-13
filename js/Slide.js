@@ -38,12 +38,6 @@ import {
 } from 'react-native';
 
 import {
-  Router,
-  Scene,
-  Actions
-} from 'react-native-router-flux';
-
-import {
   Title,
 } from './StyledComponents';
 
@@ -52,18 +46,10 @@ import Icon from './Icon';
 const styles = require('./styles').default;
 
 class Slide extends Component {
-  leftAction() {
-    this.props.leftKey && Actions.pop({});
-  }
-
-  rightAction() {
-    this.props.rightKey && Actions.pushScene(this.props.rightKey,{});
-  }
-
   renderLeft() {
-    if (this.props.leftKey) {
+    if (this.props.leftAction) {
       return (
-          <TouchableOpacity onPress={() => this.leftAction()}
+          <TouchableOpacity onPress={() => this.props.leftAction()}
                               style={styles.prevButtonContainer}
                               activeOpacity={0.8}
                               underlayColor='white'>
@@ -81,9 +67,9 @@ class Slide extends Component {
   }
 
   renderRight() {
-    if (this.props.rightKey) {
+    if (this.props.rightAction) {
       return (
-        <TouchableOpacity onPress={() => this.rightAction()}
+        <TouchableOpacity onPress={() => this.props.rightAction()}
                             style={styles.nextButtonContainer}
                             activeOpacity={0.8}
                             underlayColor='white'>

@@ -18,7 +18,6 @@
     "react-native-button": "^1.8.2",
     "react-native-drawer": "^2.3.0",
     "react-native-media-kit": "https://github.com/dlowder-salesforce/react-native-media-kit#master",
-    "react-native-router-flux": "https://github.com/dlowder-salesforce/react-native-router-flux#dlowder-fix",
     "react-native-svg": "^5.2.0",
     "victory-native": "^0.12.0"
   },
