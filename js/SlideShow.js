@@ -30,6 +30,7 @@ import React, {
 } from 'react';
 
 import {
+  LayoutAnimation,
   ScrollView,
   TabBarIOS,
   Text,
@@ -46,23 +47,38 @@ const pages = require('./PageList');
 class SlideShow extends Component {
 
   state: {
-    i: number
+    i: number,
+    isChanging: boolean
   }
 
   constructor(props: Object) {
     super(props);
-    this.state = {i:0};
+    this.state = {
+      i: 0,
+      isChanging: false
+    };
   }
 
   leftAction() {
-    this.setState({
-      i: ( this.state.i === 0 ? pages.length - 1 : this.state.i - 1)
-    });
+    var iNext = this.state.i - 1;
+    if (iNext < 0) {
+      iNext = pages.length - 1;
+    }
+    this.nextSlide(iNext);
   }
 
   rightAction() {
+    var iNext = this.state.i + 1;
+    if (iNext === pages.length) {
+      iNext = 0;
+    }
+    this.nextSlide(iNext);
+  }
+
+  nextSlide(iNext: number) {
+    LayoutAnimation.spring();
     this.setState({
-      i: (this.state.i === pages.length - 1 ? 0 : this.state.i + 1)
+      i: iNext
     });
   }
 
@@ -76,11 +92,11 @@ class SlideShow extends Component {
 
   render() {
     return (
-      <Slide title={pages[this.state.i].title}
+        <Slide title={pages[this.state.i].title}
              leftAction={() => this.leftAction()}
              rightAction={() => this.rightAction()}>
           {pages[this.state.i].body}
-      </Slide>
+        </Slide>
     );
   }
 }
