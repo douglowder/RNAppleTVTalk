@@ -48,30 +48,22 @@ class SlideShow extends Component {
 
   state: {
     i: number,
-    isChanging: boolean
   }
 
   constructor(props: Object) {
     super(props);
     this.state = {
       i: 0,
-      isChanging: false
     };
   }
 
   leftAction() {
     var iNext = this.state.i - 1;
-    if (iNext < 0) {
-      iNext = pages.length - 1;
-    }
     this.nextSlide(iNext);
   }
 
   rightAction() {
     var iNext = this.state.i + 1;
-    if (iNext === pages.length) {
-      iNext = 0;
-    }
     this.nextSlide(iNext);
   }
 
@@ -91,10 +83,12 @@ class SlideShow extends Component {
   }
 
   render() {
+    var leftAction = this.state.i > 0 ? this.leftAction : null;
+    var rightAction = this.state.i < pages.length - 1 ? this.rightAction : null;
     return (
         <Slide title={pages[this.state.i].title}
-             leftAction={() => this.leftAction()}
-             rightAction={() => this.rightAction()}>
+             leftAction={leftAction && leftAction.bind(this)}
+             rightAction={rightAction && rightAction.bind(this)}>
           {pages[this.state.i].body}
         </Slide>
     );
