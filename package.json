@@ -19,7 +19,7 @@
     "react-native-drawer": "^2.3.0",
     "react-native-media-kit": "https://github.com/dlowder-salesforce/react-native-media-kit#master",
     "react-native-svg": "^5.2.0",
-    "victory-native": "^0.12.0"
+    "victory-native": "https://github.com/FormidableLabs/victory-native#master"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
@@ -28,10 +28,10 @@
     "jest-react-native": "^18.0.0",
     "lodash.isequal": "^4.5.0",
     "react-addons-pure-render-mixin": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.6.1",
     "react-native-experimental-navigation": "0.26.x",
     "react-native-tabs": "^1.0.9",
-    "react-static-container": "1.0.1",
+    "react-static-container": "^1.0.1",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
