@@ -192,6 +192,7 @@ class VictoryDemo extends Component {
       <SlideText text='&lt;VictoryPie/&gt;'/>
 
       <VictoryPie
+        colorScale='qualitative'
         width={500}
         innerRadius={50}
         labelRadius={120}
