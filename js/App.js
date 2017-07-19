@@ -72,6 +72,14 @@ class App extends Component {
     });
   }
 
+  updateTab(newTab: string) {
+    if(this.state.selectedTab !== newTab) {
+      this.setState({
+        selectedTab: newTab
+      });
+    }
+  }
+
   render() {
     return (
       <TabBarIOS
@@ -81,21 +89,15 @@ class App extends Component {
         <TabBarIOS.Item
           title='Presentation'
           selected={this.state && this.state.selectedTab === 'slideShow'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'slideShow',
-            });
-          }}>
+          onPress={() => this.updateTab('slideShow')}
+          >
           <SlideShow />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title='Text input demo'
           selected={this.state && this.state.selectedTab === 'textInputDemo'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'textInputDemo',
-            });
-          }}>
+          onPress={() => this.updateTab('textInputDemo')}
+          >
           <Slide title='Text input example'>
             <TextInputDemo />
           </Slide>
@@ -103,21 +105,15 @@ class App extends Component {
         <TabBarIOS.Item
           title='ListView demo'
           selected={this.state && this.state.selectedTab === 'listViewDemo'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'listViewDemo',
-            });
-          }}>
+          onPress={() => this.updateTab('listViewDemo')}
+          >
           <ListViewDemo />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title='TV remote demo'
           selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'tvRemoteDemo',
-            });
-          }}>
+          onPress={() => this.updateTab('tvRemoteDemo')}
+          >
           <Slide title='Siri remote custom events'>
             <View>
               <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
@@ -144,11 +140,8 @@ class App extends Component {
         <TabBarIOS.Item
           title='Media Kit demo'
           selected={this.state && this.state.selectedTab === 'mediaKitDemo'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'mediaKitDemo',
-            });
-          }}>
+          onPress={() => this.updateTab('mediaKitDemo')}
+          >
           <Slide title='react-native-media-kit demo app'>
             <MediaKitDemo/>
           </Slide>
@@ -156,11 +149,8 @@ class App extends Component {
         <TabBarIOS.Item
           title='Data viz demo'
           selected={this.state && this.state.selectedTab === 'dataVizDemo'}
-          onPress={() => {
-            this.setState({
-              selectedTab: 'dataVizDemo',
-            });
-          }}>
+          onPress={() => this.updateTab('dataVizDemo')}
+          >
           <Slide title='victory-native demo app'>
             <VictoryDemo/>
           </Slide>
