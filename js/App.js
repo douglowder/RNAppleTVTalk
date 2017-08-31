@@ -45,7 +45,7 @@ import Slide from './Slide';
 
 import Game2048 from './Game2048';
 
-import MediaKitDemo from './MediaKitDemo';
+import VideoDemo from './VideoDemo';
 
 import VictoryDemo from './VictoryDemo';
 
@@ -138,12 +138,12 @@ class App extends Component {
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='Media Kit demo'
-          selected={this.state && this.state.selectedTab === 'mediaKitDemo'}
-          onPress={() => this.updateTab('mediaKitDemo')}
+          title='Video demo'
+          selected={this.state && this.state.selectedTab === 'videoDemo'}
+          onPress={() => this.updateTab('videoDemo')}
           >
-          <Slide title='react-native-media-kit demo app'>
-            <MediaKitDemo/>
+          <Slide title='react-native-video demo app'>
+            <VideoDemo/>
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
