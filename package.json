@@ -14,10 +14,11 @@
     "flow-bin": "0.42.0",
     "lodash": "^4.17.4",
     "react": "16.0.0-alpha.12",
-    "react-native": "https://github.com/facebook/react-native#master",
+    "react-native": "https://github.com/dlowder-salesforce/react-native#tvos-cli-link-fix",
     "react-native-button": "^1.8.2",
     "react-native-drawer": "^2.3.0",
     "react-native-media-kit": "https://github.com/dlowder-salesforce/react-native-media-kit#master",
+    "react-native-sound": "https://github.com/dlowder-salesforce/react-native-sound#master",
     "react-native-svg": "^5.4.1",
     "react-native-video": "^2.0.0",
     "victory-native": "https://github.com/FormidableLabs/victory-native#master"
