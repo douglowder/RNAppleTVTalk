@@ -8,7 +8,10 @@
  */
 'use strict';
 
-var React = require('react');
+var React, {
+  Component
+}  = require('react');
+
 var ReactNative = require('react-native');
 var {
   Image,
@@ -35,32 +38,32 @@ var THUMB_NAMES = [
   'victory',
 ];
 
-var ListViewGridLayoutExample = React.createClass({
+class ListViewGridLayoutExample extends Component {
 
   statics: {
     title: '<ListView> - Grid Layout',
     description: 'Flexbox grid layout.'
-  },
+  }
 
-  getInitialState: function() {
+  getInitialState() {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
       dataSource: ds.cloneWithRows(this._genRows({})),
     };
-  },
+  }
 
-  _pressData: ({}: {[key: number]: boolean}),
+  _pressData: {}
 
-  componentWillMount: function() {
+  componentWillMount() {
     this._pressData = {};
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       // ListView wraps ScrollView and so takes on its properties.
       // With that in mind you can use the ScrollView's contentContainerStyle prop to style the items.
       <ListView
-        removeClippedSubviews={this.props.removeClippedSubviews}
+        removeClippedSubviews={this.props.removeClippedSubviews} 
         contentContainerStyle={styles.list}
         dataSource={this.state.dataSource}
         initialListSize={21}
@@ -69,9 +72,9 @@ var ListViewGridLayoutExample = React.createClass({
         renderRow={this._renderRow}
       />
     );
-  },
+  }
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number) {
+  _renderRow(rowData: string, sectionID: number, rowID: number) {
     var rowHash = Math.abs(hashCode(rowData));
     var imgSource = THUMB_NAMES[rowHash % THUMB_NAMES.length];
     return (
@@ -86,24 +89,24 @@ var ListViewGridLayoutExample = React.createClass({
         </View>
       </TouchableHighlight>
     );
-  },
+  }
 
-  _genRows: function(pressData: {[key: number]: boolean}): Array<string> {
+  _genRows(pressData: {[key: number]: boolean}): Array<string> {
     var dataBlob = [];
     for (var ii = 0; ii < 100; ii++) {
       var pressedText = pressData[ii] ? ' (X)' : '';
       dataBlob.push('Cell ' + ii + pressedText);
     }
     return dataBlob;
-  },
+  }
 
-  _pressRow: function(rowID: number) {
+  _pressRow(rowID: number) {
     this._pressData[rowID] = !this._pressData[rowID];
     this.setState({dataSource: this.state.dataSource.cloneWithRows(
       this._genRows(this._pressData)
     )});
-  },
-});
+  }
+};
 
 /* eslint no-bitwise: 0 */
 var hashCode = function(str) {
