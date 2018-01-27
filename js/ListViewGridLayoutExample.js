@@ -45,9 +45,10 @@ class ListViewGridLayoutExample extends Component {
     description: 'Flexbox grid layout.'
   }
 
-  getInitialState() {
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    return {
+  constructor(props: Object) {
+    super(props);
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
       dataSource: ds.cloneWithRows(this._genRows({})),
     };
   }
