@@ -25,54 +25,47 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
-import {
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-} from 'react-native';
+import { Text, View, Image, TouchableHighlight } from 'react-native';
 
 const styles = require('./styles').default;
 
 const parallaxExamples = [
   {
-    'name':'default',
-    'value': {
+    name: 'default',
+    value: {
       enabled: true,
       shiftDistanceX: 2.0,
       shiftDistanceY: 2.0,
       tiltAngle: 0.05,
-      magnification: 1.0,
-    },
-  },
-  {
-    'name': 'enabled = false',
-    'value': {
-      enabled: false,
-    },
-  },
-  {
-    'name': 'magnification = 1.2',
-    'value': {
-      enabled: true,
-      shiftDistanceX: 2.0,
-      shiftDistanceY: 2.0,
-      tiltAngle: 0.05,
-      magnification: 1.2,
+      magnification: 1.0
     }
   },
   {
-    'name': 'tiltAngle = 0.3',
-    'value': {
+    name: 'enabled = false',
+    value: {
+      enabled: false
+    }
+  },
+  {
+    name: 'magnification = 1.2',
+    value: {
+      enabled: true,
+      shiftDistanceX: 2.0,
+      shiftDistanceY: 2.0,
+      tiltAngle: 0.05,
+      magnification: 1.2
+    }
+  },
+  {
+    name: 'tiltAngle = 0.3',
+    value: {
       enabled: true,
       shiftDistanceX: 2.0,
       shiftDistanceY: 2.0,
       tiltAngle: 0.3,
-      magnification: 1.0,
+      magnification: 1.0
     }
   }
 ];
@@ -85,27 +78,28 @@ class ParallaxExamples extends Component {
   renderParallaxExamples() {
     return parallaxExamples.map(function(props, i) {
       return (
-        <TouchableHighlight key={i}
-                            activeOpacity={0.7}
-                            underlayColor='#dddddd'
-                            onPress={() => this.pressAction()}
-                            tvParallaxProperties={props.value}>
+        <TouchableHighlight
+          key={i}
+          activeOpacity={0.7}
+          underlayColor="#dddddd"
+          onPress={() => this.pressAction()}
+          tvParallaxProperties={props.value}
+        >
           <View>
-            <Image style={{width: 287, height: 201}}
-                   source={{uri: 'react-logo'}}
+            <Image
+              style={{ width: 287, height: 201 }}
+              source={{ uri: 'react-logo' }}
             />
-            <Text style={{width: 287, fontSize: 40}}>
-              {props.name}
-            </Text>
+            <Text style={{ width: 287, fontSize: 40 }}>{props.name}</Text>
           </View>
         </TouchableHighlight>
-      )
+      );
     });
   }
 
   render() {
     return (
-      <View style={{flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row' }}>
         {this.renderParallaxExamples()}
       </View>
     );

@@ -14,13 +14,7 @@ var ReactNative = require('react-native');
 var Platform = require('Platform');
 var TVEventHandler = require('TVEventHandler');
 
-var {
-  AppRegistry,
-  SnapshotViewIOS,
-  StyleSheet,
-  Text,
-  View,
-} = ReactNative;
+var { AppRegistry, SnapshotViewIOS, StyleSheet, Text, View } = ReactNative;
 
 var Animated = require('Animated');
 var GameBoard = require('GameBoard');
@@ -28,15 +22,15 @@ var TouchableBounce = require('TouchableBounce');
 
 var SCALE = Platform.isTVOS ? 1.5 : 1;
 
-var BOARD_PADDING = SCALE*3;
-var CELL_MARGIN = SCALE*4;
-var CELL_SIZE = SCALE*60;
-var BORDER_RADIUS = SCALE*5;
+var BOARD_PADDING = SCALE * 3;
+var CELL_MARGIN = SCALE * 4;
+var CELL_SIZE = SCALE * 60;
+var BORDER_RADIUS = SCALE * 5;
 
-var SIZE_40 = SCALE*40;
-var SIZE_24 = SCALE*24;
-var SIZE_20 = SCALE*20;
-var SIZE_18 = SCALE*18;
+var SIZE_40 = SCALE * 40;
+var SIZE_24 = SCALE * 24;
+var SIZE_20 = SCALE * 20;
+var SIZE_18 = SCALE * 18;
 
 class Cell extends React.Component {
   render() {
@@ -48,10 +42,30 @@ class Board extends React.Component {
   render() {
     return (
       <View style={styles.board}>
-        <View style={styles.row}><Cell/><Cell/><Cell/><Cell/></View>
-        <View style={styles.row}><Cell/><Cell/><Cell/><Cell/></View>
-        <View style={styles.row}><Cell/><Cell/><Cell/><Cell/></View>
-        <View style={styles.row}><Cell/><Cell/><Cell/><Cell/></View>
+        <View style={styles.row}>
+          <Cell />
+          <Cell />
+          <Cell />
+          <Cell />
+        </View>
+        <View style={styles.row}>
+          <Cell />
+          <Cell />
+          <Cell />
+          <Cell />
+        </View>
+        <View style={styles.row}>
+          <Cell />
+          <Cell />
+          <Cell />
+          <Cell />
+        </View>
+        <View style={styles.row}>
+          <Cell />
+          <Cell />
+          <Cell />
+          <Cell />
+        </View>
         {this.props.children}
       </View>
     );
@@ -62,7 +76,9 @@ class Tile extends React.Component {
   state: any;
 
   static _getPosition(index): number {
-    return BOARD_PADDING + (index * (CELL_SIZE + CELL_MARGIN * 2) + CELL_MARGIN);
+    return (
+      BOARD_PADDING + (index * (CELL_SIZE + CELL_MARGIN * 2) + CELL_MARGIN)
+    );
   }
 
   constructor(props: {}) {
@@ -73,34 +89,34 @@ class Tile extends React.Component {
     this.state = {
       opacity: new Animated.Value(0),
       top: new Animated.Value(Tile._getPosition(tile.toRow())),
-      left: new Animated.Value(Tile._getPosition(tile.toColumn())),
+      left: new Animated.Value(Tile._getPosition(tile.toColumn()))
     };
   }
 
-  calculateOffset(): {top: number; left: number; opacity: number} {
+  calculateOffset(): { top: number, left: number, opacity: number } {
     var tile = this.props.tile;
 
     var offset = {
       top: this.state.top,
       left: this.state.left,
-      opacity: this.state.opacity,
+      opacity: this.state.opacity
     };
 
     if (tile.isNew()) {
       Animated.timing(this.state.opacity, {
         duration: 100,
-        toValue: 1,
+        toValue: 1
       }).start();
     } else {
       Animated.parallel([
         Animated.timing(offset.top, {
           duration: 100,
-          toValue: Tile._getPosition(tile.toRow()),
+          toValue: Tile._getPosition(tile.toRow())
         }),
         Animated.timing(offset.left, {
           duration: 100,
-          toValue: Tile._getPosition(tile.toColumn()),
-        }),
+          toValue: Tile._getPosition(tile.toColumn())
+        })
       ]).start();
     }
     return offset;
@@ -112,14 +128,14 @@ class Tile extends React.Component {
     var tileStyles = [
       styles.tile,
       styles['tile' + tile.value],
-      this.calculateOffset(),
+      this.calculateOffset()
     ];
 
     var textStyles = [
       styles.value,
       tile.value > 4 && styles.whiteText,
       tile.value > 100 && styles.threeDigits,
-      tile.value > 1000 && styles.fourDigits,
+      tile.value > 1000 && styles.fourDigits
     ];
 
     return (
@@ -138,8 +154,7 @@ class GameEndOverlay extends React.Component {
       return null;
     }
 
-    var message = board.hasWon() ?
-      'Good Job!' : 'Game Over';
+    var message = board.hasWon() ? 'Good Job!' : 'Game Over';
 
     return (
       <View style={styles.overlay}>
@@ -163,14 +178,14 @@ class Game2048 extends React.Component {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, function(cmp, evt) {
       if (evt && evt.eventType === 'right') {
-        cmp.setState({board: cmp.state.board.move(2)});
-      } else if(evt && evt.eventType === 'up') {
-        cmp.setState({board: cmp.state.board.move(1)});
-      } else if(evt && evt.eventType === 'left') {
-        cmp.setState({board: cmp.state.board.move(0)});
-      } else if(evt && evt.eventType === 'down') {
-        cmp.setState({board: cmp.state.board.move(3)});
-      } else if(evt && evt.eventType === 'playPause') {
+        cmp.setState({ board: cmp.state.board.move(2) });
+      } else if (evt && evt.eventType === 'up') {
+        cmp.setState({ board: cmp.state.board.move(1) });
+      } else if (evt && evt.eventType === 'left') {
+        cmp.setState({ board: cmp.state.board.move(0) });
+      } else if (evt && evt.eventType === 'down') {
+        cmp.setState({ board: cmp.state.board.move(3) });
+      } else if (evt && evt.eventType === 'playPause') {
         cmp.restartGame();
       }
     });
@@ -186,7 +201,7 @@ class Game2048 extends React.Component {
   constructor(props: {}) {
     super(props);
     this.state = {
-      board: new GameBoard(),
+      board: new GameBoard()
     };
     this.startX = 0;
     this.startY = 0;
@@ -201,7 +216,7 @@ class Game2048 extends React.Component {
   }
 
   restartGame() {
-    this.setState({board: new GameBoard()});
+    this.setState({ board: new GameBoard() });
   }
 
   handleTouchStart(event: Object) {
@@ -224,29 +239,34 @@ class Game2048 extends React.Component {
     var direction = -1;
     if (Math.abs(deltaX) > 3 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
       direction = deltaX > 0 ? 2 : 0;
-    } else if (Math.abs(deltaY) > 3 * Math.abs(deltaX) && Math.abs(deltaY) > 30) {
+    } else if (
+      Math.abs(deltaY) > 3 * Math.abs(deltaX) &&
+      Math.abs(deltaY) > 30
+    ) {
       direction = deltaY > 0 ? 3 : 1;
     }
 
     if (direction !== -1) {
-      this.setState({board: this.state.board.move(direction)});
+      this.setState({ board: this.state.board.move(direction) });
     }
   }
 
   render() {
     var tiles = this.state.board.tiles
-      .filter((tile) => tile.value)
-      .map((tile) => <Tile ref={tile.id} key={tile.id} tile={tile} />);
+      .filter(tile => tile.value)
+      .map(tile => <Tile ref={tile.id} key={tile.id} tile={tile} />);
 
     return (
       <View
         style={styles.container}
-        onTouchStart={(event) => this.handleTouchStart(event)}
-        onTouchEnd={(event) => this.handleTouchEnd(event)}>
-        <Board>
-          {tiles}
-        </Board>
-        <GameEndOverlay board={this.state.board} onRestart={() => this.restartGame()} />
+        onTouchStart={event => this.handleTouchStart(event)}
+        onTouchEnd={event => this.handleTouchEnd(event)}
+      >
+        <Board>{tiles}</Board>
+        <GameEndOverlay
+          board={this.state.board}
+          onRestart={() => this.restartGame()}
+        />
       </View>
     );
   }
@@ -256,12 +276,12 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   board: {
     padding: BOARD_PADDING,
     backgroundColor: '#bbaaaa',
-    borderRadius: BORDER_RADIUS,
+    borderRadius: BORDER_RADIUS
   },
   overlay: {
     position: 'absolute',
@@ -273,31 +293,31 @@ var styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   overlayMessage: {
     fontSize: SIZE_40,
-    marginBottom: SIZE_20,
+    marginBottom: SIZE_20
   },
   tryAgain: {
     backgroundColor: '#887761',
     padding: SIZE_20,
-    borderRadius: BORDER_RADIUS,
+    borderRadius: BORDER_RADIUS
   },
   tryAgainText: {
     color: '#ffffff',
     fontSize: SIZE_20,
-    fontWeight: '500',
+    fontWeight: '500'
   },
   cell: {
     width: CELL_SIZE,
     height: CELL_SIZE,
     borderRadius: BORDER_RADIUS,
     backgroundColor: '#ddccbb',
-    margin: CELL_MARGIN,
+    margin: CELL_MARGIN
   },
   row: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   tile: {
     position: 'absolute',
@@ -307,56 +327,56 @@ var styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS,
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   value: {
     fontSize: SIZE_24,
     color: '#776666',
     fontFamily: Platform.isTVOS ? 'Helvetica' : 'Verdana',
-    fontWeight: '500',
+    fontWeight: '500'
   },
   tile2: {
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#eeeeee'
   },
   tile4: {
-    backgroundColor: '#eeeecc',
+    backgroundColor: '#eeeecc'
   },
   tile8: {
-    backgroundColor: '#ffbb87',
+    backgroundColor: '#ffbb87'
   },
   tile16: {
-    backgroundColor: '#ff9966',
+    backgroundColor: '#ff9966'
   },
   tile32: {
-    backgroundColor: '#ff7755',
+    backgroundColor: '#ff7755'
   },
   tile64: {
-    backgroundColor: '#ff5533',
+    backgroundColor: '#ff5533'
   },
   tile128: {
-    backgroundColor: '#eecc77',
+    backgroundColor: '#eecc77'
   },
   tile256: {
-    backgroundColor: '#eecc66',
+    backgroundColor: '#eecc66'
   },
   tile512: {
-    backgroundColor: '#eecc55',
+    backgroundColor: '#eecc55'
   },
   tile1024: {
-    backgroundColor: '#eecc33',
+    backgroundColor: '#eecc33'
   },
   tile2048: {
-    backgroundColor: '#eecc22',
+    backgroundColor: '#eecc22'
   },
   whiteText: {
-    color: '#ffffff',
+    color: '#ffffff'
   },
   threeDigits: {
-    fontSize: SIZE_20,
+    fontSize: SIZE_20
   },
   fourDigits: {
-    fontSize: SIZE_18,
-  },
+    fontSize: SIZE_18
+  }
 });
 
 module.exports = Game2048;

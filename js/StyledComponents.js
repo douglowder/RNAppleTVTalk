@@ -25,52 +25,36 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
-import {
-  Text,
-  View,
-} from 'react-native';
+import { Text, View } from 'react-native';
 
 const styles = require('./styles').default;
 
 class Title extends Component {
   render() {
-    return (
-      <Text style={styles.title}>{this.props.text}</Text>
-    );
+    return <Text style={styles.title}>{this.props.text}</Text>;
   }
 }
 
 class SlideText extends Component {
   render() {
-    return (
-      <Text style={styles.body}>
-        {this.props.text}
-      </Text>
-    );
+    return <Text style={styles.body}>{this.props.text}</Text>;
   }
 }
 
 class SmallSlideText extends Component {
   render() {
-    return (
-      <Text style={styles.bodySmall}>
-        {this.props.text}
-      </Text>
-    );
+    return <Text style={styles.bodySmall}>{this.props.text}</Text>;
   }
 }
 
 class BulletedList extends Component {
   _renderLine(text: string, i: number) {
     return (
-      <View key={'' + i}
-            style={{flexDirection: 'row'}}>
+      <View key={'' + i} style={{ flexDirection: 'row' }}>
         <Text style={styles.body}>{'\u2022'}</Text>
-        <Text style={[styles.body,{flex: 1, paddingLeft: 5}]}>{text}</Text>
+        <Text style={[styles.body, { flex: 1, paddingLeft: 5 }]}>{text}</Text>
       </View>
     );
   }

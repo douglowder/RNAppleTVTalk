@@ -1,20 +1,18 @@
-import {
-  StyleSheet,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const blue = '#00a1e0';
 const gray = '#7c868d';
 
-export default styles = StyleSheet.create({
+export default (styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   title: {
     fontSize: 100,
-    color: blue,
+    color: blue
   },
   body: {
     fontSize: 60,
@@ -28,51 +26,51 @@ export default styles = StyleSheet.create({
     height: 500,
     width: 1200,
     margin: 0,
-    alignItems: 'flex-start',
+    alignItems: 'flex-start'
   },
   contentContainer: {
     height: 700,
     width: 1200,
     margin: 0,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   listViewDemoContainer: {
     height: 600,
     width: 700,
     margin: 0,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   listViewDemoText: {
     fontSize: 40,
     color: gray
   },
   nextButtonContainer: {
-    position:'absolute',
-    top:540,
-    right:100,
+    position: 'absolute',
+    top: 540,
+    right: 100
   },
   prevButtonContainer: {
-    position:'absolute',
-    top:540,
-    left:100
+    position: 'absolute',
+    top: 540,
+    left: 100
   },
   customEventDemoContainer: {
     height: 400,
     width: 600,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   logo: {
-    position:'absolute',
-    bottom:20,
-    right:40
+    position: 'absolute',
+    bottom: 20,
+    right: 40
   },
   forest: {
-    position:'absolute',
-    bottom:0,
-    right:0
+    position: 'absolute',
+    bottom: 0,
+    right: 0
   },
   textInput: {
     borderWidth: 0.5,
@@ -84,6 +82,5 @@ export default styles = StyleSheet.create({
     padding: 4,
     maxHeight: 60,
     width: '100%'
-  },
-
-});
+  }
+}));

@@ -17,7 +17,7 @@ import {
   TouchableHighlight,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native';
 
 var THUMB_NAMES = [
@@ -32,7 +32,7 @@ var THUMB_NAMES = [
   'party',
   'poke',
   'superlike',
-  'victory',
+  'victory'
 ];
 
 class ListViewGridLayoutExample extends Component {
@@ -40,7 +40,7 @@ class ListViewGridLayoutExample extends Component {
     super(props);
     let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      dataSource: ds.cloneWithRows(this._genRows({})),
+      dataSource: ds.cloneWithRows(this._genRows({}))
     };
   }
 
@@ -97,8 +97,8 @@ class ListViewGridLayoutExample extends Component {
     this._pressData[rowID] = !this._pressData[rowID];
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(
-        this._genRows(this._pressData),
-      ),
+        this._genRows(this._pressData)
+      )
     });
   }
 }
@@ -119,7 +119,7 @@ var styles = StyleSheet.create({
     justifyContent: 'space-around',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
+    alignItems: 'flex-start'
   },
   row: {
     justifyContent: 'center',
@@ -131,17 +131,17 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: scale * 1,
     borderRadius: scale * 5,
-    borderColor: '#CCC',
+    borderColor: '#CCC'
   },
   thumb: {
     width: scale * 64,
-    height: scale * 64,
+    height: scale * 64
   },
   text: {
     flex: 1,
     marginTop: scale * 5,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 module.exports = ListViewGridLayoutExample;

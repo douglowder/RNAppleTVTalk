@@ -25,23 +25,16 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
-import {
-  Text,
-  View,
-  TVEventHandler,
-} from 'react-native';
+import { Text, View, TVEventHandler } from 'react-native';
 
 const styles = require('./styles').default;
 
 class CustomEventDemo extends Component {
-
   state: {
     eventFired: string
-  }
+  };
 
   _tvEventHandler: any;
 
@@ -59,10 +52,13 @@ class CustomEventDemo extends Component {
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, function(cmp, evt) {
-      evt && evt.eventType && evt.eventType !== 'blur' && evt.eventType !== 'focus' &&
-      cmp.setState({
-        eventFired: evt.eventType
-      });
+      evt &&
+        evt.eventType &&
+        evt.eventType !== 'blur' &&
+        evt.eventType !== 'focus' &&
+        cmp.setState({
+          eventFired: evt.eventType
+        });
     });
   }
 

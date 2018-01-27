@@ -25,9 +25,7 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
 import {
   ScrollView,
@@ -36,7 +34,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import SlideShow from './SlideShow';
@@ -59,12 +57,10 @@ import TextInputDemo from './TextInputDemo';
 
 const styles = require('./styles').default;
 
-
 class App extends Component {
-
   state: {
     selectedTab: string
-  }
+  };
 
   componentDidMount() {
     this.setState({
@@ -73,7 +69,7 @@ class App extends Component {
   }
 
   updateTab(newTab: string) {
-    if(this.state.selectedTab !== newTab) {
+    if (this.state.selectedTab !== newTab) {
       this.setState({
         selectedTab: newTab
       });
@@ -83,53 +79,50 @@ class App extends Component {
   render() {
     return (
       <TabBarIOS
-        unselectedTintColor='white'
-        tintColor='red'
-        barTintColor='#00a1e0'>
+        unselectedTintColor="white"
+        tintColor="red"
+        barTintColor="#00a1e0"
+      >
         <TabBarIOS.Item
-          title='Presentation'
+          title="Presentation"
           selected={this.state && this.state.selectedTab === 'slideShow'}
           onPress={() => this.updateTab('slideShow')}
-          >
+        >
           <SlideShow />
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='Text input demo'
+          title="Text input demo"
           selected={this.state && this.state.selectedTab === 'textInputDemo'}
           onPress={() => this.updateTab('textInputDemo')}
-          >
-          <Slide title='Text input example'>
+        >
+          <Slide title="Text input example">
             <TextInputDemo />
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='ListView demo'
+          title="ListView demo"
           selected={this.state && this.state.selectedTab === 'listViewDemo'}
           onPress={() => this.updateTab('listViewDemo')}
-          >
+        >
           <ListViewDemo />
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='TV remote demo'
+          title="TV remote demo"
           selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
           onPress={() => this.updateTab('tvRemoteDemo')}
-          >
-          <Slide title='Siri remote custom events'>
+        >
+          <Slide title="Siri remote custom events">
             <View>
-              <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                 <View style={styles.listViewDemoContainer}>
                   <TouchableOpacity>
-                    <Text style={styles.body}>
-                      Custom event demo
-                    </Text>
+                    <Text style={styles.body}>Custom event demo</Text>
                   </TouchableOpacity>
-                  <CustomEventDemo/>
+                  <CustomEventDemo />
                 </View>
                 <View style={styles.listViewDemoContainer}>
                   <TouchableOpacity>
-                    <Text style={styles.body}>
-                      2048 game
-                    </Text>
+                    <Text style={styles.body}>2048 game</Text>
                   </TouchableOpacity>
                   <Game2048 />
                 </View>
@@ -138,28 +131,26 @@ class App extends Component {
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='Video demo'
+          title="Video demo"
           selected={this.state && this.state.selectedTab === 'videoDemo'}
           onPress={() => this.updateTab('videoDemo')}
-          >
-          <Slide title='react-native-video demo app'>
-            <VideoDemo/>
+        >
+          <Slide title="react-native-video demo app">
+            <VideoDemo />
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title='Data viz demo'
+          title="Data viz demo"
           selected={this.state && this.state.selectedTab === 'dataVizDemo'}
           onPress={() => this.updateTab('dataVizDemo')}
-          >
-          <Slide title='victory-native demo app'>
-            <VictoryDemo/>
+        >
+          <Slide title="victory-native demo app">
+            <VictoryDemo />
           </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>
     );
   }
 }
-
-
 
 module.exports = App;

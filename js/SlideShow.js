@@ -25,9 +25,7 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
 import {
   LayoutAnimation,
@@ -37,7 +35,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 
 import Slide from './Slide';
@@ -45,15 +43,14 @@ import Slide from './Slide';
 const pages = require('./PageList');
 
 class SlideShow extends Component {
-
   state: {
-    i: number,
-  }
+    i: number
+  };
 
   constructor(props: Object) {
     super(props);
     this.state = {
-      i: 0,
+      i: 0
     };
   }
 
@@ -76,9 +73,11 @@ class SlideShow extends Component {
 
   renderThankYou() {
     return (
-      <Image resizeMode='contain'
-             source={{uri: 'thankyou'}}
-             style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}} />
+      <Image
+        resizeMode="contain"
+        source={{ uri: 'thankyou' }}
+        style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
+      />
     );
   }
 
@@ -86,11 +85,13 @@ class SlideShow extends Component {
     var leftAction = this.state.i > 0 ? this.leftAction : null;
     var rightAction = this.state.i < pages.length - 1 ? this.rightAction : null;
     return (
-        <Slide title={pages[this.state.i].title}
-             leftAction={leftAction && leftAction.bind(this)}
-             rightAction={rightAction && rightAction.bind(this)}>
-          {pages[this.state.i].body}
-        </Slide>
+      <Slide
+        title={pages[this.state.i].title}
+        leftAction={leftAction && leftAction.bind(this)}
+        rightAction={rightAction && rightAction.bind(this)}
+      >
+        {pages[this.state.i].body}
+      </Slide>
     );
   }
 }

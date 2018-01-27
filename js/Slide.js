@@ -25,21 +25,17 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
 import {
   Image,
   Text,
   TouchableOpacity,
   TouchableHighlight,
-  View,
+  View
 } from 'react-native';
 
-import {
-  Title,
-} from './StyledComponents';
+import { Title } from './StyledComponents';
 
 import Icon from './Icon';
 
@@ -53,18 +49,17 @@ class Slide extends Component {
   renderLeft() {
     if (this.props.leftAction) {
       return (
-          <TouchableHighlight onPress={() => this.props.leftAction()}
-                              style={styles.prevButtonContainer}
-                              activeOpacity={0.6}
-                              underlayColor={lightgray}>
-            <View>
-              <Icon width={100}
-                    height={100}
-                    name='left'
-                    color={blue}/>
-            </View>
-          </TouchableHighlight>
-        );
+        <TouchableHighlight
+          onPress={() => this.props.leftAction()}
+          style={styles.prevButtonContainer}
+          activeOpacity={0.6}
+          underlayColor={lightgray}
+        >
+          <View>
+            <Icon width={100} height={100} name="left" color={blue} />
+          </View>
+        </TouchableHighlight>
+      );
     } else {
       return null;
     }
@@ -73,15 +68,14 @@ class Slide extends Component {
   renderRight() {
     if (this.props.rightAction) {
       return (
-        <TouchableHighlight onPress={() => this.props.rightAction()}
-                            style={styles.nextButtonContainer}
-                            activeOpacity={0.6}
-                            underlayColor={lightgray}>
+        <TouchableHighlight
+          onPress={() => this.props.rightAction()}
+          style={styles.nextButtonContainer}
+          activeOpacity={0.6}
+          underlayColor={lightgray}
+        >
           <View>
-            <Icon width={100}
-                  height={100}
-                  name='right'
-                  color={blue}/>
+            <Icon width={100} height={100} name="right" color={blue} />
           </View>
         </TouchableHighlight>
       );
@@ -95,17 +89,19 @@ class Slide extends Component {
       <View style={styles.container}>
         {this.renderLeft()}
         <View style={styles.forest}>
-        <Image style={{width: 752, height: 360}} source={{uri: 'forest2'}} />
+          <Image
+            style={{ width: 752, height: 360 }}
+            source={{ uri: 'forest2' }}
+          />
         </View>
         <View style={styles.logo}>
-        <Image style={{width: 90, height: 60}}
-               source={{uri: 'SFDC_logo'}}
-        />
+          <Image
+            style={{ width: 90, height: 60 }}
+            source={{ uri: 'SFDC_logo' }}
+          />
         </View>
-        <Title text={this.props.title}/>
-        <View style={styles.contentContainer}>
-          {this.props.children}
-        </View>
+        <Title text={this.props.title} />
+        <View style={styles.contentContainer}>{this.props.children}</View>
         {this.renderRight()}
       </View>
     );

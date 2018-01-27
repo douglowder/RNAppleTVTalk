@@ -25,15 +25,9 @@
  *
  * @flow
  */
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
-import {
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 
 const styles = require('./styles').default;
 
@@ -42,11 +36,11 @@ class TextInputDemo extends Component {
     return (
       <View style={styles.contentContainer}>
         <TextInput
-          style={[styles.textInput,{color: 'blue'}]}
+          style={[styles.textInput, { color: 'blue' }]}
           defaultValue="Blue"
         />
         <TextInput
-          style={[styles.textInput,{color: 'green'}]}
+          style={[styles.textInput, { color: 'green' }]}
           defaultValue="Green"
         />
         <TextInput
@@ -55,20 +49,10 @@ class TextInputDemo extends Component {
           autoCorrect={true}
           defaultValue="Auto correct"
         />
-        <Text style={styles.bodySmall}>
-          number-pad
-        </Text>
-        <TextInput
-          keyboardType='number-pad'
-          style={styles.textInput}
-        />
-        <Text style={styles.bodySmall}>
-          email-address
-        </Text>
-        <TextInput
-          keyboardType='email-address'
-          style={styles.textInput}
-        />
+        <Text style={styles.bodySmall}>number-pad</Text>
+        <TextInput keyboardType="number-pad" style={styles.textInput} />
+        <Text style={styles.bodySmall}>email-address</Text>
+        <TextInput keyboardType="email-address" style={styles.textInput} />
       </View>
     );
   }
