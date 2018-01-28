@@ -18,24 +18,12 @@
 {
   NSURL *jsCodeLocation;
 
-#if TARGET_OS_SIMULATOR
-  if (getenv("CI_USE_PACKAGER")) {
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
-                                                                    fallbackResource:nil];
+                                                                    fallbackResource:@"RNAppleTVTalk.ios"];
     if(jsCodeLocation == nil) {
       NSLog(@"The React Native packager is not running.  Please run 'npm start' from the RN directory.");
       return nil;
     }
-  } else
-#endif
-  {
-    NSString *jsCodePath = [[NSBundle mainBundle] pathForResource:@"RNAppleTVTalk.bundle" ofType:@"js"];
-    jsCodeLocation = [NSURL fileURLWithPath:jsCodePath];
-    if(jsCodeLocation == nil) {
-      NSLog(@"The JS bundle doesn't exist.  Please generate it and add it to the top level of the project.");
-      return nil;
-    }
-  }
   
   //Debugging on real device on local network
   //jsCodeLocation = [NSURL URLWithString:@"http://10.0.0.6:8081/index.ios.bundle?dev=true"];
