@@ -53,7 +53,7 @@ const styles = require('./styles').default;
 const pages = [
   {
     key: 'titlePage',
-    title: 'React Native\non the Apple TV Platform',
+    title: 'React Native\non the Big Screen',
     body: (
       <View style={{ flexDirection: 'row' }}>
         <View style={{ margin: 20 }}>
@@ -69,6 +69,20 @@ const pages = [
           />
         </View>
       </View>
+    )
+  },
+  {
+    key: 'Overview',
+    title: 'Overview',
+    body: (
+      <BulletedList
+        lines={[
+          'Motivation',
+          'Apple TV',
+          'Other TV platforms',
+          'Future work'
+        ]}
+      />
     )
   },
   {
@@ -123,7 +137,7 @@ const pages = [
     body: (
       <BulletedList
         lines={[
-          'No browser or web views',
+          'No browser or web views!!!!!',
           'No sliders, no switches, no status bar',
           'Cannot persist data in documents directory'
         ]}
