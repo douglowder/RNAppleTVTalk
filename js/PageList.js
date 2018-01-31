@@ -40,7 +40,8 @@ import {
   Title,
   BulletedList,
   SlideText,
-  SmallSlideText
+  SmallSlideText,
+  UrlSlideText
 } from './StyledComponents';
 
 import Icon from './Icon';
@@ -77,13 +78,9 @@ const pages = [
       <View style={{ flexDirection: 'row' }}>
         <View style={{ width: 600 }}>
           <SmallSlideText text="React Native is supported by the Salesforce Mobile SDK" />
-          <Text style={{ fontSize: 30, margin: 20, color: 'black' }}>
-            https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm
-          </Text>
+          <UrlSlideText text="https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm" />
           <SmallSlideText text="&quot;Dreamhouse&quot; demo app on React Native shown at Dreamforce last year" />
-          <Text style={{ fontSize: 30, margin: 20, color: 'black' }}>
-            https://github.com/ForceDotComLabs/dreamhouse-mobile-react
-          </Text>
+          <UrlSlideText text="https://github.com/ForceDotComLabs/dreamhouse-mobile-react" />
         </View>
         <Image
           style={{ width: 707, height: 671 }}
@@ -161,7 +158,7 @@ const pages = [
             'Compilation is tested in Travis CI'
           ]}
         />
-        <SmallSlideText text="https://facebook.github.io/react-native/docs/building-for-apple-tv.html" />
+        <UrlSlideText text="https://facebook.github.io/react-native/docs/building-for-apple-tv.html" />
       </View>
     )
   },
@@ -236,7 +233,7 @@ const pages = [
     title: 'RN Apple TV apps have shipped!',
     body: (
       <View>
-        <SlideText text="https://tv.unsplash.com/" />
+        <UrlSlideText text="https://tv.unsplash.com/" />
         <Image
           style={{ width: 1056 * 0.8, height: 679 * 0.8 }}
           source={{ uri: 'unsplash' }}

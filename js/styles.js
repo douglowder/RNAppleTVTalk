@@ -22,6 +22,11 @@ export default (styles = StyleSheet.create({
     fontSize: 40,
     color: gray
   },
+  bodyUrl: {
+    fontSize: 30,
+    margin: 20,
+    color: blue
+  },
   bulletedListContainer: {
     height: 500,
     width: 1200,
