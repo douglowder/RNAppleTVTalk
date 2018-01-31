@@ -57,10 +57,16 @@ class UrlSlideText extends Component {
 
 class BulletedList extends Component {
   _renderLine(text: string, i: number) {
+    let bulletStyle =
+      i == 0 && this.props.firstLineStyle
+        ? [styles.body, this.props.firstLineStyle]
+        : [styles.body];
+    var textStyle = bulletStyle.map(i => i);
+    textStyle.push({ flex: 1, paddingLeft: 5 });
     return (
       <View key={'' + i} style={{ flexDirection: 'row' }}>
-        <Text style={styles.body}>{'\u2022'}</Text>
-        <Text style={[styles.body, { flex: 1, paddingLeft: 5 }]}>{text}</Text>
+        <Text style={bulletStyle}>{'\u2022'}</Text>
+        <Text style={textStyle}>{text}</Text>
       </View>
     );
   }
