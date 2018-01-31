@@ -212,7 +212,7 @@ const pages = [
     title: 'tvOS is not iOS',
     body: (
       <View>
-        <SlideText text="No touchscreen!" />
+        <SlideText extraStyle={{ color: 'red' }} text="No touchscreen!" />
         <SlideText text="Completely different UI input:" />
         <SlideText text="Apple TV focus engine" />
         <Image

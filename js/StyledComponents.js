@@ -39,7 +39,10 @@ class Title extends Component {
 
 class SlideText extends Component {
   render() {
-    return <Text style={styles.body}>{this.props.text}</Text>;
+    let style = this.props.extraStyle
+      ? [styles.body, this.props.extraStyle]
+      : styles.body;
+    return <Text style={style}>{this.props.text}</Text>;
   }
 }
 
