@@ -76,13 +76,75 @@ const pages = [
     title: 'Overview',
     body: (
       <BulletedList
+        lines={['Motivation', 'Apple TV', 'Other TV platforms', 'Future work']}
+      />
+    )
+  },
+  {
+    key: 'About1',
+    title: 'About the author',
+    body: (
+      <BulletedList
         lines={[
-          'Motivation',
-          'Apple TV',
-          'Other TV platforms',
-          'Future work'
+          'Former physicist at UC Berkeley',
+          'Been to the South Pole',
+          'Plays music on the side',
+          'Likes TV (Apple TV in particular)'
         ]}
       />
+    )
+  },
+  {
+    key: 'About2',
+    title: '',
+    body: (
+      <View style={{ flexDirection: 'row' }}>
+        <Image
+          style={{ width: 612, height: 612 }}
+          source={{ uri: 'doug-pole' }}
+        />
+        <Image
+          style={{ width: 612, height: 612 }}
+          source={{ uri: 'doug-working-cold' }}
+        />
+      </View>
+    )
+  },
+  {
+    key: 'About3',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 573, height: 859 }}
+        source={{ uri: 'doug-fiddle' }}
+      />
+    )
+  },
+  {
+    key: 'About4',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 1024, height: 768 }}
+        source={{ uri: 'doug-sleeping' }}
+      />
+    )
+  },
+  {
+    key: 'About5',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 1024, height: 768 }}
+        source={{ uri: 'doug-thinking-react' }}
+      />
+    )
+  },
+  {
+    key: 'Philosophy',
+    title: '',
+    body: (
+      <Image style={{ width: 800, height: 800 }} source={{ uri: 'despair' }} />
     )
   },
   {
@@ -136,6 +198,7 @@ const pages = [
     title: 'tvOS is not iOS',
     body: (
       <BulletedList
+        firstLineStyle={{ color: 'red' }}
         lines={[
           'No browser or web views!!!!!',
           'No sliders, no switches, no status bar',
