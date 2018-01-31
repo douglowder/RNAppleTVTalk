@@ -6,6 +6,7 @@
 		"bundle_ios_dev": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.ios.js --platform ios --dev true --bundle-output RNAppleTVTalk.ios.jsbundle",
 		"bundle_ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.ios.js --platform ios --dev false --bundle-output RNAppleTVTalk.ios.jsbundle",
     "start": "node node_modules/react-native/local-cli/cli.js start",
+	"postinstall": "bash hmrclient.sh",
     "test": "jest",
     "flow": "flow",
     "jest": "jest"
@@ -16,7 +17,7 @@
     "flow-bin": "0.42.0",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
-    "react-native": "https://github.com/dlowder-salesforce/react-native#tvos-cli-link-fix-2",
+    "react-native": "https://github.com/dlowder-salesforce/react-native#tvos-eventemitter-fix",
     "react-native-media-kit": "https://github.com/dlowder-salesforce/react-native-media-kit#master",
     "react-native-sound": "https://github.com/dlowder-salesforce/react-native-sound#master",
     "react-native-svg": "https://github.com/dlowder-salesforce/react-native-svg#master",
