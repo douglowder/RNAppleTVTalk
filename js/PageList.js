@@ -236,6 +236,7 @@ const pages = [
           ]}
         />
         <UrlSlideText text="https://facebook.github.io/react-native/docs/building-for-apple-tv.html" />
+        <UrlSlideText text="https://dlowder-salesforce.github.io/react-native-apple-tv/" />
       </View>
     )
   },
@@ -245,7 +246,9 @@ const pages = [
     body: (
       <View>
         <BulletedList
+          firstLineStyle={{ color: 'blue' }}
           lines={[
+            'Uses Touchable components: iOS/Android code works without changes! :)',
             'Native: RCTTVView fires notification',
             'Native: RCTTVNavigationEventEmitter fires JS event',
             'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method'
@@ -328,7 +331,7 @@ const pages = [
           <BulletedList
             lines={[
               'Open AwesomeTVApp.xcodeproj',
-              'Change to AwesomeTVApp-tvOS scheme',
+              'Change to tvOS scheme',
               'Build and run'
             ]}
           />
