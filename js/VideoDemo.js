@@ -226,7 +226,7 @@ class VideoPlayer extends Component {
           ref={ref => {
             this.player = ref;
           }}
-          source={{ uri: 'bach-handel-corelli', type: 'mp4' }}
+          source={{ uri: this.props.uri, type: 'mp4' }}
           style={styles.normal}
           rate={this.state.rate}
           paused={this.state.paused}
@@ -237,9 +237,7 @@ class VideoPlayer extends Component {
           onLoad={this.onLoad}
           onBuffer={this.onBuffer}
           onProgress={this.onProgress}
-          onEnd={() => {
-            AlertIOS.alert('Done!');
-          }}
+          onEnd={() => {}}
           repeat={true}
         />
 
@@ -307,7 +305,7 @@ class VideoPlayer extends Component {
             ref={ref => {
               this.player = ref;
             }}
-            source={{ uri: 'bach-handel-corelli', type: 'mp4' }}
+            source={{ uri: this.props.uri, type: 'mp4' }}
             style={videoStyle}
             rate={this.state.rate}
             paused={this.state.paused}

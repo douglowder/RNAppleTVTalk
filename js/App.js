@@ -55,6 +55,8 @@ import CustomEventDemo from './CustomEventDemo';
 
 import TextInputDemo from './TextInputDemo';
 
+import { UrlSlideText } from './StyledComponents';
+
 const styles = require('./styles').default;
 
 class App extends Component {
@@ -91,7 +93,7 @@ class App extends Component {
           <SlideShow />
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="Text input demo"
+          title="Text input"
           selected={this.state && this.state.selectedTab === 'textInputDemo'}
           onPress={() => this.updateTab('textInputDemo')}
         >
@@ -100,14 +102,14 @@ class App extends Component {
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="ListView demo"
+          title="List view"
           selected={this.state && this.state.selectedTab === 'listViewDemo'}
           onPress={() => this.updateTab('listViewDemo')}
         >
           <ListViewDemo />
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="TV remote demo"
+          title="TV remote"
           selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
           onPress={() => this.updateTab('tvRemoteDemo')}
         >
@@ -131,16 +133,26 @@ class App extends Component {
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="Video demo"
+          title="Video"
           selected={this.state && this.state.selectedTab === 'videoDemo'}
           onPress={() => this.updateTab('videoDemo')}
         >
           <Slide title="react-native-video demo app">
-            <VideoDemo />
+            <VideoDemo uri="bach-handel-corelli" />
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="Data viz demo"
+          title="Android"
+          selected={this.state && this.state.selectedTab === 'Android'}
+          onPress={() => this.updateTab('Android')}
+        >
+          <Slide title="Android TV">
+            <UrlSlideText text="https://github.com/facebook/react-native/pull/16500" />
+            <VideoDemo uri="android-tv" />
+          </Slide>
+        </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="Data viz"
           selected={this.state && this.state.selectedTab === 'dataVizDemo'}
           onPress={() => this.updateTab('dataVizDemo')}
         >
