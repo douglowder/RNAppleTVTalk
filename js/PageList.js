@@ -61,10 +61,11 @@ const pages = [
           <SmallSlideText text="Principal Software Engineer, Salesforce" />
           <SmallSlideText text="dlowder@salesforce.com" />
           <SmallSlideText text="Twitter: @douglowder" />
+          <UrlSlideText text="https://github.com/dlowder-salesforce/RNAppleTVTalk" />
         </View>
         <View>
           <Image
-            style={{ width: 800, height: 450 }}
+            style={{ width: 700, height: 400 }}
             source={{ uri: 'appletv2' }}
           />
         </View>
