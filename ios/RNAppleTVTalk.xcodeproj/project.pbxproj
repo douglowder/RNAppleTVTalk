@@ -42,6 +42,7 @@
 		2DA94AD81F5885FC0028A08E /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA94AD51F5883F50028A08E /* libRNSVG-tvOS.a */; };
 		2DC639F52036425400694CC6 /* android-tv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2DC639C62036195400694CC6 /* android-tv.mp4 */; };
 		2DC639F62036425800694CC6 /* android-tv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2DC639C62036195400694CC6 /* android-tv.mp4 */; };
+		2DC639F72036551C00694CC6 /* RNAppleTVTalk.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D0F47F1201D4B22000E11CB /* RNAppleTVTalk.ios.jsbundle */; };
 		2DCCC1CC1FDF52AD007C5315 /* libRNSound-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCCC1C81FDF526E007C5315 /* libRNSound-tvOS.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* RNAppleTVTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNAppleTVTalkTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -1244,6 +1245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC639F72036551C00694CC6 /* RNAppleTVTalk.ios.jsbundle in Resources */,
 				2D3461A41F103984009FDDF5 /* bach-handel-corelli.mp4 in Resources */,
 				2DC639F52036425400694CC6 /* android-tv.mp4 in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
