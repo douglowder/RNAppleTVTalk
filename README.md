@@ -1,8 +1,11 @@
 # React Native on the Apple TV Platform
 
-This demo Apple TV app includes the talk I'm giving at the [Chain React](https://infinite.red/ChainReactConf) conference in July 2017.
+This demo Apple TV app includes the talk I've given at
 
-Includes the slides for my talk, a list view demo, and an Apple TV custom event handling demo.
+- [Chain React](https://infinite.red/ChainReactConf) conference in July 2017
+- [ReactJS Meetup SF](https://www.meetup.com/ReactJS-San-Francisco/events/241027768/) in February 2018
+
+Includes the slides for my talk, and various demos of React Native Apple TV features.
 
 ## Building
 
