@@ -198,7 +198,8 @@ class VictoryDemo extends Component {
 
             <VictoryPie
               colorScale="qualitative"
-              width={500}
+              width={400}
+              height={400}
               innerRadius={50}
               labelRadius={120}
               style={{ labels: { fontSize: 30 } }}
