@@ -22,7 +22,7 @@
     "react-native-sound": "https://github.com/dlowder-salesforce/react-native-sound#master",
     "react-native-svg": "7.2.1",
     "react-native-video": "^2.0.0",
-    "victory-native": "https://github.com/FormidableLabs/victory-native#master"
+    "victory-native": "32.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

@@ -45,7 +45,7 @@ import Game2048 from './Game2048';
 
 import VideoDemo from './VideoDemo';
 
-// import VictoryDemo from './VictoryDemo';
+import VictoryDemo from './VictoryDemo';
 
 import ListViewDemo from './ListViewDemo';
 
@@ -157,10 +157,7 @@ class App extends Component {
           onPress={() => this.updateTab('dataVizDemo')}
         >
           <Slide title="victory-native demo app">
-            { /* <VictoryDemo /> */ }
-            <Text>
-              Work in progress
-            </Text>
+            <VictoryDemo />
           </Slide>
         </TabBarIOS.Item>
       </TabBarIOS>
