@@ -21,7 +21,7 @@
     "react-native": "https://github.com/react-native-community/react-native-tvos#tvos-v0.58.6-focusguide",
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
-    "react-native-video": "^2.0.0",
+    "react-native-video": "3.2.1",
     "victory-native": "32.0.2"
   },
   "devDependencies": {
