@@ -53,7 +53,7 @@ const styles = require('./styles').default;
 const pages = [
   {
     key: 'titlePage',
-    title: 'React Native\non the Apple TV Platform',
+    title: 'React Native\non the Big Screen',
     body: (
       <View style={{ flexDirection: 'row' }}>
         <View style={{ margin: 20 }}>
@@ -61,14 +61,91 @@ const pages = [
           <SmallSlideText text="Principal Software Engineer, Salesforce" />
           <SmallSlideText text="dlowder@salesforce.com" />
           <SmallSlideText text="Twitter: @douglowder" />
+          <UrlSlideText text="https://github.com/dlowder-salesforce/RNAppleTVTalk" />
         </View>
         <View>
           <Image
-            style={{ width: 800, height: 450 }}
+            style={{ width: 700, height: 400 }}
             source={{ uri: 'appletv2' }}
           />
         </View>
       </View>
+    )
+  },
+  {
+    key: 'Overview',
+    title: 'Overview',
+    body: (
+      <BulletedList
+        lines={['Motivation', 'Apple TV', 'Other TV platforms', 'Future work']}
+      />
+    )
+  },
+  {
+    key: 'About1',
+    title: 'About the author',
+    body: (
+      <BulletedList
+        lines={[
+          'Former physicist at UC Berkeley',
+          'Been to the South Pole',
+          'Plays music on the side',
+          'Likes TV (Apple TV in particular)'
+        ]}
+      />
+    )
+  },
+  {
+    key: 'About2',
+    title: '',
+    body: (
+      <View style={{ flexDirection: 'row' }}>
+        <Image
+          style={{ width: 612, height: 612 }}
+          source={{ uri: 'doug-pole' }}
+        />
+        <Image
+          style={{ width: 612, height: 612 }}
+          source={{ uri: 'doug-working-cold' }}
+        />
+      </View>
+    )
+  },
+  {
+    key: 'About3',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 573, height: 859 }}
+        source={{ uri: 'doug-fiddle' }}
+      />
+    )
+  },
+  {
+    key: 'About4',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 1024, height: 768 }}
+        source={{ uri: 'doug-sleeping' }}
+      />
+    )
+  },
+  {
+    key: 'About5',
+    title: '',
+    body: (
+      <Image
+        style={{ width: 1024, height: 768 }}
+        source={{ uri: 'doug-thinking-react' }}
+      />
+    )
+  },
+  {
+    key: 'Philosophy',
+    title: '',
+    body: (
+      <Image style={{ width: 800, height: 800 }} source={{ uri: 'despair' }} />
     )
   },
   {
@@ -79,7 +156,7 @@ const pages = [
         <View style={{ width: 600 }}>
           <SmallSlideText text="React Native is supported by the Salesforce Mobile SDK" />
           <UrlSlideText text="https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm" />
-          <SmallSlideText text="&quot;Dreamhouse&quot; demo app on React Native shown at Dreamforce last year" />
+          <SmallSlideText text="&quot;Dreamhouse&quot; demo app on React Native shown at Dreamforce" />
           <UrlSlideText text="https://github.com/ForceDotComLabs/dreamhouse-mobile-react" />
         </View>
         <Image
@@ -108,11 +185,12 @@ const pages = [
     title: 'tvOS much like iOS',
     body: (
       <BulletedList
+        firstLineStyle={{ color: '#00a1e0' }}
         lines={[
+          '90% of tvOS RN native code is common with iOS',
           'Xcode, Objective C, Swift',
           'tvOS has most iOS Foundation APIs ',
-          'tvOS has most iOS UIKit APIs',
-          '90% of tvOS RN native code is common with iOS'
+          'tvOS has most iOS UIKit APIs'
         ]}
       />
     )
@@ -122,8 +200,9 @@ const pages = [
     title: 'tvOS is not iOS',
     body: (
       <BulletedList
+        firstLineStyle={{ color: 'red' }}
         lines={[
-          'No browser or web views',
+          'No browser or web views!!!!!',
           'No sliders, no switches, no status bar',
           'Cannot persist data in documents directory'
         ]}
@@ -135,7 +214,7 @@ const pages = [
     title: 'tvOS is not iOS',
     body: (
       <View>
-        <SlideText text="No touchscreen!" />
+        <SlideText extraStyle={{ color: 'red' }} text="No touchscreen!" />
         <SlideText text="Completely different UI input:" />
         <SlideText text="Apple TV focus engine" />
         <Image
@@ -155,10 +234,13 @@ const pages = [
             'Begun mid-2016',
             'Merged to facebook/react-native master',
             'Works in releases 0.43 and later',
-            'Compilation is tested in Travis CI'
+            'Compilation is tested in CI',
+            'Support for popular third party frameworks',
+            'Support for dev menu'
           ]}
         />
         <UrlSlideText text="https://facebook.github.io/react-native/docs/building-for-apple-tv.html" />
+        <UrlSlideText text="https://dlowder-salesforce.github.io/react-native-apple-tv/" />
       </View>
     )
   },
@@ -168,7 +250,9 @@ const pages = [
     body: (
       <View>
         <BulletedList
+          firstLineStyle={{ color: '#00a1e0' }}
           lines={[
+            'Uses Touchable components: Most RN JS code works without changes! :)',
             'Native: RCTTVView fires notification',
             'Native: RCTTVNavigationEventEmitter fires JS event',
             'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method'
@@ -248,19 +332,52 @@ const pages = [
       <View>
         <SlideText text="react-native init AwesomeTVApp" />
         <View style={{ flexDirection: 'row' }}>
-          <BulletedList
-            lines={[
-              'Open AwesomeTVApp.xcodeproj',
-              'Change to AwesomeTVApp-tvOS scheme',
-              'Build and run'
-            ]}
-          />
+          <View style={{ width: 900 }}>
+            <BulletedList
+              lines={[
+                'Open AwesomeTVApp.xcodeproj',
+                'Change to tvOS scheme',
+                'Build and run'
+              ]}
+            />
+          </View>
           <Image
             style={{ width: 499, height: 305 }}
             source={{ uri: 'awesometvapp' }}
           />
         </View>
       </View>
+    )
+  },
+  {
+    key: 'AndroidTV',
+    title: 'Android TV is coming!',
+    body: (
+      <View>
+        <UrlSlideText text="https://github.com/facebook/react-native/pull/16500" />
+        <BulletedList
+          lines={[
+            'Navigation with left, right, top, bottom arrows from the remote (or D-PAD)',
+            'Touchable components receive onPressIn and onPressOut events',
+            'TVEventHandler support for D-PAD, play/pause, rewind, fast forward',
+            'Android back button support',
+            'Dev menu support'
+          ]}
+        />
+      </View>
+    )
+  },
+  {
+    key: 'Future',
+    title: 'Future possibilities',
+    body: (
+      <BulletedList
+        lines={[
+          'react-native run tvos',
+          'Support for focus guide',
+          'Expo support'
+        ]}
+      />
     )
   },
   {
@@ -271,7 +388,7 @@ const pages = [
         lines={[
           'Salesforce',
           'Facebook React Native team, esp. Pieter (@javache)',
-          'Chain React organizers'
+          'React JS meetup organizers'
         ]}
       />
     )

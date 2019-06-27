@@ -37,7 +37,12 @@ import {
   createContainer
 } from 'victory-native';
 
-import { Title, BulletedList, SlideText } from './StyledComponents';
+import {
+  Title,
+  BulletedList,
+  SlideText,
+  UrlSlideText
+} from './StyledComponents';
 
 const styles = StyleSheet.create({
   container: {
@@ -155,6 +160,7 @@ class VictoryDemo extends Component {
           style={{ width: 400, height: 88 }}
           source={{ uri: 'formidable' }}
         />
+        <UrlSlideText text="https://formidable.com/open-source/victory/docs/native/" />
         <View style={{ flexDirection: 'row' }}>
           <View style={{ alignItems: 'center' }}>
             <SlideText text="&lt;VictoryBar/&gt;" />
@@ -192,7 +198,8 @@ class VictoryDemo extends Component {
 
             <VictoryPie
               colorScale="qualitative"
-              width={500}
+              width={400}
+              height={400}
               innerRadius={50}
               labelRadius={120}
               style={{ labels: { fontSize: 30 } }}

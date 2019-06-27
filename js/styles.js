@@ -78,14 +78,14 @@ export default (styles = StyleSheet.create({
     right: 0
   },
   textInput: {
-    borderWidth: 0.5,
+    borderWidth: 0,
     backgroundColor: '#dddddd',
     borderColor: '#0f0f0f',
     flex: 1,
     margin: 20,
-    fontSize: 40,
+    fontSize: 35,
     padding: 4,
-    maxHeight: 60,
+    maxHeight: 70,
     width: '100%'
   }
 }));
