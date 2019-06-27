@@ -7,13 +7,17 @@ This demo Apple TV app includes the talk I've given at
 
 Includes the slides for my talk, and various demos of React Native Apple TV features.
 
+Now updated to use the [new Apple TV React Native NPM package `react-native-tvos`](https://www.npmjs.com/package/react-native-tvos)
+
 ## Building
 
 - Clone this repo
 - Change to the top level directory
 - Execute `yarn` or `npm install`
-- Open `ios/RNAppleTVTalk.xcodeproj` in Xcode
-- Change to the `RNAppleTVTalk-tvOS` build
+- Start the packager in a separate window with `yarn start`
+- Change to the `ios` directory
+- `pod install`
+- Open `RNAppleTVTalk.xcworkspace` in Xcode
 - Build and run
 
 ## Running
