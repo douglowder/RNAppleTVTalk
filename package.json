@@ -14,11 +14,11 @@
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-native": "^4.0.1",
-    "flow-bin": "0.86.0",
+    "flow-bin": "0.92.0",
     "lodash": "^4.17.5",
-    "prop-types": "^15.5.7",
-    "react": "^16.6.3",
-    "react-native": "npm:react-native-tvos@0.58.6-rc.0",
+    "prop-types": "^15.5.8",
+    "react": "^16.8.3",
+    "react-native": "npm:react-native-tvos@0.59.8-0",
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
     "react-native-video": "3.2.1",
@@ -37,7 +37,7 @@
     "react-native-experimental-navigation": "0.26.x",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "^1.0.1",
-    "react-test-renderer": "16.6.3"
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native",
