@@ -33,30 +33,15 @@ import Slide from './Slide';
 
 import Icon from './Icon';
 
-import ListViewGridLayoutExample from './ListViewGridLayoutExample';
+import FlatListExample from './FlatListExample';
 
 const styles = require('./styles').default;
 
 class ListViewDemo extends Component {
   render() {
     return (
-      <Slide title="Grid layout with list views">
-        <View style={{ flexDirection: 'row' }}>
-          <View style={styles.listViewDemoContainer}>
-            <Icon name="error" color="red" width={40} height={40} />
-            <Text style={styles.listViewDemoText}>
-              removeClippedSubviews=&#123;true&#125;
-            </Text>
-            <ListViewGridLayoutExample removeClippedSubviews={true} />
-          </View>
-          <View style={styles.listViewDemoContainer}>
-            <Icon name="check" color="green" width={40} height={40} />
-            <Text style={styles.listViewDemoText}>
-              removeClippedSubviews=&#123;false&#125;
-            </Text>
-            <ListViewGridLayoutExample removeClippedSubviews={false} />
-          </View>
-        </View>
+      <Slide title="FlatList example">
+        <FlatListExample />
       </Slide>
     );
   }
