@@ -33,6 +33,7 @@ import {
   Text,
   Image,
   TextInput,
+  TVMenuControl,
   TouchableOpacity,
   View
 } from 'react-native';
@@ -59,21 +60,39 @@ import { UrlSlideText } from './StyledComponents';
 
 const styles = require('./styles').default;
 
-class App extends Component {
-  state: {
-    selectedTab: string
-  };
-
-  componentDidMount() {
-    this.setState({
-      selectedTab: 'slideShow'
-    });
+class App extends Component<
+  {},
+  {
+    selectedTab: string,
+    menuButtonEnabled: boolean
+  }
+> {
+  constructor(props: Object) {
+    super(props);
+    this.state = {
+      selectedTab: 'tvRemoteDemo',
+      menuButtonEnabled: false
+    };
   }
 
   updateTab(newTab: string) {
     if (this.state.selectedTab !== newTab) {
       this.setState({
         selectedTab: newTab
+      });
+    }
+  }
+
+  toggleMenuButton() {
+    if (this.state.menuButtonEnabled) {
+      TVMenuControl.disableTVMenuKey();
+      this.setState({
+        menuButtonEnabled: false
+      });
+    } else {
+      TVMenuControl.enableTVMenuKey();
+      this.setState({
+        menuButtonEnabled: true
       });
     }
   }
@@ -113,12 +132,12 @@ class App extends Component {
           selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
           onPress={() => this.updateTab('tvRemoteDemo')}
         >
-          <Slide title="Siri remote custom events">
+          <Slide title="Siri remote events">
             <View>
               <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                 <View style={styles.listViewDemoContainer}>
                   <TouchableOpacity>
-                    <Text style={styles.body}>Custom event demo</Text>
+                    <Text style={styles.body}>TVEventHandler</Text>
                   </TouchableOpacity>
                   <CustomEventDemo />
                 </View>
@@ -127,6 +146,21 @@ class App extends Component {
                     <Text style={styles.body}>2048 game</Text>
                   </TouchableOpacity>
                   <Game2048 />
+                </View>
+                <View style={styles.listViewDemoContainer}>
+                  <TouchableOpacity>
+                    <Text style={styles.body}>TVMenuControl</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{ flex: 1, justifyContent: 'center' }}
+                    onPress={() => this.toggleMenuButton()}
+                  >
+                    <Text style={styles.body}>
+                      {this.state.menuButtonEnabled
+                        ? 'Disable menu'
+                        : 'Enable menu'}
+                    </Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
