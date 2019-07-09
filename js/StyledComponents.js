@@ -31,13 +31,18 @@ import { Text, View } from 'react-native';
 
 const styles = require('./styles').default;
 
-class Title extends Component {
+class Title extends Component<{
+  text: string
+}> {
   render() {
     return <Text style={styles.title}>{this.props.text}</Text>;
   }
 }
 
-class SlideText extends Component {
+class SlideText extends Component<{
+  text: string,
+  extraStyle?: Object
+}> {
   render() {
     let style = this.props.extraStyle
       ? [styles.body, this.props.extraStyle]
@@ -46,19 +51,26 @@ class SlideText extends Component {
   }
 }
 
-class SmallSlideText extends Component {
+class SmallSlideText extends Component<{
+  text: string
+}> {
   render() {
     return <Text style={styles.bodySmall}>{this.props.text}</Text>;
   }
 }
 
-class UrlSlideText extends Component {
+class UrlSlideText extends Component<{
+  text: string
+}> {
   render() {
     return <Text style={styles.bodyUrl}>{this.props.text}</Text>;
   }
 }
 
-class BulletedList extends Component {
+class BulletedList extends Component<{
+  lines: string[],
+  firstLineStyle?: Object
+}> {
   _renderLine(text: string, i: number) {
     let bulletStyle =
       i == 0 && this.props.firstLineStyle
@@ -77,7 +89,7 @@ class BulletedList extends Component {
   render() {
     return (
       <View style={styles.bulletedListContainer}>
-        {this.props.lines.map(this._renderLine.bind(this))}
+        {this.props.lines.map((l, i) => this._renderLine(l, i))}
       </View>
     );
   }

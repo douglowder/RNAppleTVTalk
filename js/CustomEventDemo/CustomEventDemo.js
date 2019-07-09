@@ -39,11 +39,12 @@ import Game2048 from './Game2048';
 
 const styles = require('../styles').default;
 
-class CustomEventDemo extends Component {
-  state: {
+class CustomEventDemo extends Component<
+  {},
+  {
     eventFired: string
-  };
-
+  }
+> {
   _tvEventHandler: any;
 
   componentDidMount() {

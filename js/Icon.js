@@ -52,7 +52,13 @@ const paths = {
 
 const viewBox = '0 0 24 24';
 
-export default class Icon extends Component {
+export default class Icon extends Component<{
+  name: string,
+  height?: number,
+  width?: number,
+  color?: string,
+  style?: Object
+}> {
   render() {
     const path = paths[this.props.name];
     return (
@@ -60,9 +66,9 @@ export default class Icon extends Component {
         height={this.props.height ? this.props.height : 20}
         width={this.props.width ? this.props.width : 20}
         viewBox={viewBox}
-        style={this.props.style}
+        style={this.props.style || {}}
       >
-        <Path d={path} fill={this.props.color} />
+        <Path d={path} fill={this.props.color || '#000000'} />
       </Svg>
     );
   }

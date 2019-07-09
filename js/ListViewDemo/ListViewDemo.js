@@ -37,7 +37,7 @@ import FlatListExample from './FlatListExample';
 
 const styles = require('../styles').default;
 
-class ListViewDemo extends Component {
+class ListViewDemo extends Component<{}> {
   render() {
     return (
       <Slide title="FlatList example">

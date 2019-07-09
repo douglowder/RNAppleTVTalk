@@ -5,8 +5,6 @@
  * Game2048 example from https://github.com/facebook/react-native,
  * modified for Apple TV.
  *
- * @flow
- * @providesModule GameBoard
  */
 'use strict';
 

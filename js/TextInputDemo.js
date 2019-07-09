@@ -31,7 +31,7 @@ import { Text, TextInput, View } from 'react-native';
 
 const styles = require('./styles').default;
 
-class TextInputDemo extends Component {
+class TextInputDemo extends Component<{}> {
   render() {
     return (
       <View style={styles.contentContainer}>
@@ -44,7 +44,6 @@ class TextInputDemo extends Component {
           defaultValue="Green"
         />
         <TextInput
-          width={500}
           style={styles.textInput}
           autoCorrect={true}
           defaultValue="Auto correct"

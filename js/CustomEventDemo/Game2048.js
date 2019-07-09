@@ -5,7 +5,6 @@
  * Game2048 example from https://github.com/facebook/react-native,
  * modified for Apple TV.
  *
- * @flow
  */
 'use strict';
 
@@ -17,7 +16,7 @@ var TVEventHandler = require('TVEventHandler');
 var { AppRegistry, SnapshotViewIOS, StyleSheet, Text, View } = ReactNative;
 
 var Animated = require('Animated');
-var GameBoard = require('./GameBoard');
+var GameBoard = require('GameBoard');
 var TouchableBounce = require('TouchableBounce');
 
 var SCALE = Platform.isTVOS ? 1.5 : 1;

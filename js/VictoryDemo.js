@@ -82,8 +82,9 @@ const candleData = [
 
 const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi');
 
-class VictoryDemo extends Component {
-  state: {
+class VictoryDemo extends Component<
+  {},
+  {
     scrollEnabled: boolean,
     y: Function,
     style: Object,
@@ -91,7 +92,8 @@ class VictoryDemo extends Component {
     randomData: Object,
     staticRandomData: Object,
     data: Object
-  };
+  }
+> {
   constructor(props: Object) {
     super(props);
     this.state = {

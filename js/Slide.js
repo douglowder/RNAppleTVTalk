@@ -45,12 +45,17 @@ const blue = '#00a1e0';
 const gray = '#7c868d';
 const lightgray = '#dddddd';
 
-class Slide extends Component {
+class Slide extends Component<{
+  leftAction?: Function,
+  rightAction?: Function,
+  title: string,
+  children?: ?any
+}> {
   renderLeft() {
     if (this.props.leftAction) {
       return (
         <TouchableHighlight
-          onPress={() => this.props.leftAction()}
+          onPress={() => this.props.leftAction && this.props.leftAction()}
           style={styles.prevButtonContainer}
           activeOpacity={0.6}
           underlayColor={lightgray}
@@ -69,7 +74,7 @@ class Slide extends Component {
     if (this.props.rightAction) {
       return (
         <TouchableHighlight
-          onPress={() => this.props.rightAction()}
+          onPress={() => this.props.rightAction && this.props.rightAction()}
           style={styles.nextButtonContainer}
           activeOpacity={0.6}
           underlayColor={lightgray}

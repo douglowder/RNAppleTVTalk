@@ -42,11 +42,12 @@ import Slide from './Slide';
 
 const pages = require('./PageList');
 
-class SlideShow extends Component {
-  state: {
+class SlideShow extends Component<
+  {},
+  {
     i: number
-  };
-
+  }
+> {
   constructor(props: Object) {
     super(props);
     this.state = {

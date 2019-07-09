@@ -34,7 +34,6 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "jest": "24.0.0-alpha.6",
     "lodash.isequal": "^4.5.0",
-    "react-native-experimental-navigation": "0.26.x",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "^1.0.1",
     "react-test-renderer": "16.8.3"

@@ -31,7 +31,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 const styles = require('./styles').default;
 
-const parallaxExamples = [
+const parallaxExamples: Object[] = [
   {
     name: 'default',
     value: {
@@ -70,37 +70,30 @@ const parallaxExamples = [
   }
 ];
 
-class ParallaxExamples extends Component {
+class ParallaxExamples extends Component<{}> {
   pressAction() {
     // Need a press action for highlight to show on touchables
-  }
-
-  renderParallaxExamples() {
-    return parallaxExamples.map(function(props, i) {
-      return (
-        <TouchableOpacity
-          key={i}
-          activeOpacity={0.5}
-          underlayColor="#dddddd"
-          onPress={this.pressAction}
-          tvParallaxProperties={props.value}
-        >
-          <View>
-            <Image
-              style={{ width: 287, height: 201 }}
-              source={{ uri: 'react-logo' }}
-            />
-            <Text style={{ width: 287, fontSize: 40 }}>{props.name}</Text>
-          </View>
-        </TouchableOpacity>
-      );
-    });
   }
 
   render() {
     return (
       <View style={{ flexDirection: 'row' }}>
-        {this.renderParallaxExamples()}
+        {parallaxExamples.map((p, i) => (
+          <TouchableOpacity
+            key={i}
+            activeOpacity={0.5}
+            onPress={this.pressAction}
+            tvParallaxProperties={p.value}
+          >
+            <View>
+              <Image
+                style={{ width: 287, height: 201 }}
+                source={{ uri: 'react-logo' }}
+              />
+              <Text style={{ width: 287, fontSize: 40 }}>{p.name}</Text>
+            </View>
+          </TouchableOpacity>
+        ))}
       </View>
     );
   }
