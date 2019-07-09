@@ -54,99 +54,81 @@ import CustomEventDemo from './CustomEventDemo';
 
 import TextInputDemo from './TextInputDemo';
 
+import TVTabBar from './TVTabBar';
+
 import { UrlSlideText } from './StyledComponents';
 
 const styles = require('./styles').default;
 
-class App extends Component<
-  {},
+const tabs = [
   {
-    selectedTab: string
+    key: 'slideShow',
+    name: 'Presentation',
+    value: <SlideShow />
+  },
+  {
+    key: 'textInputDemo',
+    name: 'Text input',
+    value: (
+      <Slide title="Text input example">
+        <TextInputDemo />
+      </Slide>
+    )
+  },
+  {
+    key: 'listViewDemo',
+    name: 'List view',
+    value: <ListViewDemo />
+  },
+  {
+    key: 'tvRemoteDemo',
+    name: 'TV remote',
+    value: (
+      <Slide title="Siri remote events">
+        <CustomEventDemo />
+      </Slide>
+    )
+  },
+  {
+    key: 'videoDemo',
+    name: 'Video',
+    value: (
+      <Slide title="react-native-video demo app">
+        <VideoDemo uri="bach-handel-corelli" />
+      </Slide>
+    )
+  },
+  {
+    key: 'androidDemo',
+    name: 'Android',
+    value: (
+      <Slide title="Android TV">
+        <UrlSlideText text="https://github.com/facebook/react-native/pull/16500" />
+        <VideoDemo uri="android-tv" />
+      </Slide>
+    )
+  },
+  {
+    key: 'dataVizDemo',
+    name: 'Data viz',
+    value: (
+      <Slide title="victory-native demo app">
+        <VictoryDemo />
+      </Slide>
+    )
   }
-> {
-  constructor(props: Object) {
-    super(props);
-    this.state = {
-      selectedTab: 'slideShow'
-    };
-  }
+];
 
-  updateTab(newTab: string) {
-    if (this.state.selectedTab !== newTab) {
-      this.setState({
-        selectedTab: newTab
-      });
-    }
-  }
-
+class App extends Component<{}> {
   render() {
     return (
-      <TabBarIOS
-        unselectedTintColor="white"
-        tintColor="red"
-        barTintColor="#00a1e0"
-      >
-        <TabBarIOS.Item
-          title="Presentation"
-          selected={this.state && this.state.selectedTab === 'slideShow'}
-          onPress={() => this.updateTab('slideShow')}
-        >
-          <SlideShow />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Text input"
-          selected={this.state && this.state.selectedTab === 'textInputDemo'}
-          onPress={() => this.updateTab('textInputDemo')}
-        >
-          <Slide title="Text input example">
-            <TextInputDemo />
-          </Slide>
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="List view"
-          selected={this.state && this.state.selectedTab === 'listViewDemo'}
-          onPress={() => this.updateTab('listViewDemo')}
-        >
-          <ListViewDemo />
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="TV remote"
-          selected={this.state && this.state.selectedTab === 'tvRemoteDemo'}
-          onPress={() => this.updateTab('tvRemoteDemo')}
-        >
-          <Slide title="Siri remote events">
-            <CustomEventDemo />
-          </Slide>
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Video"
-          selected={this.state && this.state.selectedTab === 'videoDemo'}
-          onPress={() => this.updateTab('videoDemo')}
-        >
-          <Slide title="react-native-video demo app">
-            <VideoDemo uri="bach-handel-corelli" />
-          </Slide>
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Android"
-          selected={this.state && this.state.selectedTab === 'Android'}
-          onPress={() => this.updateTab('Android')}
-        >
-          <Slide title="Android TV">
-            <UrlSlideText text="https://github.com/facebook/react-native/pull/16500" />
-            <VideoDemo uri="android-tv" />
-          </Slide>
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-          title="Data viz"
-          selected={this.state && this.state.selectedTab === 'dataVizDemo'}
-          onPress={() => this.updateTab('dataVizDemo')}
-        >
-          <Slide title="victory-native demo app">
-            <VictoryDemo />
-          </Slide>
-        </TabBarIOS.Item>
-      </TabBarIOS>
+      <TVTabBar
+        barColor="#00a1e0"
+        textColor="white"
+        selectedTextColor="red"
+        tabs={tabs}
+        defaultTabKey="slideShow"
+      />
     );
   }
 }
