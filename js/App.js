@@ -42,8 +42,6 @@ import SlideShow from './SlideShow';
 
 import Slide from './Slide';
 
-import Game2048 from './Game2048';
-
 import VideoDemo from './VideoDemo';
 
 import VictoryDemo from './VictoryDemo';
@@ -63,15 +61,13 @@ const styles = require('./styles').default;
 class App extends Component<
   {},
   {
-    selectedTab: string,
-    menuButtonEnabled: boolean
+    selectedTab: string
   }
 > {
   constructor(props: Object) {
     super(props);
     this.state = {
-      selectedTab: 'slideShow',
-      menuButtonEnabled: false
+      selectedTab: 'slideShow'
     };
   }
 
@@ -79,20 +75,6 @@ class App extends Component<
     if (this.state.selectedTab !== newTab) {
       this.setState({
         selectedTab: newTab
-      });
-    }
-  }
-
-  toggleMenuButton() {
-    if (this.state.menuButtonEnabled) {
-      TVMenuControl.disableTVMenuKey();
-      this.setState({
-        menuButtonEnabled: false
-      });
-    } else {
-      TVMenuControl.enableTVMenuKey();
-      this.setState({
-        menuButtonEnabled: true
       });
     }
   }

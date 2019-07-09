@@ -29,13 +29,13 @@ import React, { Component } from 'react';
 
 import { Text, View, TouchableOpacity } from 'react-native';
 
-import Slide from './Slide';
+import Slide from '../Slide';
 
-import Icon from './Icon';
+import Icon from '../Icon';
 
 import FlatListExample from './FlatListExample';
 
-const styles = require('./styles').default;
+const styles = require('../styles').default;
 
 class ListViewDemo extends Component {
   render() {
