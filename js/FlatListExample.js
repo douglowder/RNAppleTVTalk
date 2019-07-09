@@ -97,34 +97,9 @@ class FlatListExample extends React.PureComponent<Props, State> {
     const filteredData = this.state.data.filter(filter);
     return (
       <View style={styles.container}>
-        <View style={styles.searchRow}>
-          <View style={styles.options}>
-            <PlainInput
-              onChangeText={this._onChangeFilterText}
-              placeholder="Search..."
-              value={this.state.filterText}
-            />
-            <PlainInput
-              onChangeText={this._onChangeScrollToIndex}
-              placeholder="scrollToIndex..."
-            />
-          </View>
-          <View style={styles.options}>
-            {renderSmallSwitchOption(this, 'virtualized')}
-            {renderSmallSwitchOption(this, 'horizontal')}
-            {renderSmallSwitchOption(this, 'fixedHeight')}
-            {renderSmallSwitchOption(this, 'log')}
-            {renderSmallSwitchOption(this, 'inverted')}
-            {renderSmallSwitchOption(this, 'empty')}
-            {renderSmallSwitchOption(this, 'debug')}
-            <Spindicator value={this._scrollPos} />
-          </View>
-        </View>
         <SeparatorComponent />
         <Animated.FlatList
           ItemSeparatorComponent={ItemSeparatorComponent}
-          ListHeaderComponent={<HeaderComponent />}
-          ListFooterComponent={FooterComponent}
           ListEmptyComponent={ListEmptyComponent}
           data={this.state.empty ? [] : filteredData}
           debug={this.state.debug}
@@ -140,7 +115,7 @@ class FlatListExample extends React.PureComponent<Props, State> {
           }
           keyboardShouldPersistTaps="always"
           keyboardDismissMode="on-drag"
-          numColumns={1}
+          numColumns={3}
           onEndReached={this._onEndReached}
           onRefresh={this._onRefresh}
           onScroll={
@@ -212,8 +187,8 @@ class FlatListExample extends React.PureComponent<Props, State> {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgb(239, 239, 244)',
-    width: '80%',
-    flex: 1
+    width: '100%',
+    height: 500
   },
   list: {
     backgroundColor: 'white',

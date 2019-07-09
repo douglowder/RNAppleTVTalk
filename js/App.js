@@ -70,7 +70,7 @@ class App extends Component<
   constructor(props: Object) {
     super(props);
     this.state = {
-      selectedTab: 'tvRemoteDemo',
+      selectedTab: 'slideShow',
       menuButtonEnabled: false
     };
   }
