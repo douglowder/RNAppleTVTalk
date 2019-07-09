@@ -27,7 +27,15 @@
  */
 import React, { Component } from 'react';
 
-import { Text, View, TVEventHandler } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  TVEventHandler,
+  TVMenuControl
+} from 'react-native';
+
+import Game2048 from './Game2048';
 
 const styles = require('./styles').default;
 
@@ -71,10 +79,40 @@ class CustomEventDemo extends Component {
 
   render() {
     return (
-      <View style={styles.customEventDemoContainer}>
-        <Text style={styles.body}>
-          {this.state ? this.state.eventFired : ''}
-        </Text>
+      <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+        <View style={styles.listViewDemoContainer}>
+          <TouchableOpacity>
+            <Text style={styles.body}>TVEventHandler</Text>
+          </TouchableOpacity>
+          <View style={styles.listViewDemoContainer}>
+            <Text style={styles.body}>
+              {this.state ? this.state.eventFired : ''}
+            </Text>
+          </View>
+        </View>
+        <View style={styles.listViewDemoContainer}>
+          <TouchableOpacity>
+            <Text style={styles.body}>2048 game</Text>
+          </TouchableOpacity>
+          <Game2048 />
+        </View>
+        <View style={styles.listViewDemoContainer}>
+          <TouchableOpacity>
+            <Text style={styles.body}>TVMenuControl</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ flex: 1, justifyContent: 'center' }}
+            onPress={TVMenuControl.enableTVMenuKey}
+          >
+            <Text style={styles.body}>Enable menu</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ flex: 1, justifyContent: 'center' }}
+            onPress={TVMenuControl.disableTVMenuKey}
+          >
+            <Text style={styles.body}>Disable menu</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

@@ -133,37 +133,7 @@ class App extends Component<
           onPress={() => this.updateTab('tvRemoteDemo')}
         >
           <Slide title="Siri remote events">
-            <View>
-              <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-                <View style={styles.listViewDemoContainer}>
-                  <TouchableOpacity>
-                    <Text style={styles.body}>TVEventHandler</Text>
-                  </TouchableOpacity>
-                  <CustomEventDemo />
-                </View>
-                <View style={styles.listViewDemoContainer}>
-                  <TouchableOpacity>
-                    <Text style={styles.body}>2048 game</Text>
-                  </TouchableOpacity>
-                  <Game2048 />
-                </View>
-                <View style={styles.listViewDemoContainer}>
-                  <TouchableOpacity>
-                    <Text style={styles.body}>TVMenuControl</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{ flex: 1, justifyContent: 'center' }}
-                    onPress={() => this.toggleMenuButton()}
-                  >
-                    <Text style={styles.body}>
-                      {this.state.menuButtonEnabled
-                        ? 'Disable menu'
-                        : 'Enable menu'}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
+            <CustomEventDemo />
           </Slide>
         </TabBarIOS.Item>
         <TabBarIOS.Item
