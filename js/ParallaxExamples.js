@@ -27,7 +27,7 @@
  */
 import React, { Component } from 'react';
 
-import { Text, View, Image, TouchableHighlight } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 
 const styles = require('./styles').default;
 
@@ -78,11 +78,11 @@ class ParallaxExamples extends Component {
   renderParallaxExamples() {
     return parallaxExamples.map(function(props, i) {
       return (
-        <TouchableHighlight
+        <TouchableOpacity
           key={i}
-          activeOpacity={0.7}
+          activeOpacity={0.5}
           underlayColor="#dddddd"
-          onPress={() => this.pressAction()}
+          onPress={this.pressAction}
           tvParallaxProperties={props.value}
         >
           <View>
@@ -92,7 +92,7 @@ class ParallaxExamples extends Component {
             />
             <Text style={{ width: 287, fontSize: 40 }}>{props.name}</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       );
     });
   }
