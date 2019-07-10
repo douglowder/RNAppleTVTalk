@@ -71,6 +71,7 @@ const pages = [
       />
     )
   },
+/*
   {
     key: 'About1',
     title: 'About the author',
@@ -138,6 +139,7 @@ const pages = [
       <Image style={{ width: 800, height: 800 }} source={{ uri: 'despair' }} />
     )
   },
+ */
   {
     key: 'RNatSalesforce',
     title: 'React Native at Salesforce',
