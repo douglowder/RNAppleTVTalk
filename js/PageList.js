@@ -29,6 +29,8 @@ import React from 'react';
 
 import { View, Image } from 'react-native';
 
+import styles from './styles';
+
 import StyledComponents from './StyledComponents';
 
 import ParallaxExamples from './ParallaxExamples';
@@ -71,7 +73,7 @@ const pages = [
       />
     )
   },
-/*
+  /*
   {
     key: 'About1',
     title: 'About the author',
@@ -223,16 +225,15 @@ const pages = [
       <View>
         <BulletedList
           lines={[
-            'Begun mid-2016',
-            'Merged to facebook/react-native master',
-            'Works in releases 0.43 and later',
-            'Compilation is tested in CI',
+            '2016: started work',
+            '2017: merged to react-native core',
+            '2019: now supported in a separate community repo',
             'Support for popular third party frameworks',
             'Support for dev menu'
           ]}
         />
-        <UrlSlideText text="https://facebook.github.io/react-native/docs/building-for-apple-tv.html" />
-        <UrlSlideText text="https://dlowder-salesforce.github.io/react-native-apple-tv/" />
+        <UrlSlideText text="https://www.npmjs.com/package/react-native-tvos" />
+        <UrlSlideText text="https://github.com/react-native-community/react-native-tvos" />
       </View>
     )
   },
@@ -279,6 +280,32 @@ const pages = [
     )
   },
   {
+    key: 'newAPIs',
+    title: 'New features for 0.59.8-0',
+    body: (
+      <View>
+        <View style={{ flex: 1 }}>
+          <SlideText extraStyle={styles.titleSmall} text="TVMenuControl" />
+          <BulletedList
+            lines={[
+              'Enables and disables gesture handler for menu key navigation'
+            ]}
+          />
+        </View>
+        <View style={{ flex: 1 }}>
+          <SlideText extraStyle={styles.titleSmall} text="TVFocusGuideView" />
+          <BulletedList
+            lines={[
+              'Allows focus engine to find controls',
+              'Developer has better control over navigation'
+            ]}
+          />
+        </View>
+      </View>
+    )
+  },
+  /*
+  {
     key: 'customEventHandling2',
     title: 'Custom handling of TV remote events',
     body: (
@@ -291,6 +318,7 @@ const pages = [
       </View>
     )
   },
+  */
   {
     key: 'tvOSTips',
     title: 'UI Tips',
@@ -298,8 +326,7 @@ const pages = [
       <BulletedList
         lines={[
           'Large sizes for fonts and views (2x - 3x phone)',
-          'TabBarIOS for top menu navigation',
-          'List views need removeClippedSubviews=false'
+          'TabBarIOS for top menu navigation'
         ]}
       />
     )
@@ -323,6 +350,7 @@ const pages = [
     body: (
       <View>
         <SlideText text="react-native init AwesomeTVApp" />
+        <SlideText text="   --version=react-native@npm:react-native-tvos" />
         <View style={{ flexDirection: 'row' }}>
           <View style={{ width: 900 }}>
             <BulletedList
@@ -341,6 +369,7 @@ const pages = [
       </View>
     )
   },
+  /*
   {
     key: 'AndroidTV',
     title: 'Android TV is coming!',
@@ -359,18 +388,11 @@ const pages = [
       </View>
     )
   },
+ */
   {
     key: 'Future',
     title: 'Future possibilities',
-    body: (
-      <BulletedList
-        lines={[
-          'react-native run tvos',
-          'Support for focus guide',
-          'Expo support'
-        ]}
-      />
-    )
+    body: <BulletedList lines={['Detox support', 'TVUIKit support']} />
   },
   {
     key: 'thanks',
