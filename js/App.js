@@ -85,6 +85,7 @@ const tabs = [
       </Slide>
     )
   },
+/*
   {
     key: 'androidDemo',
     name: 'Android',
@@ -95,6 +96,7 @@ const tabs = [
       </Slide>
     )
   },
+ */
   {
     key: 'dataVizDemo',
     name: 'Data viz',
