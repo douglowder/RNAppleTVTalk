@@ -43,8 +43,12 @@ class SlideText extends Component<{
   text: string,
   extraStyle?: Object
 }> {
+  static defaultProps = {
+    extraStyle: {}
+  };
+
   render() {
-    let style = this.props.extraStyle
+    const style = this.props.extraStyle
       ? [styles.body, this.props.extraStyle]
       : styles.body;
     return <Text style={style}>{this.props.text}</Text>;
@@ -71,15 +75,19 @@ class BulletedList extends Component<{
   lines: string[],
   firstLineStyle?: Object
 }> {
+  static defaultProps = {
+    firstLineStyle: {}
+  };
+
   _renderLine(text: string, i: number) {
-    let bulletStyle =
-      i == 0 && this.props.firstLineStyle
+    const bulletStyle =
+      i === 0 && this.props.firstLineStyle
         ? [styles.body, this.props.firstLineStyle]
         : [styles.body];
-    var textStyle = bulletStyle.map(i => i);
+    const textStyle = bulletStyle.map(s => s);
     textStyle.push({ flex: 1, paddingLeft: 5 });
     return (
-      <View key={'' + i} style={{ flexDirection: 'row' }}>
+      <View key={`${i}`} style={{ flexDirection: 'row' }}>
         <Text style={bulletStyle}>{'\u2022'}</Text>
         <Text style={textStyle}>{text}</Text>
       </View>
@@ -95,7 +103,7 @@ class BulletedList extends Component<{
   }
 }
 
-module.exports = {
+export default {
   Title,
   BulletedList,
   SlideText,

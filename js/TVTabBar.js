@@ -47,6 +47,10 @@ export default class TVTabBar extends Component<
     selectedTabKey: string
   }
 > {
+  static defaultProps = {
+    defaultTabKey: ''
+  };
+
   constructor(props: Object) {
     super(props);
     this.state = {

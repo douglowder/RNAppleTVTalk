@@ -47,10 +47,14 @@ class CustomEventDemo extends Component<
 > {
   _tvEventHandler: any;
 
-  componentDidMount() {
-    this.setState({
+  constructor(props: Object) {
+    super(props);
+    this.state = {
       eventFired: ''
-    });
+    };
+  }
+
+  componentDidMount() {
     this._enableTVEventHandler();
   }
 
@@ -60,7 +64,7 @@ class CustomEventDemo extends Component<
 
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
+    this._tvEventHandler.enable(this, (cmp, evt) => {
       evt &&
         evt.eventType &&
         evt.eventType !== 'blur' &&

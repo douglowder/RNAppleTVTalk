@@ -6,30 +6,29 @@
  * modified for Apple TV.
  *
  */
-'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
-var Platform = require('Platform');
-var TVEventHandler = require('TVEventHandler');
+const React = require('react');
+const ReactNative = require('react-native');
+const Platform = require('Platform');
+const TVEventHandler = require('TVEventHandler');
 
-var { AppRegistry, SnapshotViewIOS, StyleSheet, Text, View } = ReactNative;
+const { StyleSheet, Text, View } = ReactNative;
 
-var Animated = require('Animated');
-var GameBoard = require('GameBoard');
-var TouchableBounce = require('TouchableBounce');
+const Animated = require('Animated');
+const TouchableBounce = require('TouchableBounce');
+const GameBoard = require('./GameBoard');
 
-var SCALE = Platform.isTVOS ? 1.5 : 1;
+const SCALE = Platform.isTVOS ? 1.5 : 1;
 
-var BOARD_PADDING = SCALE * 3;
-var CELL_MARGIN = SCALE * 4;
-var CELL_SIZE = SCALE * 60;
-var BORDER_RADIUS = SCALE * 5;
+const BOARD_PADDING = SCALE * 3;
+const CELL_MARGIN = SCALE * 4;
+const CELL_SIZE = SCALE * 60;
+const BORDER_RADIUS = SCALE * 5;
 
-var SIZE_40 = SCALE * 40;
-var SIZE_24 = SCALE * 24;
-var SIZE_20 = SCALE * 20;
-var SIZE_18 = SCALE * 18;
+const SIZE_40 = SCALE * 40;
+const SIZE_24 = SCALE * 24;
+const SIZE_20 = SCALE * 20;
+const SIZE_18 = SCALE * 18;
 
 class Cell extends React.Component {
   render() {
@@ -71,9 +70,7 @@ class Board extends React.Component {
   }
 }
 
-class Tile extends React.Component {
-  state: any;
-
+class Tile extends React.Component<{}, {}> {
   static _getPosition(index): number {
     return (
       BOARD_PADDING + (index * (CELL_SIZE + CELL_MARGIN * 2) + CELL_MARGIN)
@@ -83,7 +80,7 @@ class Tile extends React.Component {
   constructor(props: {}) {
     super(props);
 
-    var tile = this.props.tile;
+    const tile = this.props.tile;
 
     this.state = {
       opacity: new Animated.Value(0),
@@ -93,9 +90,9 @@ class Tile extends React.Component {
   }
 
   calculateOffset(): { top: number, left: number, opacity: number } {
-    var tile = this.props.tile;
+    const tile = this.props.tile;
 
-    var offset = {
+    const offset = {
       top: this.state.top,
       left: this.state.left,
       opacity: this.state.opacity
@@ -122,15 +119,15 @@ class Tile extends React.Component {
   }
 
   render() {
-    var tile = this.props.tile;
+    const tile = this.props.tile;
 
-    var tileStyles = [
+    const tileStyles = [
       styles.tile,
-      styles['tile' + tile.value],
+      styles[`tile${tile.value}`],
       this.calculateOffset()
     ];
 
-    var textStyles = [
+    const textStyles = [
       styles.value,
       tile.value > 4 && styles.whiteText,
       tile.value > 100 && styles.threeDigits,
@@ -147,13 +144,13 @@ class Tile extends React.Component {
 
 class GameEndOverlay extends React.Component {
   render() {
-    var board = this.props.board;
+    const board = this.props.board;
 
     if (!board.hasWon() && !board.hasLost()) {
       return null;
     }
 
-    var message = board.hasWon() ? 'Good Job!' : 'Game Over';
+    const message = board.hasWon() ? 'Good Job!' : 'Game Over';
 
     return (
       <View style={styles.overlay}>
@@ -166,16 +163,38 @@ class GameEndOverlay extends React.Component {
   }
 }
 
-class Game2048 extends React.Component {
+class Game2048 extends React.Component<
+  {},
+  {
+    board: GameBoard
+  }
+> {
   startX: number;
+
   startY: number;
-  state: any;
 
   _tvEventHandler: any;
 
+  constructor(props: Object) {
+    super(props);
+    this.state = {
+      board: new GameBoard()
+    };
+    this.startX = 0;
+    this.startY = 0;
+  }
+
+  componentDidMount() {
+    this._enableTVEventHandler();
+  }
+
+  componentWillUnmount() {
+    this._disableTVEventHandler();
+  }
+
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
+    this._tvEventHandler.enable(this, (cmp, evt) => {
       if (evt && evt.eventType === 'right') {
         cmp.setState({ board: cmp.state.board.move(2) });
       } else if (evt && evt.eventType === 'up') {
@@ -197,23 +216,6 @@ class Game2048 extends React.Component {
     }
   }
 
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      board: new GameBoard()
-    };
-    this.startX = 0;
-    this.startY = 0;
-  }
-
-  componentDidMount() {
-    this._enableTVEventHandler();
-  }
-
-  componentWillUnmount() {
-    this._disableTVEventHandler();
-  }
-
   restartGame() {
     this.setState({ board: new GameBoard() });
   }
@@ -232,10 +234,10 @@ class Game2048 extends React.Component {
       return;
     }
 
-    var deltaX = event.nativeEvent.pageX - this.startX;
-    var deltaY = event.nativeEvent.pageY - this.startY;
+    const deltaX = event.nativeEvent.pageX - this.startX;
+    const deltaY = event.nativeEvent.pageY - this.startY;
 
-    var direction = -1;
+    let direction = -1;
     if (Math.abs(deltaX) > 3 * Math.abs(deltaY) && Math.abs(deltaX) > 30) {
       direction = deltaX > 0 ? 2 : 0;
     } else if (
@@ -246,12 +248,14 @@ class Game2048 extends React.Component {
     }
 
     if (direction !== -1) {
-      this.setState({ board: this.state.board.move(direction) });
+      this.setState(prevState => {
+        prevState.board.move(direction);
+      });
     }
   }
 
   render() {
-    var tiles = this.state.board.tiles
+    const tiles = this.state.board.tiles
       .filter(tile => tile.value)
       .map(tile => <Tile ref={tile.id} key={tile.id} tile={tile} />);
 
@@ -271,7 +275,7 @@ class Game2048 extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

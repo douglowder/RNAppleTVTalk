@@ -27,17 +27,6 @@
  */
 import React, { Component } from 'react';
 
-import {
-  ScrollView,
-  TabBarIOS,
-  Text,
-  Image,
-  TextInput,
-  TVMenuControl,
-  TouchableOpacity,
-  View
-} from 'react-native';
-
 import SlideShow from './SlideShow';
 
 import Slide from './Slide';
@@ -48,17 +37,15 @@ import VictoryDemo from './VictoryDemo';
 
 import ListViewDemo from './ListViewDemo';
 
-import Icon from './Icon';
-
 import CustomEventDemo from './CustomEventDemo';
 
 import TextInputDemo from './TextInputDemo';
 
 import TVTabBar from './TVTabBar';
 
-import { UrlSlideText } from './StyledComponents';
+import StyledComponents from './StyledComponents';
 
-const styles = require('./styles').default;
+const { UrlSlideText } = StyledComponents;
 
 const tabs = [
   {

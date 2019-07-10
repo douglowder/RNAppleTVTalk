@@ -29,8 +29,6 @@ import React, { Component } from 'react';
 
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-const styles = require('./styles').default;
-
 const parallaxExamples: Object[] = [
   {
     name: 'default',
@@ -80,7 +78,7 @@ class ParallaxExamples extends Component<{}> {
       <View style={{ flexDirection: 'row' }}>
         {parallaxExamples.map((p, i) => (
           <TouchableOpacity
-            key={i}
+            key={p.name}
             activeOpacity={0.5}
             onPress={this.pressAction}
             tvParallaxProperties={p.value}

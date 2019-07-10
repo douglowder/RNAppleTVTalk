@@ -7,117 +7,35 @@
  */
 import { random, range } from 'lodash';
 import React, { Component } from 'react';
+import { Image, View } from 'react-native';
+
 import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Platform,
-  Text,
-  View
-} from 'react-native';
-import Svg from 'react-native-svg';
-import {
-  VictoryAxis,
   VictoryChart,
-  VictoryGroup,
-  VictoryStack,
-  VictoryCandlestick,
-  VictoryErrorBar,
   VictoryBar,
-  VictoryLine,
-  VictoryArea,
   VictoryScatter,
-  VictoryTooltip,
-  VictoryZoomContainer,
-  VictoryVoronoiContainer,
-  VictorySelectionContainer,
   VictoryTheme,
-  VictoryBrushContainer,
-  VictoryPie,
-  createContainer
+  VictoryPie
 } from 'victory-native';
 
-import {
-  Title,
-  BulletedList,
-  SlideText,
-  UrlSlideText
-} from './StyledComponents';
+import StyledComponents from './StyledComponents';
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-    justifyContent: 'center',
-    paddingLeft: 0,
-    paddingRight: 50,
-    paddingTop: 50
-  },
-  text: {
-    fontSize: 18,
-    fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'monospace',
-    fontWeight: 'bold',
-    marginTop: 25,
-    marginBottom: 20
-  },
-  heading: {
-    fontSize: 27,
-    fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'monospace',
-    fontWeight: 'bold',
-    marginTop: 30,
-    marginBottom: 30
-  }
-});
-
-const candleData = [
-  { x: 1, open: 9, close: 30, high: 56, low: 7 },
-  { x: 2, open: 80, close: 40, high: 120, low: 10 },
-  { x: 3, open: 50, close: 80, high: 90, low: 20 },
-  { x: 4, open: 70, close: 22, high: 70, low: 5 },
-  { x: 5, open: 20, close: 35, high: 50, low: 10 },
-  { x: 6, open: 35, close: 30, high: 40, low: 3 },
-  { x: 7, open: 30, close: 90, high: 95, low: 30 },
-  { x: 8, open: 80, close: 81, high: 83, low: 75 }
-];
-
-const VictoryZoomVoronoiContainer = createContainer('zoom', 'voronoi');
+const { UrlSlideText, SlideText } = StyledComponents;
 
 class VictoryDemo extends Component<
   {},
   {
-    scrollEnabled: boolean,
-    y: Function,
-    style: Object,
-    transitionData: Object,
-    randomData: Object,
-    staticRandomData: Object,
-    data: Object
+    randomData: Object
   }
 > {
   constructor(props: Object) {
     super(props);
     this.state = {
-      scrollEnabled: true,
-      y: this.getYFunction(),
-      style: this.getStyles(),
-      transitionData: this.getTransitionData(),
-      randomData: this.generateRandomData(),
-      staticRandomData: this.generateRandomData(15),
-      data: this.getData()
+      randomData: this.generateRandomData()
     };
   }
-  getYFunction() {
-    const n = random(2, 7);
-    return (data: Object) =>
-      Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
-  }
 
-  generateRandomData(points: number = 6) {
-    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2) }));
-  }
-
-  getData() {
-    return range(1, 10).map(i => ({ x: i, y: random(1, 10) }));
+  componentDidMount() {
+    setInterval(this.updateDemoData.bind(this), 3000);
   }
 
   getStyles() {
@@ -130,31 +48,22 @@ class VictoryDemo extends Component<
 
   getTransitionData() {
     const n = random(4, 10);
-    return range(n).map(i => {
-      return {
-        x: i,
-        y: random(2, 10)
-      };
-    });
-  }
-
-  changeScroll(scrollEnabled: boolean) {
-    this.setState({ scrollEnabled });
+    return range(n).map(i => ({
+      x: i,
+      y: random(2, 10)
+    }));
   }
 
   updateDemoData() {
     this.setState({
-      y: this.getYFunction(),
-      style: this.getStyles(),
-      transitionData: this.getTransitionData(),
-      randomData: this.generateRandomData(),
-      data: this.getData()
+      randomData: this.generateRandomData()
     });
   }
 
-  componentDidMount() {
-    setInterval(this.updateDemoData.bind(this), 3000);
+  generateRandomData(points: number = 6) {
+    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2) }));
   }
+
   render() {
     return (
       <View style={{ alignItems: 'center', margin: 20 }}>

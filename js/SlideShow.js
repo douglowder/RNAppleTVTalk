@@ -27,16 +27,7 @@
  */
 import React, { Component } from 'react';
 
-import {
-  LayoutAnimation,
-  ScrollView,
-  TabBarIOS,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  View
-} from 'react-native';
+import { LayoutAnimation, Image } from 'react-native';
 
 import Slide from './Slide';
 
@@ -56,12 +47,12 @@ class SlideShow extends Component<
   }
 
   leftAction() {
-    var iNext = this.state.i - 1;
+    const iNext = this.state.i - 1;
     this.nextSlide(iNext);
   }
 
   rightAction() {
-    var iNext = this.state.i + 1;
+    const iNext = this.state.i + 1;
     this.nextSlide(iNext);
   }
 
@@ -83,8 +74,9 @@ class SlideShow extends Component<
   }
 
   render() {
-    var leftAction = this.state.i > 0 ? this.leftAction : null;
-    var rightAction = this.state.i < pages.length - 1 ? this.rightAction : null;
+    const leftAction = this.state.i > 0 ? this.leftAction : null;
+    const rightAction =
+      this.state.i < pages.length - 1 ? this.rightAction : null;
     return (
       <Slide
         title={pages[this.state.i].title}

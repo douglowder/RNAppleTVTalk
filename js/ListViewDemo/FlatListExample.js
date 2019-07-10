@@ -8,30 +8,24 @@
  * @flow
  */
 
-'use strict';
-
 import type { Item } from './ListExampleShared';
 
 const Alert = require('Alert');
 const React = require('react');
 const ReactNative = require('react-native-tvos');
+
 const { Animated, StyleSheet, View } = ReactNative;
 
 const infoLog = require('infoLog');
 
 const {
-  FooterComponent,
-  HeaderComponent,
   ItemComponent,
   ListEmptyComponent,
   ItemSeparatorComponent,
-  PlainInput,
   SeparatorComponent,
-  Spindicator,
   genItemData,
   getItemLayout,
-  pressItem,
-  renderSmallSwitchOption
+  pressItem
 } = require('./ListExampleShared');
 
 const VIEWABILITY_CONFIG = {
@@ -66,29 +60,77 @@ class FlatListExample extends React.PureComponent<Props, State> {
     empty: false
   };
 
-  _onChangeFilterText = filterText => {
-    this.setState({ filterText });
-  };
-
-  _onChangeScrollToIndex = text => {
-    this._listRef
-      .getNode()
-      .scrollToIndex({ viewPosition: 0.5, index: Number(text) });
-  };
-
   _scrollPos = new Animated.Value(0);
+
   _scrollSinkX = Animated.event(
     [{ nativeEvent: { contentOffset: { x: this._scrollPos } } }],
     { useNativeDriver: true }
   );
+
   _scrollSinkY = Animated.event(
     [{ nativeEvent: { contentOffset: { y: this._scrollPos } } }],
     { useNativeDriver: true }
   );
 
+  _listRef: Animated.FlatList;
+
   componentDidUpdate() {
     this._listRef.getNode().recordInteraction(); // e.g. flipping logViewable switch
   }
+
+  _captureRef = ref => {
+    this._listRef = ref;
+  };
+
+  _pressItem = (key: string) => {
+    this._listRef.getNode().recordInteraction();
+    pressItem(this, key);
+  };
+
+  _getItemLayout = (data: any, index: number) =>
+    getItemLayout(data, index, this.state.horizontal);
+
+  _onEndReached = () => {
+    if (this.state.data.length >= 1000) {
+      return;
+    }
+    this.setState(state => ({
+      data: state.data.concat(genItemData(100, state.data.length))
+    }));
+  };
+
+  _onRefresh = () => Alert.alert('onRefresh: nothing to refresh :P');
+
+  _renderItemComponent = ({ item, separators }) => (
+    <ItemComponent
+      item={item}
+      horizontal={this.state.horizontal}
+      fixedHeight={this.state.fixedHeight}
+      onPress={this._pressItem}
+      onShowUnderlay={separators.highlight}
+      onHideUnderlay={separators.unhighlight}
+    />
+  );
+
+  // This is called when items change viewability by scrolling into or out of
+  // the viewable area.
+  _onViewableItemsChanged = (info: {
+    changed: Array<{
+      key: string,
+      isViewable: boolean,
+      item: any,
+      index: ?number,
+      section?: any
+    }>
+  }) => {
+    // Impressions can be logged here
+    if (this.state.logViewable) {
+      infoLog(
+        'onViewableItemsChanged: ',
+        info.changed.map(v => ({ ...v, item: '...' }))
+      );
+    }
+  };
 
   render() {
     const filterRegex = new RegExp(String(this.state.filterText), 'i');
@@ -131,57 +173,6 @@ class FlatListExample extends React.PureComponent<Props, State> {
       </View>
     );
   }
-  _captureRef = ref => {
-    this._listRef = ref;
-  };
-  _getItemLayout = (data: any, index: number) => {
-    return getItemLayout(data, index, this.state.horizontal);
-  };
-  _onEndReached = () => {
-    if (this.state.data.length >= 1000) {
-      return;
-    }
-    this.setState(state => ({
-      data: state.data.concat(genItemData(100, state.data.length))
-    }));
-  };
-  _onRefresh = () => Alert.alert('onRefresh: nothing to refresh :P');
-  _renderItemComponent = ({ item, separators }) => {
-    return (
-      <ItemComponent
-        item={item}
-        horizontal={this.state.horizontal}
-        fixedHeight={this.state.fixedHeight}
-        onPress={this._pressItem}
-        onShowUnderlay={separators.highlight}
-        onHideUnderlay={separators.unhighlight}
-      />
-    );
-  };
-  // This is called when items change viewability by scrolling into or out of
-  // the viewable area.
-  _onViewableItemsChanged = (info: {
-    changed: Array<{
-      key: string,
-      isViewable: boolean,
-      item: any,
-      index: ?number,
-      section?: any
-    }>
-  }) => {
-    // Impressions can be logged here
-    if (this.state.logViewable) {
-      infoLog(
-        'onViewableItemsChanged: ',
-        info.changed.map(v => ({ ...v, item: '...' }))
-      );
-    }
-  };
-  _pressItem = (key: string) => {
-    this._listRef.getNode().recordInteraction();
-    pressItem(this, key);
-  };
-  _listRef: Animated.FlatList;
 }
 
 const styles = StyleSheet.create({

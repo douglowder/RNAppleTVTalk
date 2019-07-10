@@ -27,8 +27,6 @@
  */
 import React, { Component } from 'react';
 
-import { View } from 'react-native';
-
 import Svg, { Path } from 'react-native-svg';
 
 const paths = {
@@ -52,19 +50,26 @@ const paths = {
 
 const viewBox = '0 0 24 24';
 
-export default class Icon extends Component<{
+class Icon extends Component<{
   name: string,
   height?: number,
   width?: number,
   color?: string,
   style?: Object
 }> {
+  static defaultProps = {
+    height: 20,
+    width: 20,
+    color: 'black',
+    style: {}
+  };
+
   render() {
     const path = paths[this.props.name];
     return (
       <Svg
-        height={this.props.height ? this.props.height : 20}
-        width={this.props.width ? this.props.width : 20}
+        height={this.props.height}
+        width={this.props.width}
         viewBox={viewBox}
         style={this.props.style || {}}
       >
@@ -73,3 +78,5 @@ export default class Icon extends Component<{
     );
   }
 }
+
+export default Icon;

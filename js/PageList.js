@@ -25,30 +25,20 @@
  *
  * @flow
  */
-import React, { Component } from 'react';
+import React from 'react';
 
-import {
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-  TouchableOpacity,
-  Button
-} from 'react-native';
+import { View, Image } from 'react-native';
 
-import {
-  Title,
+import StyledComponents from './StyledComponents';
+
+import ParallaxExamples from './ParallaxExamples';
+
+const {
   BulletedList,
   SlideText,
   SmallSlideText,
   UrlSlideText
-} from './StyledComponents';
-
-import Icon from './Icon';
-
-import ParallaxExamples from './ParallaxExamples';
-
-const styles = require('./styles').default;
+} = StyledComponents;
 
 const pages = [
   {
@@ -156,7 +146,7 @@ const pages = [
         <View style={{ width: 600 }}>
           <SmallSlideText text="React Native is supported by the Salesforce Mobile SDK" />
           <UrlSlideText text="https://developer.salesforce.com/docs/atlas.en-us.noversion.mobile_sdk.meta/mobile_sdk/react_native_samples.htm" />
-          <SmallSlideText text="&quot;Dreamhouse&quot; demo app on React Native shown at Dreamforce" />
+          <SmallSlideText text='"Dreamhouse" demo app on React Native shown at Dreamforce' />
           <UrlSlideText text="https://github.com/ForceDotComLabs/dreamhouse-mobile-react" />
         </View>
         <Image

@@ -27,22 +27,17 @@
  */
 import React, { Component } from 'react';
 
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import { Image, TouchableHighlight, View } from 'react-native';
 
-import { Title } from './StyledComponents';
+import StyledComponents from './StyledComponents';
 
 import Icon from './Icon';
+
+const { Title } = StyledComponents;
 
 const styles = require('./styles').default;
 
 const blue = '#00a1e0';
-const gray = '#7c868d';
 const lightgray = '#dddddd';
 
 class Slide extends Component<{
@@ -51,6 +46,12 @@ class Slide extends Component<{
   title: string,
   children?: ?any
 }> {
+  static defaultProps = {
+    leftAction: null,
+    rightAction: null,
+    children: null
+  };
+
   renderLeft() {
     if (this.props.leftAction) {
       return (

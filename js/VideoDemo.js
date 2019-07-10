@@ -1,10 +1,7 @@
-'use strict';
-
 import React, { Component } from 'react';
 
 import {
   AlertIOS,
-  AppRegistry,
   Image,
   Platform,
   StyleSheet,
@@ -16,45 +13,39 @@ import {
 
 import Video from 'react-native-video';
 
-class VideoPlayer extends Component {
-  constructor(props) {
-    super(props);
-    this.onLoad = this.onLoad.bind(this);
-    this.onProgress = this.onProgress.bind(this);
-    this.onBuffer = this.onBuffer.bind(this);
+class VideoPlayer extends Component<
+  {},
+  {
+    rate: number,
+    volume: number,
+    muted: boolean,
+    resizeMode: string,
+    duration: number,
+    currentTime: number,
+    controls: boolean,
+    paused: boolean,
+    skin: string,
+    ignoreSilentSwitch: ?boolean
   }
-  state = {
-    rate: 1,
-    volume: 1,
-    muted: false,
-    resizeMode: 'contain',
-    duration: 0.0,
-    currentTime: 0.0,
-    controls: false,
-    paused: true,
-    skin: 'custom',
-    ignoreSilentSwitch: null,
-    isBuffering: false
-  };
-
+> {
   player: any;
 
   _tvEventHandler: any;
 
-  _enableTVEventHandler() {
-    this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
-      if (evt && evt.eventType === 'playPause') {
-        cmp.setState({ paused: !cmp.state.paused });
-      }
-    });
-  }
-
-  _disableTVEventHandler() {
-    if (this._tvEventHandler) {
-      this._tvEventHandler.disable();
-      delete this._tvEventHandler;
-    }
+  constructor(props: Object) {
+    super(props);
+    this.state = {
+      rate: 1,
+      volume: 1,
+      muted: false,
+      resizeMode: 'contain',
+      duration: 0.0,
+      currentTime: 0.0,
+      controls: false,
+      paused: true,
+      skin: 'custom',
+      ignoreSilentSwitch: null
+    };
   }
 
   componentDidMount() {
@@ -74,10 +65,6 @@ class VideoPlayer extends Component {
     this.setState({ currentTime: data.currentTime });
   }
 
-  onBuffer({ isBuffering }: { isBuffering: boolean }) {
-    this.setState({ isBuffering });
-  }
-
   getCurrentTimePercentage() {
     if (this.state.currentTime > 0) {
       return (
@@ -88,12 +75,30 @@ class VideoPlayer extends Component {
     }
   }
 
+  _enableTVEventHandler() {
+    this._tvEventHandler = new TVEventHandler();
+    this._tvEventHandler.enable(this, (cmp, evt) => {
+      if (evt && evt.eventType === 'playPause') {
+        cmp.setState({ paused: !cmp.state.paused });
+      }
+    });
+  }
+
+  _disableTVEventHandler() {
+    if (this._tvEventHandler) {
+      this._tvEventHandler.disable();
+      delete this._tvEventHandler;
+    }
+  }
+
   renderPlayPauseControl() {
-    var imageName = this.state.paused ? 'play' : 'pause';
+    const imageName = this.state.paused ? 'play' : 'pause';
     return (
       <TouchableOpacity
         hasTVPreferredFocus={true}
-        onPress={() => this.setState({ paused: !this.state.paused })}
+        onPress={() =>
+          this.setState(prevState => ({ paused: !prevState.paused }))
+        }
       >
         <Image source={{ uri: imageName }} style={{ width: 80, height: 80 }} />
       </TouchableOpacity>
@@ -109,14 +114,14 @@ class VideoPlayer extends Component {
   }
 
   renderSkinControl(skin) {
-    const isSelected = this.state.skin == skin;
-    const selectControls = skin == 'native' || skin == 'embed';
+    const isSelected = this.state.skin === skin;
+    const selectControls = skin === 'native' || skin === 'embed';
     return (
       <TouchableOpacity
         onPress={() => {
           this.setState({
             controls: selectControls,
-            skin: skin
+            skin
           });
         }}
       >
@@ -133,12 +138,12 @@ class VideoPlayer extends Component {
   }
 
   renderRateControl(rate) {
-    const isSelected = this.state.rate == rate;
+    const isSelected = this.state.rate === rate;
 
     return (
       <TouchableOpacity
         onPress={() => {
-          this.setState({ rate: rate });
+          this.setState({ rate });
         }}
       >
         <Text
@@ -154,12 +159,12 @@ class VideoPlayer extends Component {
   }
 
   renderResizeModeControl(resizeMode) {
-    const isSelected = this.state.resizeMode == resizeMode;
+    const isSelected = this.state.resizeMode === resizeMode;
 
     return (
       <TouchableOpacity
         onPress={() => {
-          this.setState({ resizeMode: resizeMode });
+          this.setState({ resizeMode });
         }}
       >
         <Text
@@ -175,12 +180,12 @@ class VideoPlayer extends Component {
   }
 
   renderVolumeControl(volume) {
-    const isSelected = this.state.volume == volume;
+    const isSelected = this.state.volume === volume;
 
     return (
       <TouchableOpacity
         onPress={() => {
-          this.setState({ volume: volume });
+          this.setState({ volume });
         }}
       >
         <Text
@@ -196,12 +201,12 @@ class VideoPlayer extends Component {
   }
 
   renderIgnoreSilentSwitchControl(ignoreSilentSwitch) {
-    const isSelected = this.state.ignoreSilentSwitch == ignoreSilentSwitch;
+    const isSelected = this.state.ignoreSilentSwitch === ignoreSilentSwitch;
 
     return (
       <TouchableOpacity
         onPress={() => {
-          this.setState({ ignoreSilentSwitch: ignoreSilentSwitch });
+          this.setState({ ignoreSilentSwitch });
         }}
       >
         <Text
@@ -234,9 +239,8 @@ class VideoPlayer extends Component {
           muted={this.state.muted}
           ignoreSilentSwitch={this.state.ignoreSilentSwitch}
           resizeMode={this.state.resizeMode}
-          onLoad={this.onLoad}
-          onBuffer={this.onBuffer}
-          onProgress={this.onProgress}
+          onLoad={data => this.onLoad(data)}
+          onProgress={data => this.onProgress(data)}
           onEnd={() => {}}
           repeat={true}
         />
@@ -297,7 +301,7 @@ class VideoPlayer extends Component {
 
   renderNativeSkin() {
     const videoStyle =
-      this.state.skin == 'embed' ? styles.nativeVideoControls : styles.normal;
+      this.state.skin === 'embed' ? styles.nativeVideoControls : styles.normal;
     return (
       <View style={styles.container}>
         <View style={styles.normal}>
@@ -313,9 +317,8 @@ class VideoPlayer extends Component {
             muted={this.state.muted}
             ignoreSilentSwitch={this.state.ignoreSilentSwitch}
             resizeMode={this.state.resizeMode}
-            onLoad={this.onLoad}
-            onBuffer={this.onBuffer}
-            onProgress={this.onProgress}
+            onLoad={data => this.onLoad(data)}
+            onProgress={data => this.onProgress(data)}
             onEnd={() => {
               AlertIOS.alert('Done!');
             }}
