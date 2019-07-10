@@ -41,11 +41,13 @@ import CustomEventDemo from './CustomEventDemo';
 
 import TextInputDemo from './TextInputDemo';
 
+import FocusGuideDemo from './FocusGuideDemo';
+
 import TVTabBar from './TVTabBar';
 
-import StyledComponents from './StyledComponents';
+// import StyledComponents from './StyledComponents';
 
-const { UrlSlideText } = StyledComponents;
+// const { UrlSlideText } = StyledComponents;
 
 const tabs = [
   {
@@ -77,6 +79,15 @@ const tabs = [
     )
   },
   {
+    key: 'focusGuideDemo',
+    name: 'Focus guide',
+    value: (
+      <Slide title="TVFocusGuideView">
+        <FocusGuideDemo />
+      </Slide>
+    )
+  },
+  {
     key: 'videoDemo',
     name: 'Video',
     value: (
@@ -85,7 +96,7 @@ const tabs = [
       </Slide>
     )
   },
-/*
+  /*
   {
     key: 'androidDemo',
     name: 'Android',
