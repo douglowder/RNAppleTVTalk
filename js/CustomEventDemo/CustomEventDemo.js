@@ -87,7 +87,7 @@ class CustomEventDemo extends Component<
       <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
-            <Text style={styles.body}>TVEventHandler</Text>
+            <Text style={styles.titleSmall}>TVEventHandler</Text>
           </TouchableOpacity>
           <View style={styles.listViewDemoContainer}>
             <Text style={styles.body}>
@@ -97,24 +97,18 @@ class CustomEventDemo extends Component<
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
-            <Text style={styles.body}>2048 game</Text>
+            <Text style={styles.titleSmall}>2048 game</Text>
           </TouchableOpacity>
           <Game2048 />
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
-            <Text style={styles.body}>TVMenuControl</Text>
+            <Text style={styles.titleSmall}>TVMenuControl</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{ flex: 1, justifyContent: 'center' }}
-            onPress={TVMenuControl.enableTVMenuKey}
-          >
+          <TouchableOpacity onPress={TVMenuControl.enableTVMenuKey}>
             <Text style={styles.body}>Enable menu</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{ flex: 1, justifyContent: 'center' }}
-            onPress={TVMenuControl.disableTVMenuKey}
-          >
+          <TouchableOpacity onPress={TVMenuControl.disableTVMenuKey}>
             <Text style={styles.body}>Disable menu</Text>
           </TouchableOpacity>
         </View>

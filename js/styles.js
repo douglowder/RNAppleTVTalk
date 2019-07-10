@@ -14,6 +14,11 @@ export default (styles = StyleSheet.create({
     fontSize: 100,
     color: blue
   },
+  titleSmall: {
+    fontSize: 60,
+    color: blue,
+    marginBottom: 50
+  },
   body: {
     fontSize: 60,
     color: gray
@@ -44,7 +49,7 @@ export default (styles = StyleSheet.create({
     height: 600,
     width: 700,
     margin: 0,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center'
   },
   listViewDemoText: {
