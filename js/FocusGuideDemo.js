@@ -64,18 +64,15 @@ const controlStyle = {
 
 const data = [
   '1',
-  'C',
+  'C1',
   '',
   '',
-  'FG2',
-  'C',
-  'C',
+  'FG',
+  'C1',
+  'C1',
   '',
   '',
-  'FG2',
-  '',
-  '',
-  '',
+  'FG',
   '',
   '',
   '',
@@ -83,24 +80,27 @@ const data = [
   '',
   '',
   '',
-  'FG1',
+  '',
+  '',
+  '',
+  'FG',
   '',
   '',
   '2',
-  'C',
-  'FG1',
+  'C2',
+  'FG',
   '',
   '',
-  'C',
-  'C'
+  'C2',
+  'C2'
 ];
 
 class FocusGuideDemo extends Component<
   {},
   {
     focusGuidesPresent: boolean,
-    destinations1: Object[],
-    destinations2: Object[]
+    destinations: Object[],
+    destinationText: string
   }
 > {
   _button1: ?Object;
@@ -111,8 +111,8 @@ class FocusGuideDemo extends Component<
     super(props);
     this.state = {
       focusGuidesPresent: false,
-      destinations1: [],
-      destinations2: []
+      destinations: [],
+      destinationText: ''
     };
   }
 
@@ -131,19 +131,27 @@ class FocusGuideDemo extends Component<
     });
   }
 
-  _onFocus() {
+  _setDestination(destinations: Object[], destinationText: string) {
     this.setState({
-      destinations1: [this._button1],
-      destinations2: [this._button2]
+      destinations,
+      destinationText
     });
   }
 
   _renderRow(s: Object) {
     switch (s.item) {
-      case 'C':
+      case 'C1':
         return (
           <TouchableOpacity
-            onFocus={() => this._onFocus()}
+            onFocus={() => this._setDestination([this._button2], 'FG -> 2')}
+            onPress={() => {}}
+            style={[cellStyle, controlStyle]}
+          />
+        );
+      case 'C2':
+        return (
+          <TouchableOpacity
+            onFocus={() => this._setDestination([this._button1], 'FG -> 1')}
             onPress={() => {}}
             style={[cellStyle, controlStyle]}
           />
@@ -152,7 +160,7 @@ class FocusGuideDemo extends Component<
         return (
           <TouchableOpacity
             ref={ref => this._setButton1(ref)}
-            onFocus={() => this._onFocus()}
+            onFocus={() => this._setDestination([this._button2], 'FG -> 2')}
             onPress={() => {}}
             style={[cellStyle, controlStyle]}
           >
@@ -163,30 +171,19 @@ class FocusGuideDemo extends Component<
         return (
           <TouchableOpacity
             ref={ref => this._setButton2(ref)}
-            onFocus={() => this._onFocus()}
+            onFocus={() => this._setDestination([this._button1], 'FG -> 1')}
             onPress={() => {}}
             style={[cellStyle, controlStyle]}
           >
             <Text style={cellText}>2</Text>
           </TouchableOpacity>
         );
-      case 'FG1':
+      case 'FG':
         if (this.state.focusGuidesPresent) {
           return (
             <View style={[cellStyle, fgStyle]}>
-              <TVFocusGuideView destinations={this.state.destinations1} />
-              <Text style={cellText}>FG -&gt; 1</Text>
-            </View>
-          );
-        } else {
-          return <View style={cellStyle} />;
-        }
-      case 'FG2':
-        if (this.state.focusGuidesPresent) {
-          return (
-            <View style={[cellStyle, fgStyle]}>
-              <TVFocusGuideView destinations={this.state.destinations2} />
-              <Text style={cellText}>FG -&gt; 2</Text>
+              <TVFocusGuideView destinations={this.state.destinations} />
+              <Text style={cellText}>{this.state.destinationText}</Text>
             </View>
           );
         } else {
