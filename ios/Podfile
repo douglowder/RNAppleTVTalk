@@ -13,5 +13,6 @@ target 'RNAppleTVTalk' do
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNSound', :path => '../node_modules/react-native-sound'
   pod 'react-native-video', :path => '../node_modules/react-native-video'
+  pod 'RNTVOSController', :path => '../node_modules/react-native-tvos-controller'
 end
 

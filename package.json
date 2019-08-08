@@ -23,6 +23,7 @@
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
     "react-native-video": "3.2.1",
+    "react-native-tvos-controller": "https://github.com/dlowder-salesforce/react-native-tvos-controller#master",
     "victory-native": "32.0.2"
   },
   "devDependencies": {

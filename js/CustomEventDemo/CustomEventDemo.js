@@ -35,31 +35,42 @@ import {
   TVMenuControl
 } from 'react-native';
 
-import Game2048 from './Game2048';
+import tvRemoteControl from 'react-native-tvos-controller';
 
 const styles = require('../styles').default;
 
 class CustomEventDemo extends Component<
   {},
   {
-    eventFired: string
+    eventFired: string,
+    tvRemoteControlEvent: string
   }
 > {
   _tvEventHandler: any;
 
+  _panSubscription: any;
+
   constructor(props: Object) {
     super(props);
     this.state = {
-      eventFired: ''
+      eventFired: '',
+      tvRemoteControlEvent: ''
     };
   }
 
   componentDidMount() {
     this._enableTVEventHandler();
+    tvRemoteControl.enablePanGesture();
+    this._panSubscription = tvRemoteControl.subscribe('PAN', e => {
+      this.setState({
+        tvRemoteControlEvent: JSON.stringify(e)
+      });
+    });
   }
 
   componentWillUnmount() {
     this._disableTVEventHandler();
+    tvRemoteControl.disablePanGesture();
   }
 
   _enableTVEventHandler() {
@@ -97,9 +108,13 @@ class CustomEventDemo extends Component<
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
-            <Text style={styles.titleSmall}>2048 game</Text>
+            <Text style={styles.titleSmall}>TV remote control pans</Text>
           </TouchableOpacity>
-          <Game2048 />
+          <View style={styles.listViewDemoContainer}>
+            <Text style={styles.body}>
+              {this.state ? this.state.tvRemoteControlEvent : ''}
+            </Text>
+          </View>
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
