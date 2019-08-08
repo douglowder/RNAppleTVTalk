@@ -1,27 +1,15 @@
 platform :tvos, '12.0'
 workspace 'RNAppleTVTalk'
 project 'RNAppleTVTalk.xcodeproj'
-use_frameworks!
-inhibit_all_warnings!
+
+require_relative '../node_modules/react-native/scripts/autolink-ios'
 
 target 'RNAppleTVTalk' do
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'DevSupport',
-    'CxxBridge',
-    'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
-    'RCTText',
-    'RCTSettings',
-    'RCTPushNotification',
-    'RCTAnimation',
-    'RCTLinkingIOS',
-    'RCTImage'
-  ]
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/Yoga'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  # Uncomment for Swift
+  # use_frameworks!
+
+  use_react_native!(path: "../node_modules/react-native")
+
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
   pod 'RNSound', :path => '../node_modules/react-native-sound'
   pod 'react-native-video', :path => '../node_modules/react-native-video'

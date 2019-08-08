@@ -1,0 +1,211 @@
+PODS:
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.6)
+  - Folly (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - Folly/Default (= 2018.10.22.00)
+    - glog
+  - Folly/Default (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.5)
+  - React (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+    - React-DevSupport (= 0.60.4-0)
+    - React-RCTAnimation (= 0.60.4-0)
+    - React-RCTBlob (= 0.60.4-0)
+    - React-RCTImage (= 0.60.4-0)
+    - React-RCTLinking (= 0.60.4-0)
+    - React-RCTNetwork (= 0.60.4-0)
+    - React-RCTSettings (= 0.60.4-0)
+    - React-RCTText (= 0.60.4-0)
+    - React-RCTWebSocket (= 0.60.4-0)
+  - React-Core (0.60.4-0):
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-Core/Default (= 0.60.4-0)
+    - React-cxxreact (= 0.60.4-0)
+    - React-jsi (= 0.60.4-0)
+    - React-jsiexecutor (= 0.60.4-0)
+    - yoga (= 0.60.4-0.React)
+  - React-Core/Default (0.60.4-0):
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-cxxreact (= 0.60.4-0)
+    - React-jsi (= 0.60.4-0)
+    - React-jsiexecutor (= 0.60.4-0)
+    - yoga (= 0.60.4-0.React)
+  - React-cxxreact (0.60.4-0):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-jsinspector (= 0.60.4-0)
+  - React-DevSupport (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+    - React-RCTWebSocket (= 0.60.4-0)
+  - React-fishhook (0.60.4-0)
+  - React-jscallinvoker (0.60.4-0):
+    - Folly (= 2018.10.22.00)
+    - React-cxxreact (= 0.60.4-0)
+  - React-jsi (0.60.4-0):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-jsi/Default (= 0.60.4-0)
+  - React-jsi/Default (0.60.4-0):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React-jsiexecutor (0.60.4-0):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React-cxxreact (= 0.60.4-0)
+    - React-jsi (= 0.60.4-0)
+  - React-jsinspector (0.60.4-0)
+  - react-native-video (3.2.1):
+    - React
+  - React-RCTAnimation (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+  - React-RCTBlob (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+    - React-RCTNetwork (= 0.60.4-0)
+    - React-RCTWebSocket (= 0.60.4-0)
+  - React-RCTImage (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+    - React-RCTNetwork (= 0.60.4-0)
+  - React-RCTLinking (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+  - React-RCTNetwork (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+  - React-RCTSettings (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+  - React-RCTText (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+  - React-RCTWebSocket (0.60.4-0):
+    - React-Core (= 0.60.4-0)
+    - React-fishhook (= 0.60.4-0)
+  - RNSound (0.10.12):
+    - React-Core
+    - RNSound/Core (= 0.10.12)
+  - RNSound/Core (0.10.12):
+    - React-Core
+  - RNSVG (7.2.1):
+    - React
+  - yoga (0.60.4-0.React)
+
+DEPENDENCIES:
+  - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - React (from `../node_modules/react-native/`)
+  - React-Core (from `../node_modules/react-native/React`)
+  - React-cxxreact (from `../node_modules/react-native/ReactCommon/cxxreact`)
+  - React-DevSupport (from `../node_modules/react-native/React`)
+  - React-fishhook (from `../node_modules/react-native/Libraries/fishhook`)
+  - React-jscallinvoker (from `../node_modules/react-native/ReactCommon/jscallinvoker`)
+  - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
+  - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
+  - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-video (from `../node_modules/react-native-video`)
+  - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
+  - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
+  - React-RCTImage (from `../node_modules/react-native/Libraries/Image`)
+  - React-RCTLinking (from `../node_modules/react-native/Libraries/LinkingIOS`)
+  - React-RCTNetwork (from `../node_modules/react-native/Libraries/Network`)
+  - React-RCTSettings (from `../node_modules/react-native/Libraries/Settings`)
+  - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
+  - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
+  - RNSound (from `../node_modules/react-native-sound`)
+  - RNSVG (from `../node_modules/react-native-svg`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
+
+EXTERNAL SOURCES:
+  DoubleConversion:
+    :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  React:
+    :path: "../node_modules/react-native/"
+  React-Core:
+    :path: "../node_modules/react-native/React"
+  React-cxxreact:
+    :path: "../node_modules/react-native/ReactCommon/cxxreact"
+  React-DevSupport:
+    :path: "../node_modules/react-native/React"
+  React-fishhook:
+    :path: "../node_modules/react-native/Libraries/fishhook"
+  React-jscallinvoker:
+    :path: "../node_modules/react-native/ReactCommon/jscallinvoker"
+  React-jsi:
+    :path: "../node_modules/react-native/ReactCommon/jsi"
+  React-jsiexecutor:
+    :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
+  React-jsinspector:
+    :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
+  React-RCTAnimation:
+    :path: "../node_modules/react-native/Libraries/NativeAnimation"
+  React-RCTBlob:
+    :path: "../node_modules/react-native/Libraries/Blob"
+  React-RCTImage:
+    :path: "../node_modules/react-native/Libraries/Image"
+  React-RCTLinking:
+    :path: "../node_modules/react-native/Libraries/LinkingIOS"
+  React-RCTNetwork:
+    :path: "../node_modules/react-native/Libraries/Network"
+  React-RCTSettings:
+    :path: "../node_modules/react-native/Libraries/Settings"
+  React-RCTText:
+    :path: "../node_modules/react-native/Libraries/Text"
+  React-RCTWebSocket:
+    :path: "../node_modules/react-native/Libraries/WebSocket"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
+  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  React: f11cf862a7458311a6f87d3d611be732f991143c
+  React-Core: e64e07d48381efd1f2990386c68615524582e4cd
+  React-cxxreact: 5a057f100a4feefd16ec4c63405ed21d3c53efda
+  React-DevSupport: c87653fe577b5aeada12122403c6793510912e8a
+  React-fishhook: f0ca17063ff71321dcbe45324c8732e7c7724157
+  React-jscallinvoker: 24dd054d9ec5d91abe1e5499e2abae6bc1430dbe
+  React-jsi: f55a8825f4c92226b080d6c7da2349859823b3f6
+  React-jsiexecutor: c74357b20fbb8ac8b10571e9eb543cfb73443991
+  React-jsinspector: c1dc5137f73f1f4bb29564d8f8f2309026fccbfb
+  react-native-video: f53aaec69bdf607dc5250d0887b8c1f3be9e4b24
+  React-RCTAnimation: 37aa8a9bdc330b1309e362efe885e1895b502f3f
+  React-RCTBlob: cfefc301080705c077aee3306273dbc99dedec7c
+  React-RCTImage: 65245c0280410bd08ec8798dba239fc5c098c261
+  React-RCTLinking: f255d208a72150ef7baa959fcb7cfb19e3f64033
+  React-RCTNetwork: 3034324e9909ba5eaa5300e3f3465f5997321ebb
+  React-RCTSettings: ffcbb034ab31500f2b9b6c1726f4b003e759b4f6
+  React-RCTText: b1eb14d8761a4927b5742d7910ba9e762b6a6779
+  React-RCTWebSocket: ab493edc7e846b7461fd422f4e543af319346d08
+  RNSound: 390b07971c19c6d74e99e0d9595cd9c26c4c004b
+  RNSVG: 6c8e8c6f9e5a0caf910dd25aa6e4216045426e1d
+  yoga: e5ba376a914a3fdfc69812cb9c273ac41e89ed7e
+
+PODFILE CHECKSUM: 9f5eba29b36d2fbe8771408bb4b2c95a65438a6f
+
+COCOAPODS: 1.7.5

@@ -18,8 +18,8 @@
     "flow-bin": "0.92.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.5.8",
-    "react": "^16.8.3",
-    "react-native": "npm:react-native-tvos@0.59.8-0",
+    "react": "^16.8.6",
+    "react-native": "https://github.com/react-native-community/react-native-tvos#tvos-v0.60.4",
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
     "react-native-video": "3.2.1",
@@ -47,7 +47,7 @@
     "lodash.isequal": "^4.5.0",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "^1.0.1",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native",

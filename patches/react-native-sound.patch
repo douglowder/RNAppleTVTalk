@@ -1,6 +1,6 @@
 --- node_modules/react-native-sound/RNSound.podspec.orig	2019-06-23 22:16:52.000000000 -0700
 +++ node_modules/react-native-sound/RNSound.podspec	2019-06-23 22:17:10.000000000 -0700
-@@ -12,8 +12,10 @@
+@@ -12,9 +12,11 @@
    s.source              = { :git => 'https://github.com/zmxv/react-native-sound.git', :tag => "v#{s.version}" }
    s.default_subspec     = 'Core'
    s.requires_arc        = true
@@ -9,9 +9,11 @@
 +  s.ios.deployment_target = "8.0"
 +  s.tvos.deployment_target = "9.0"
 +
-   s.dependency 'React/Core'
+-  s.dependency 'React/Core'
++  s.dependency 'React-Core'
    
    s.subspec 'Core' do |ss|
+    ss.source_files     = "RNSound/*.{h,m}"
 --- node_modules/react-native-sound/RNSound/RNSound.m.orig	2019-06-23 22:20:03.000000000 -0700
 +++ node_modules/react-native-sound/RNSound/RNSound.m	2019-06-23 22:21:25.000000000 -0700
 @@ -306,10 +306,14 @@
