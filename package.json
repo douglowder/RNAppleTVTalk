@@ -19,7 +19,7 @@
     "lodash": "^4.17.5",
     "prop-types": "^15.5.8",
     "react": "^16.8.6",
-    "react-native": "https://github.com/react-native-community/react-native-tvos#tvos-v0.60.4",
+    "react-native": "npm:react-native-tvos@0.60.4-6",
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
     "react-native-video": "3.2.1",
