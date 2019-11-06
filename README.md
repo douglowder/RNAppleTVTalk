@@ -15,7 +15,6 @@ Now updated to use the [new Apple TV React Native NPM package `react-native-tvos
 - Change to the top level directory
 - Execute `yarn` or `npm install`
 - Execute `yarn run bundle_ios_dev` to build the JS bundle
-- Start the packager in a separate window with `yarn start`
 - Change to the `ios` directory
 - `pod install`
 - Open `RNAppleTVTalk.xcworkspace` in Xcode
