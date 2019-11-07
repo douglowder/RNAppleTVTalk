@@ -8,8 +8,8 @@
  * @flow
  */
 
-const React = require('react');
-const ReactNative = require('react-native-tvos');
+import React from 'react';
+import ReactNative from 'react-native';
 
 const {
   Animated,

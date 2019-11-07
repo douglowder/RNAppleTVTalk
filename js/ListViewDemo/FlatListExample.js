@@ -10,13 +10,10 @@
 
 import type { Item } from './ListExampleShared';
 
-const Alert = require('Alert');
-const React = require('react');
-const ReactNative = require('react-native-tvos');
+import React from 'react';
+import ReactNative from 'react-native';
 
-const { Animated, StyleSheet, View } = ReactNative;
-
-const infoLog = require('infoLog');
+const { Alert, Animated, StyleSheet, View } = ReactNative;
 
 const {
   ItemComponent,
@@ -125,10 +122,7 @@ class FlatListExample extends React.PureComponent<Props, State> {
   }) => {
     // Impressions can be logged here
     if (this.state.logViewable) {
-      infoLog(
-        'onViewableItemsChanged: ',
-        info.changed.map(v => ({ ...v, item: '...' }))
-      );
+      console.log('onViewableItemsChanged');
     }
   };
 
