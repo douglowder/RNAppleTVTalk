@@ -19,7 +19,7 @@
     "lodash": "^4.17.5",
     "prop-types": "^15.5.8",
     "react": "^16.9.0",
-    "react-native": "npm:react-native-tvos@0.61.2-0",
+    "react-native": "npm:react-native-tvos@0.61.5-1",
     "react-native-sound": "^0.10.12",
     "react-native-svg": "7.2.1",
     "react-native-video": "3.2.1",
@@ -48,7 +48,7 @@
     "lodash.isequal": "^4.5.0",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "^1.0.1",
-    "react-test-renderer": "16.8.6"
+    "react-test-renderer": "16.9.0"
   },
   "jest": {
     "preset": "react-native",
