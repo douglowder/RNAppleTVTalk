@@ -61,7 +61,7 @@ class VictoryDemo extends Component<
   }
 
   generateRandomData(points: number = 6) {
-    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2) }));
+    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2), label: '' + Math.floor(i) }));
   }
 
   render() {
