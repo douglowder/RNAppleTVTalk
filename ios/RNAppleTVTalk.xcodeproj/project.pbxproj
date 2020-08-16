@@ -104,6 +104,7 @@
 				2DCE1B5222C08EE4004478DD /* Sources */,
 				2DCE1B5322C08EE4004478DD /* Frameworks */,
 				2DCE1B5422C08EE4004478DD /* Resources */,
+				38F721F9C0D1254607FE57A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +162,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		38F721F9C0D1254607FE57A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNAppleTVTalk/Pods-RNAppleTVTalk-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RNAppleTVTalk/Pods-RNAppleTVTalk-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RNAppleTVTalk/Pods-RNAppleTVTalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6DBA54CB96FADA1C138ABC42 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
