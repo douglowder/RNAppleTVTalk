@@ -29,6 +29,8 @@ import React, { Component } from 'react';
 
 import { TabBarIOS } from 'react-native';
 
+const warnOnce = require('react-native/Libraries/Utilities/warnOnce');
+
 type Tab = {
   key: string,
   name: string,
@@ -67,6 +69,8 @@ export default class TVTabBar extends Component<
   }
 
   render() {
+    warnOnce('testing', 'Testing LogBox warning');
+    // console.error('Testing LogBox error');
     return (
       <TabBarIOS
         unselectedTintColor={this.props.textColor}
