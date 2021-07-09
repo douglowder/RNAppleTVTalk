@@ -97,8 +97,7 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         hasTVPreferredFocus={true}
         onPress={() =>
-          this.setState(prevState => ({ paused: !prevState.paused }))
-        }
+          this.setState(prevState => ({ paused: !prevState.paused }))}
       >
         <Image source={{ uri: imageName }} style={{ width: 80, height: 80 }} />
       </TouchableOpacity>

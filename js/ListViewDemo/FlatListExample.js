@@ -8,10 +8,10 @@
  * @flow
  */
 
-import type { Item } from './ListExampleShared';
-
 import React from 'react';
 import ReactNative from 'react-native';
+
+import type { Item } from './ListExampleShared';
 
 const { Alert, Animated, StyleSheet, View } = ReactNative;
 

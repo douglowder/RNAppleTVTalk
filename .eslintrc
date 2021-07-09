@@ -273,6 +273,8 @@
     "class-methods-use-this": "off",
     "space-before-function-paren": 0,
     "prefer-template": 1,
+    "react/static-property-placement": 0,
+    "max-classes-per-file": 0,
 
     "react/jsx-no-bind": [
       1,

@@ -2,16 +2,15 @@ platform :tvos, '12.0'
 workspace 'RNAppleTVTalk'
 project 'RNAppleTVTalk.xcodeproj'
 require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target 'RNAppleTVTalk' do
   # Uncomment for Swift
   # use_frameworks!
 
+  config = use_native_modules!
+
   use_react_native!(:path => "../node_modules/react-native")
 
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
-  pod 'RNSound', :path => '../node_modules/react-native-sound'
-  pod 'react-native-video', :path => '../node_modules/react-native-video'
-  pod 'RNTVOSController', :path => '../node_modules/react-native-tvos-controller'
 end
 
