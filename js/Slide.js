@@ -44,12 +44,12 @@ class Slide extends Component<{
   leftAction?: Function,
   rightAction?: Function,
   title: string,
-  children?: ?any
+  children?: ?any,
 }> {
   static defaultProps = {
     leftAction: null,
     rightAction: null,
-    children: null
+    children: null,
   };
 
   renderLeft() {

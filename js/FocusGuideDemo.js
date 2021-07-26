@@ -32,7 +32,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
-  TVFocusGuideView
+  TVFocusGuideView,
 } from 'react-native';
 
 import styles from './styles';
@@ -46,20 +46,20 @@ const cellStyle = {
   height: 50,
   margin: 10,
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 };
 
 const cellText = {
   color: 'white',
-  fontSize: 30
+  fontSize: 30,
 };
 
 const fgStyle = {
-  backgroundColor: '#8888FF'
+  backgroundColor: '#8888FF',
 };
 
 const controlStyle = {
-  backgroundColor: '#333333'
+  backgroundColor: '#333333',
 };
 
 const data = [
@@ -92,7 +92,7 @@ const data = [
   '',
   '',
   'C2',
-  'C2'
+  'C2',
 ];
 
 class FocusGuideDemo extends Component<
@@ -100,8 +100,8 @@ class FocusGuideDemo extends Component<
   {
     focusGuidesPresent: boolean,
     destinations: Object[],
-    destinationText: string
-  }
+    destinationText: string,
+  },
 > {
   _button1: ?Object;
 
@@ -112,7 +112,7 @@ class FocusGuideDemo extends Component<
     this.state = {
       focusGuidesPresent: false,
       destinations: [],
-      destinationText: ''
+      destinationText: '',
     };
   }
 
@@ -127,14 +127,14 @@ class FocusGuideDemo extends Component<
   _toggleFocusGuideState() {
     const present = this.state.focusGuidesPresent;
     this.setState({
-      focusGuidesPresent: !present
+      focusGuidesPresent: !present,
     });
   }
 
   _setDestination(destinations: Object[], destinationText: string) {
     this.setState({
       destinations,
-      destinationText
+      destinationText,
     });
   }
 

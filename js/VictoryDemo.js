@@ -14,7 +14,7 @@ import {
   VictoryBar,
   VictoryScatter,
   VictoryTheme,
-  VictoryPie
+  VictoryPie,
 } from 'victory-native';
 
 import StyledComponents from './StyledComponents';
@@ -24,13 +24,13 @@ const { UrlSlideText, SlideText } = StyledComponents;
 class VictoryDemo extends Component<
   {},
   {
-    randomData: Object
-  }
+    randomData: Object,
+  },
 > {
   constructor(props: Object) {
     super(props);
     this.state = {
-      randomData: this.generateRandomData()
+      randomData: this.generateRandomData(),
     };
   }
 
@@ -42,7 +42,7 @@ class VictoryDemo extends Component<
     const colors = ['red', 'orange', 'magenta', 'gold', 'blue', 'purple'];
     return {
       stroke: colors[random(0, 5)],
-      strokeWidth: random(1, 5)
+      strokeWidth: random(1, 5),
     };
   }
 
@@ -50,13 +50,13 @@ class VictoryDemo extends Component<
     const n = random(4, 10);
     return range(n).map(i => ({
       x: i,
-      y: random(2, 10)
+      y: random(2, 10),
     }));
   }
 
   updateDemoData() {
     this.setState({
-      randomData: this.generateRandomData()
+      randomData: this.generateRandomData(),
     });
   }
 
@@ -80,7 +80,7 @@ class VictoryDemo extends Component<
                 width={500}
                 style={{
                   labels: { fontSize: 30 },
-                  data: { fill: ({ datum }) => datum.fill, opacity: 0.5 }
+                  data: { fill: ({ datum }) => datum.fill, opacity: 0.5 },
                 }}
                 data={[
                   { x: 15, y: 20, label: 1, fill: 'red' },
@@ -88,7 +88,7 @@ class VictoryDemo extends Component<
                   { x: 35, y: 65, label: 3, fill: 'gold' },
                   { x: 45, y: 50, label: 4, fill: 'blue' },
                   { x: 55, y: 40, label: 5, fill: 'cyan' },
-                  { x: 65, y: 30, label: 6, fill: 'green' }
+                  { x: 65, y: 30, label: 6, fill: 'green' },
                 ]}
               />
               <VictoryScatter
@@ -99,7 +99,7 @@ class VictoryDemo extends Component<
                   { x: 35, y: 65 },
                   { x: 45, y: 50 },
                   { x: 55, y: 40 },
-                  { x: 65, y: 30 }
+                  { x: 65, y: 30 },
                 ]}
               />
             </VictoryChart>
@@ -129,8 +129,8 @@ class VictoryDemo extends Component<
                   tickValues: { fontSize: 30 },
                   labels: { fontSize: 30 },
                   data: {
-                     fill: ({ datum }) => datum.fill
-                  }
+                    fill: ({ datum }) => datum.fill,
+                  },
                 }}
                 data={[
                   {
@@ -139,7 +139,7 @@ class VictoryDemo extends Component<
                     fill: 'red',
                     symbol: 'plus',
                     size: 6,
-                    label: 'Red'
+                    label: 'Red',
                   },
                   {
                     x: 2,
@@ -147,14 +147,14 @@ class VictoryDemo extends Component<
                     fill: 'magenta',
                     size: 9,
                     opacity: 0.4,
-                    label: 'Magenta'
+                    label: 'Magenta',
                   },
                   {
                     x: 3,
                     y: 4,
                     fill: 'orange',
                     size: 5,
-                    label: 'Orange'
+                    label: 'Orange',
                   },
                   {
                     x: 4,
@@ -162,7 +162,7 @@ class VictoryDemo extends Component<
                     fill: 'brown',
                     symbol: 'square',
                     size: 6,
-                    label: 'Brown'
+                    label: 'Brown',
                   },
                   {
                     x: 5,
@@ -170,8 +170,8 @@ class VictoryDemo extends Component<
                     fill: 'black',
                     symbol: 'triangleUp',
                     size: 5,
-                    label: 'Black'
-                  }
+                    label: 'Black',
+                  },
                 ]}
               />
             </VictoryChart>

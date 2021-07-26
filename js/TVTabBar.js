@@ -34,7 +34,7 @@ const warnOnce = require('react-native/Libraries/Utilities/warnOnce');
 type Tab = {
   key: string,
   name: string,
-  value: Object
+  value: Object,
 };
 
 export default class TVTabBar extends Component<
@@ -43,27 +43,27 @@ export default class TVTabBar extends Component<
     textColor: string,
     selectedTextColor: string,
     tabs: Tab[],
-    defaultTabKey?: string
+    defaultTabKey?: string,
   },
   {
-    selectedTabKey: string
-  }
+    selectedTabKey: string,
+  },
 > {
   static defaultProps = {
-    defaultTabKey: ''
+    defaultTabKey: '',
   };
 
   constructor(props: Object) {
     super(props);
     this.state = {
-      selectedTabKey: this.props.defaultTabKey || this.props.tabs[0].key
+      selectedTabKey: this.props.defaultTabKey || this.props.tabs[0].key,
     };
   }
 
   updateTab(newTabKey: string) {
     if (this.state.selectedTabKey !== newTabKey) {
       this.setState({
-        selectedTabKey: newTabKey
+        selectedTabKey: newTabKey,
       });
     }
   }

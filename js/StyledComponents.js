@@ -32,7 +32,7 @@ import { Text, View } from 'react-native';
 const styles = require('./styles').default;
 
 class Title extends Component<{
-  text: string
+  text: string,
 }> {
   render() {
     return <Text style={styles.title}>{this.props.text}</Text>;
@@ -41,10 +41,10 @@ class Title extends Component<{
 
 class SlideText extends Component<{
   text: string,
-  extraStyle?: Object
+  extraStyle?: Object,
 }> {
   static defaultProps = {
-    extraStyle: {}
+    extraStyle: {},
   };
 
   render() {
@@ -56,7 +56,7 @@ class SlideText extends Component<{
 }
 
 class SmallSlideText extends Component<{
-  text: string
+  text: string,
 }> {
   render() {
     return <Text style={styles.bodySmall}>{this.props.text}</Text>;
@@ -64,7 +64,7 @@ class SmallSlideText extends Component<{
 }
 
 class UrlSlideText extends Component<{
-  text: string
+  text: string,
 }> {
   render() {
     return <Text style={styles.bodyUrl}>{this.props.text}</Text>;
@@ -73,10 +73,10 @@ class UrlSlideText extends Component<{
 
 class BulletedList extends Component<{
   lines: string[],
-  firstLineStyle?: Object
+  firstLineStyle?: Object,
 }> {
   static defaultProps = {
-    firstLineStyle: {}
+    firstLineStyle: {},
   };
 
   _renderLine(text: string, i: number) {
@@ -108,5 +108,5 @@ export default {
   BulletedList,
   SlideText,
   SmallSlideText,
-  UrlSlideText
+  UrlSlideText,
 };

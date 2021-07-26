@@ -37,14 +37,14 @@ const parallaxExamples: Object[] = [
       shiftDistanceX: 2.0,
       shiftDistanceY: 2.0,
       tiltAngle: 0.05,
-      magnification: 1.0
-    }
+      magnification: 1.0,
+    },
   },
   {
     name: 'enabled = false',
     value: {
-      enabled: false
-    }
+      enabled: false,
+    },
   },
   {
     name: 'magnification = 1.2',
@@ -53,8 +53,8 @@ const parallaxExamples: Object[] = [
       shiftDistanceX: 2.0,
       shiftDistanceY: 2.0,
       tiltAngle: 0.05,
-      magnification: 1.2
-    }
+      magnification: 1.2,
+    },
   },
   {
     name: 'tiltAngle = 0.3',
@@ -63,9 +63,9 @@ const parallaxExamples: Object[] = [
       shiftDistanceX: 2.0,
       shiftDistanceY: 2.0,
       tiltAngle: 0.3,
-      magnification: 1.0
-    }
-  }
+      magnification: 1.0,
+    },
+  },
 ];
 
 class ParallaxExamples extends Component<{}> {

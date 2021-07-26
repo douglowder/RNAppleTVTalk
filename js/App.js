@@ -53,7 +53,7 @@ const tabs = [
   {
     key: 'slideShow',
     name: 'Presentation',
-    value: <SlideShow />
+    value: <SlideShow />,
   },
   {
     key: 'textInputDemo',
@@ -62,12 +62,12 @@ const tabs = [
       <Slide title="Text input example">
         <TextInputDemo />
       </Slide>
-    )
+    ),
   },
   {
     key: 'listViewDemo',
     name: 'List view',
-    value: <ListViewDemo />
+    value: <ListViewDemo />,
   },
   {
     key: 'tvRemoteDemo',
@@ -76,7 +76,7 @@ const tabs = [
       <Slide title="Siri remote events">
         <CustomEventDemo />
       </Slide>
-    )
+    ),
   },
   {
     key: 'focusGuideDemo',
@@ -85,7 +85,7 @@ const tabs = [
       <Slide title="TVFocusGuideView">
         <FocusGuideDemo />
       </Slide>
-    )
+    ),
   },
   {
     key: 'videoDemo',
@@ -94,7 +94,7 @@ const tabs = [
       <Slide title="react-native-video demo app">
         <VideoDemo uri="bach-handel-corelli" />
       </Slide>
-    )
+    ),
   },
   /*
   {
@@ -115,8 +115,8 @@ const tabs = [
       <Slide title="victory-native demo app">
         <VictoryDemo />
       </Slide>
-    )
-  }
+    ),
+  },
 ];
 
 class App extends Component<{}> {

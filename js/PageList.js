@@ -35,12 +35,8 @@ import StyledComponents from './StyledComponents';
 
 import ParallaxExamples from './ParallaxExamples';
 
-const {
-  BulletedList,
-  SlideText,
-  SmallSlideText,
-  UrlSlideText
-} = StyledComponents;
+const { BulletedList, SlideText, SmallSlideText, UrlSlideText } =
+  StyledComponents;
 
 const pages = [
   {
@@ -62,7 +58,7 @@ const pages = [
           />
         </View>
       </View>
-    )
+    ),
   },
   {
     key: 'Overview',
@@ -71,7 +67,7 @@ const pages = [
       <BulletedList
         lines={['Motivation', 'Apple TV', 'Other TV platforms', 'Future work']}
       />
-    )
+    ),
   },
   /*
   {
@@ -158,7 +154,7 @@ const pages = [
           source={{ uri: 'dreamhouse' }}
         />
       </View>
-    )
+    ),
   },
   {
     key: 'whatIsTVOS',
@@ -169,10 +165,10 @@ const pages = [
           'Set top box for HDTVs',
           'Interaction via a remote control with trackpad',
           'Has its own App Store',
-          'Great for content, data display, games'
+          'Great for content, data display, games',
         ]}
       />
-    )
+    ),
   },
   {
     key: 'iOStvOS1',
@@ -184,10 +180,10 @@ const pages = [
           '90% of tvOS RN native code is common with iOS',
           'Xcode, Objective C, Swift',
           'tvOS has most iOS Foundation APIs ',
-          'tvOS has most iOS UIKit APIs'
+          'tvOS has most iOS UIKit APIs',
         ]}
       />
-    )
+    ),
   },
   {
     key: 'iOStvOS2',
@@ -198,10 +194,10 @@ const pages = [
         lines={[
           'No browser or web views!!!!!',
           'No sliders, no switches, no status bar',
-          'Cannot persist data in documents directory'
+          'Cannot persist data in documents directory',
         ]}
       />
-    )
+    ),
   },
   {
     key: 'iOSTVOS3',
@@ -216,7 +212,7 @@ const pages = [
           source={{ uri: 'focusengine' }}
         />
       </View>
-    )
+    ),
   },
   {
     key: 'rntvostimeline',
@@ -229,13 +225,13 @@ const pages = [
             '2017: merged to react-native core',
             '2019: now supported in a separate community repo',
             'Support for popular third party frameworks',
-            'Support for dev menu'
+            'Support for dev menu',
           ]}
         />
         <UrlSlideText text="https://www.npmjs.com/package/react-native-tvos" />
         <UrlSlideText text="https://github.com/react-native-community/react-native-tvos" />
       </View>
-    )
+    ),
   },
   {
     key: 'focusEngineToTouchable',
@@ -248,11 +244,11 @@ const pages = [
             'Uses Touchable components: Most RN JS code works without changes! :)',
             'Native: RCTTVView fires notification',
             'Native: RCTTVNavigationEventEmitter fires JS event',
-            'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method'
+            'JS: Touchable.js receives event and calls Touchable pressIn or pressOut method',
           ]}
         />
       </View>
-    )
+    ),
   },
   {
     key: 'parallax',
@@ -262,7 +258,7 @@ const pages = [
         <SlideText text="&lt;TouchableOpacity tvParallaxProperties={...}&gt;" />
         <ParallaxExamples />
       </View>
-    )
+    ),
   },
   {
     key: 'customEventHandling',
@@ -273,11 +269,11 @@ const pages = [
           lines={[
             'Native: RCTTVRemoteHandler gesture recognizers fire notifications',
             'Native: RCTTVNavigationEventEmitter fires JS event',
-            'JS: TVEventHandler instances receive the event'
+            'JS: TVEventHandler instances receive the event',
           ]}
         />
       </View>
-    )
+    ),
   },
   {
     key: 'newAPIs',
@@ -288,7 +284,7 @@ const pages = [
           <SlideText extraStyle={styles.titleSmall} text="TVMenuControl" />
           <BulletedList
             lines={[
-              'Enables and disables gesture handler for menu key navigation'
+              'Enables and disables gesture handler for menu key navigation',
             ]}
           />
         </View>
@@ -297,12 +293,12 @@ const pages = [
           <BulletedList
             lines={[
               'Allows focus engine to find controls',
-              'Developer has better control over navigation'
+              'Developer has better control over navigation',
             ]}
           />
         </View>
       </View>
-    )
+    ),
   },
   /*
   {
@@ -326,10 +322,10 @@ const pages = [
       <BulletedList
         lines={[
           'Large sizes for fonts and views (2x - 3x phone)',
-          'TabBarIOS for top menu navigation'
+          'TabBarIOS for top menu navigation',
         ]}
       />
-    )
+    ),
   },
   {
     key: 'tvOSShippingApp',
@@ -342,7 +338,7 @@ const pages = [
           source={{ uri: 'unsplash' }}
         />
       </View>
-    )
+    ),
   },
   {
     key: 'quickStart',
@@ -357,7 +353,7 @@ const pages = [
               lines={[
                 'Open AwesomeTVApp.xcodeproj',
                 'Change to tvOS scheme',
-                'Build and run'
+                'Build and run',
               ]}
             />
           </View>
@@ -367,7 +363,7 @@ const pages = [
           />
         </View>
       </View>
-    )
+    ),
   },
   /*
   {
@@ -392,7 +388,7 @@ const pages = [
   {
     key: 'Future',
     title: 'Future possibilities',
-    body: <BulletedList lines={['Detox support', 'TVUIKit support']} />
+    body: <BulletedList lines={['Detox support', 'TVUIKit support']} />,
   },
   {
     key: 'thanks',
@@ -402,11 +398,11 @@ const pages = [
         lines={[
           'Salesforce',
           'Facebook React Native team, esp. Pieter (@javache)',
-          'React JS meetup organizers'
+          'React JS meetup organizers',
         ]}
       />
-    )
-  }
+    ),
+  },
 ];
 
 module.exports = pages;

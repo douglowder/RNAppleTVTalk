@@ -36,13 +36,13 @@ const pages = require('./PageList');
 class SlideShow extends Component<
   {},
   {
-    i: number
-  }
+    i: number,
+  },
 > {
   constructor(props: Object) {
     super(props);
     this.state = {
-      i: 0
+      i: 0,
     };
   }
 
@@ -59,7 +59,7 @@ class SlideShow extends Component<
   nextSlide(iNext: number) {
     LayoutAnimation.spring();
     this.setState({
-      i: iNext
+      i: iNext,
     });
   }
 

@@ -8,7 +8,7 @@ import {
   Text,
   TouchableOpacity,
   TVEventHandler,
-  View
+  View,
 } from 'react-native';
 
 import Video from 'react-native-video';
@@ -25,8 +25,8 @@ class VideoPlayer extends Component<
     controls: boolean,
     paused: boolean,
     skin: string,
-    ignoreSilentSwitch: ?boolean
-  }
+    ignoreSilentSwitch: ?boolean,
+  },
 > {
   player: any;
 
@@ -44,7 +44,7 @@ class VideoPlayer extends Component<
       controls: false,
       paused: true,
       skin: 'custom',
-      ignoreSilentSwitch: null
+      ignoreSilentSwitch: null,
     };
   }
 
@@ -120,14 +120,14 @@ class VideoPlayer extends Component<
         onPress={() => {
           this.setState({
             controls: selectControls,
-            skin
+            skin,
           });
         }}
       >
         <Text
           style={[
             styles.controlOption,
-            { fontWeight: isSelected ? 'bold' : 'normal' }
+            { fontWeight: isSelected ? 'bold' : 'normal' },
           ]}
         >
           {skin}
@@ -148,7 +148,7 @@ class VideoPlayer extends Component<
         <Text
           style={[
             styles.controlOption,
-            { fontWeight: isSelected ? 'bold' : 'normal' }
+            { fontWeight: isSelected ? 'bold' : 'normal' },
           ]}
         >
           {rate}x
@@ -169,7 +169,7 @@ class VideoPlayer extends Component<
         <Text
           style={[
             styles.controlOption,
-            { fontWeight: isSelected ? 'bold' : 'normal' }
+            { fontWeight: isSelected ? 'bold' : 'normal' },
           ]}
         >
           {resizeMode}
@@ -190,7 +190,7 @@ class VideoPlayer extends Component<
         <Text
           style={[
             styles.controlOption,
-            { fontWeight: isSelected ? 'bold' : 'normal' }
+            { fontWeight: isSelected ? 'bold' : 'normal' },
           ]}
         >
           {volume * 100}%
@@ -211,7 +211,7 @@ class VideoPlayer extends Component<
         <Text
           style={[
             styles.controlOption,
-            { fontWeight: isSelected ? 'bold' : 'normal' }
+            { fontWeight: isSelected ? 'bold' : 'normal' },
           ]}
         >
           {ignoreSilentSwitch}
@@ -379,18 +379,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   fullScreen: {
     position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,
-    right: 0
+    right: 0,
   },
   normal: {
     width: 1280,
-    height: 720
+    height: 720,
   },
   controls: {
     backgroundColor: 'transparent',
@@ -398,59 +398,59 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 44,
     left: 4,
-    right: 4
+    right: 4,
   },
   progress: {
     flex: 1,
     flexDirection: 'row',
     borderRadius: 3,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   innerProgressCompleted: {
     height: 20,
-    backgroundColor: '#cccccc'
+    backgroundColor: '#cccccc',
   },
   innerProgressRemaining: {
     height: 20,
-    backgroundColor: '#2C2C2C'
+    backgroundColor: '#2C2C2C',
   },
   generalControls: {
     flex: 1,
     flexDirection: 'row',
     overflow: 'hidden',
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   playPauseControl: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   skinControl: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   rateControl: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   volumeControl: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   resizeModeControl: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   ignoreSilentSwitchControl: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   controlOption: {
     alignSelf: 'center',
@@ -458,12 +458,12 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 2,
     paddingRight: 2,
-    lineHeight: 30
+    lineHeight: 30,
   },
   nativeVideoControls: {
     top: 184,
-    height: 300
-  }
+    height: 300,
+  },
 });
 
 module.exports = VideoPlayer;
