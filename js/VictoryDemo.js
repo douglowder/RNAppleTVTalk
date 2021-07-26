@@ -80,7 +80,7 @@ class VictoryDemo extends Component<
                 width={500}
                 style={{
                   labels: { fontSize: 30 },
-                  data: { fill: 'tomato', opacity: 0.5 }
+                  data: { fill: ({ datum }) => datum.fill, opacity: 0.5 }
                 }}
                 data={[
                   { x: 15, y: 20, label: 1, fill: 'red' },
@@ -114,6 +114,7 @@ class VictoryDemo extends Component<
               innerRadius={50}
               labelRadius={120}
               style={{ labels: { fontSize: 30 } }}
+              labels={({ datum }) => datum.x.toFixed(0)}
               data={this.state.randomData}
               animate={{ duration: 1500 }}
             />
@@ -126,7 +127,10 @@ class VictoryDemo extends Component<
               <VictoryScatter
                 style={{
                   tickValues: { fontSize: 30 },
-                  labels: { fontSize: 30 }
+                  labels: { fontSize: 30 },
+                  data: {
+                     fill: ({ datum }) => datum.fill
+                  }
                 }}
                 data={[
                   {

@@ -25,7 +25,7 @@
     "react-native-svg": "^12.1.1",
     "react-native-tvos-controller": "https://github.com/dlowder-salesforce/react-native-tvos-controller#master",
     "react-native-video": "^5.1.1",
-    "victory-native": "32.0.2"
+    "victory-native": "^35.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
