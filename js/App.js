@@ -125,7 +125,7 @@ class App extends Component<{}> {
       <TVTabBar
         barColor="#00a1e0"
         textColor="white"
-        selectedTextColor="red"
+        selectedTextColor="gray"
         tabs={tabs}
         defaultTabKey="slideShow"
       />
