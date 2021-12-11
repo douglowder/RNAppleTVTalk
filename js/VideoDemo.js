@@ -97,8 +97,8 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         hasTVPreferredFocus={true}
         onPress={() =>
-          this.setState(prevState => ({ paused: !prevState.paused }))}
-      >
+          this.setState(prevState => ({ paused: !prevState.paused }))
+        }>
         <Image source={{ uri: imageName }} style={{ width: 80, height: 80 }} />
       </TouchableOpacity>
     );
@@ -122,14 +122,12 @@ class VideoPlayer extends Component<
             controls: selectControls,
             skin,
           });
-        }}
-      >
+        }}>
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}
-        >
+          ]}>
           {skin}
         </Text>
       </TouchableOpacity>
@@ -143,14 +141,12 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ rate });
-        }}
-      >
+        }}>
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}
-        >
+          ]}>
           {rate}x
         </Text>
       </TouchableOpacity>
@@ -164,15 +160,26 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ resizeMode });
-        }}
-      >
+        }}>
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}
-        >
+          ]}>
           {resizeMode}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+
+  renderFullScreenControl() {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.player?.presentFullscreenPlayer();
+        }}>
+        <Text style={[styles.controlOption, { fontWeight: 'bold' }]}>
+          Full Screen
         </Text>
       </TouchableOpacity>
     );
@@ -185,14 +192,12 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ volume });
-        }}
-      >
+        }}>
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}
-        >
+          ]}>
           {volume * 100}%
         </Text>
       </TouchableOpacity>
@@ -206,14 +211,12 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ ignoreSilentSwitch });
-        }}
-      >
+        }}>
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}
-        >
+          ]}>
           {ignoreSilentSwitch}
         </Text>
       </TouchableOpacity>
@@ -273,6 +276,9 @@ class VideoPlayer extends Component<
               {this.renderResizeModeControl('cover')}
               {this.renderResizeModeControl('contain')}
               {this.renderResizeModeControl('stretch')}
+            </View>
+            <View style={styles.resizeModeControl}>
+              {this.renderFullScreenControl()}
             </View>
             <View style={styles.generalControls}>
               {Platform.OS === 'ios' && !Platform.isTVOS ? (
@@ -352,6 +358,9 @@ class VideoPlayer extends Component<
               {this.renderResizeModeControl('cover')}
               {this.renderResizeModeControl('contain')}
               {this.renderResizeModeControl('stretch')}
+            </View>
+            <View style={styles.resizeModeControl}>
+              {this.renderFullScreenControl()}
             </View>
           </View>
           <View style={styles.generalControls}>
