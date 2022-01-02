@@ -19,8 +19,8 @@
     "lodash": "^4.17.5",
     "patch-package": "^6.4.7",
     "prop-types": "^15.5.8",
-    "react": "^17.0.1",
-    "react-native": "npm:react-native-tvos@0.64.2-4",
+    "react": "^17.0.2",
+    "react-native": "npm:react-native-tvos@0.66.3-0",
     "react-native-sound": "^0.11.0",
     "react-native-svg": "^12.1.1",
     "react-native-tvos-controller": "https://github.com/dlowder-salesforce/react-native-tvos-controller#master",
@@ -48,10 +48,10 @@
     "flow-bin": "^0.155.0",
     "jest": "^26.6.3",
     "lodash.isequal": "^4.5.0",
-    "metro-react-native-babel-preset": "^0.64.0",
+    "metro-react-native-babel-preset": "^0.66.2",
     "react-native-tabs": "^1.0.9",
     "react-static-container": "^1.0.1",
-    "react-test-renderer": "17.0.1"
+    "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native",
