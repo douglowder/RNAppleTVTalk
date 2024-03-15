@@ -7,18 +7,26 @@ This demo Apple TV app includes the talk I've given at
 
 Includes the slides for my talk, and various demos of React Native Apple TV features.
 
-Now updated to use the [new Apple TV React Native NPM package `react-native-tvos`](https://www.npmjs.com/package/react-native-tvos)
+2019: Now updated to use the [new Apple TV React Native NPM package `react-native-tvos`](https://www.npmjs.com/package/react-native-tvos)
+
+2023: Now updated to build as an [Expo TV app](https://docs.expo.dev/guides/building-for-tv/).
+
+Notes:
+
+- This app was originally written back in 2017, and uses plain JS with class-based components. It should not be used as an example of how apps should be built today (with TypeScript, functional components, and React hooks). Remarkably few changes were needed to get it working with the latest React Native (0.73.6-0).
+- Navigation makes use of the `TabBarIOS` component, which is Apple TV only (does not function on Android TV).
 
 ## Building
 
 - Clone this repo
 - Change to the top level directory
 - Execute `yarn` or `npm install`
-- Execute `yarn run bundle_ios_dev` to build the JS bundle
-- Change to the `ios` directory
-- `pod install`
-- Open `RNAppleTVTalk.xcworkspace` in Xcode
-- Build and run
+
+```sh
+export EXPO_TV=1
+npx expo prebuild
+yarn ios # Build and run for Apple TV
+```
 
 ## Running
 
