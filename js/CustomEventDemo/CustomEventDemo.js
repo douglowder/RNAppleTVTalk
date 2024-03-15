@@ -32,10 +32,8 @@ import {
   View,
   TouchableOpacity,
   TVEventHandler,
-  TVMenuControl
+  TVMenuControl,
 } from 'react-native';
-
-import tvRemoteControl from 'react-native-tvos-controller';
 
 const styles = require('../styles').default;
 
@@ -43,34 +41,24 @@ class CustomEventDemo extends Component<
   {},
   {
     eventFired: string,
-    tvRemoteControlEvent: string
-  }
+  },
 > {
   _tvEventHandler: any;
-
-  _panSubscription: any;
 
   constructor(props: Object) {
     super(props);
     this.state = {
       eventFired: '',
-      tvRemoteControlEvent: ''
+      tvRemoteControlEvent: '',
     };
   }
 
   componentDidMount() {
     this._enableTVEventHandler();
-    tvRemoteControl.enablePanGesture();
-    this._panSubscription = tvRemoteControl.subscribe('PAN', e => {
-      this.setState({
-        tvRemoteControlEvent: JSON.stringify(e)
-      });
-    });
   }
 
   componentWillUnmount() {
     this._disableTVEventHandler();
-    tvRemoteControl.disablePanGesture();
   }
 
   _enableTVEventHandler() {
@@ -81,7 +69,7 @@ class CustomEventDemo extends Component<
         evt.eventType !== 'blur' &&
         evt.eventType !== 'focus' &&
         cmp.setState({
-          eventFired: evt.eventType
+          eventFired: evt.eventType,
         });
     });
   }
@@ -107,9 +95,6 @@ class CustomEventDemo extends Component<
           </View>
         </View>
         <View style={styles.listViewDemoContainer}>
-          <TouchableOpacity>
-            <Text style={styles.titleSmall}>TV remote control pans</Text>
-          </TouchableOpacity>
           <View style={styles.listViewDemoContainer}>
             <Text style={styles.body}>
               {this.state ? this.state.tvRemoteControlEvent : ''}

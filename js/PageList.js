@@ -54,7 +54,7 @@ const pages = [
         <View>
           <Image
             style={{ width: 700, height: 400 }}
-            source={{ uri: 'appletv2' }}
+            source={require('../assets/images/appletv2.jpg')}
           />
         </View>
       </View>
@@ -91,11 +91,11 @@ const pages = [
       <View style={{ flexDirection: 'row' }}>
         <Image
           style={{ width: 612, height: 612 }}
-          source={{ uri: 'doug-pole' }}
+          source={require('../assets/images/doug-pole.png')}
         />
         <Image
           style={{ width: 612, height: 612 }}
-          source={{ uri: 'doug-working-cold' }}
+          source={require('../assets/images/doug-working-cold.png')}
         />
       </View>
     )
@@ -106,7 +106,7 @@ const pages = [
     body: (
       <Image
         style={{ width: 573, height: 859 }}
-        source={{ uri: 'doug-fiddle' }}
+        source={require('../assets/images/doug-fiddle.png')}
       />
     )
   },
@@ -116,7 +116,7 @@ const pages = [
     body: (
       <Image
         style={{ width: 1024, height: 768 }}
-        source={{ uri: 'doug-sleeping' }}
+        source={require('../assets/images/doug-sleeping.png')}
       />
     )
   },
@@ -126,7 +126,7 @@ const pages = [
     body: (
       <Image
         style={{ width: 1024, height: 768 }}
-        source={{ uri: 'doug-thinking-react' }}
+        source={require('../assets/images/doug-thinking-react.png')}
       />
     )
   },
@@ -134,7 +134,7 @@ const pages = [
     key: 'Philosophy',
     title: '',
     body: (
-      <Image style={{ width: 800, height: 800 }} source={{ uri: 'despair' }} />
+      <Image style={{ width: 800, height: 800 }} source={require('../assets/images/despair.png')} />
     )
   },
  */
@@ -151,7 +151,7 @@ const pages = [
         </View>
         <Image
           style={{ width: 707, height: 671 }}
-          source={{ uri: 'dreamhouse' }}
+          source={require('../assets/images/dreamhouse.png')}
         />
       </View>
     ),
@@ -209,7 +209,7 @@ const pages = [
         <SlideText text="Apple TV focus engine" />
         <Image
           style={{ width: 800, height: 400 }}
-          source={{ uri: 'focusengine' }}
+          source={require('../assets/images/focusengine.png')}
         />
       </View>
     ),
@@ -309,7 +309,7 @@ const pages = [
         <View style={{ height: 50 }} />
         <Image
           style={{ width: 768 * 1.2, height: 616 * 1.2 }}
-          source={{ uri: 'tveventhandler' }}
+          source={require('../assets/images/tveventhandler.png')}
         />
       </View>
     )
@@ -335,7 +335,7 @@ const pages = [
         <UrlSlideText text="https://tv.unsplash.com/" />
         <Image
           style={{ width: 1056 * 0.8, height: 679 * 0.8 }}
-          source={{ uri: 'unsplash' }}
+          source={require('../assets/images/unsplash.png')}
         />
       </View>
     ),
@@ -359,7 +359,7 @@ const pages = [
           </View>
           <Image
             style={{ width: 499, height: 305 }}
-            source={{ uri: 'awesometvapp' }}
+            source={require('../assets/images/awesometvapp.png')}
           />
         </View>
       </View>

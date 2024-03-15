@@ -86,7 +86,7 @@ class ParallaxExamples extends Component<{}> {
             <View>
               <Image
                 style={{ width: 287, height: 201 }}
-                source={{ uri: 'react-logo' }}
+                source={require('../assets/images/react-logo.png')}
               />
               <Text style={{ width: 287, fontSize: 40 }}>{p.name}</Text>
             </View>

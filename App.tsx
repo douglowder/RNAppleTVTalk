@@ -27,23 +27,23 @@
  */
 import React, { Component } from 'react';
 
-import SlideShow from './SlideShow';
+import SlideShow from './js/SlideShow';
 
-import Slide from './Slide';
+import Slide from './js/Slide';
 
-import VideoDemo from './VideoDemo';
+import VideoDemo from './js/VideoDemo';
 
-import VictoryDemo from './VictoryDemo';
+import VictoryDemo from './js/VictoryDemo';
 
-import ListViewDemo from './ListViewDemo';
+import ListViewDemo from './js/ListViewDemo';
 
-import CustomEventDemo from './CustomEventDemo';
+import CustomEventDemo from './js/CustomEventDemo';
 
-import TextInputDemo from './TextInputDemo';
+import TextInputDemo from './js/TextInputDemo';
 
-import FocusGuideDemo from './FocusGuideDemo';
+import FocusGuideDemo from './js/FocusGuideDemo';
 
-import TVTabBar from './TVTabBar';
+import TVTabBar from './js/TVTabBar';
 
 // import StyledComponents from './StyledComponents';
 
@@ -133,4 +133,4 @@ class App extends Component<{}> {
   }
 }
 
-module.exports = App;
+export default App;

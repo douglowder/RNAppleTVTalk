@@ -48,7 +48,7 @@ class VictoryDemo extends Component<
 
   getTransitionData() {
     const n = random(4, 10);
-    return range(n).map(i => ({
+    return range(n).map((i) => ({
       x: i,
       y: random(2, 10),
     }));
@@ -61,7 +61,7 @@ class VictoryDemo extends Component<
   }
 
   generateRandomData(points: number = 6) {
-    return range(1, points + 1).map(i => ({ x: i, y: i + random(-1, 2) }));
+    return range(1, points + 1).map((i) => ({ x: i, y: i + random(-1, 2) }));
   }
 
   render() {
@@ -69,7 +69,7 @@ class VictoryDemo extends Component<
       <View style={{ alignItems: 'center', margin: 20 }}>
         <Image
           style={{ width: 400, height: 88 }}
-          source={{ uri: 'formidable' }}
+          source={require('../assets/images/formidable.png')}
         />
         <UrlSlideText text="https://formidable.com/open-source/victory/docs/native/" />
         <View style={{ flexDirection: 'row' }}>
@@ -182,4 +182,4 @@ class VictoryDemo extends Component<
   }
 }
 
-module.exports = VictoryDemo;
+export default VictoryDemo;

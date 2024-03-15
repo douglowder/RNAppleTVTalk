@@ -16,6 +16,7 @@ import Video from 'react-native-video';
 class VideoPlayer extends Component<
   {},
   {
+    uri: string,
     rate: number,
     volume: number,
     muted: boolean,
@@ -92,14 +93,17 @@ class VideoPlayer extends Component<
   }
 
   renderPlayPauseControl() {
-    const imageName = this.state.paused ? 'play' : 'pause';
+    const playImage = require('../assets/images/play.png');
+    const pauseImage = require('../assets/images/pause.png');
+    const image = this.state.paused ? playImage : pauseImage;
     return (
       <TouchableOpacity
         hasTVPreferredFocus={true}
         onPress={() =>
-          this.setState(prevState => ({ paused: !prevState.paused }))
-        }>
-        <Image source={{ uri: imageName }} style={{ width: 80, height: 80 }} />
+          this.setState((prevState) => ({ paused: !prevState.paused }))
+        }
+      >
+        <Image source={image} style={{ width: 80, height: 80 }} />
       </TouchableOpacity>
     );
   }
@@ -107,7 +111,10 @@ class VideoPlayer extends Component<
   renderRewindControl() {
     return (
       <TouchableOpacity onPress={() => this.player.seek(0)}>
-        <Image source={{ uri: 'back' }} style={{ width: 80, height: 80 }} />
+        <Image
+          source={require('../assets/images/back.png')}
+          style={{ width: 80, height: 80 }}
+        />
       </TouchableOpacity>
     );
   }
@@ -122,12 +129,14 @@ class VideoPlayer extends Component<
             controls: selectControls,
             skin,
           });
-        }}>
+        }}
+      >
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}>
+          ]}
+        >
           {skin}
         </Text>
       </TouchableOpacity>
@@ -141,12 +150,14 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ rate });
-        }}>
+        }}
+      >
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}>
+          ]}
+        >
           {rate}x
         </Text>
       </TouchableOpacity>
@@ -160,12 +171,14 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ resizeMode });
-        }}>
+        }}
+      >
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}>
+          ]}
+        >
           {resizeMode}
         </Text>
       </TouchableOpacity>
@@ -177,7 +190,8 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.player?.presentFullscreenPlayer();
-        }}>
+        }}
+      >
         <Text style={[styles.controlOption, { fontWeight: 'bold' }]}>
           Full Screen
         </Text>
@@ -192,12 +206,14 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ volume });
-        }}>
+        }}
+      >
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}>
+          ]}
+        >
           {volume * 100}%
         </Text>
       </TouchableOpacity>
@@ -211,12 +227,14 @@ class VideoPlayer extends Component<
       <TouchableOpacity
         onPress={() => {
           this.setState({ ignoreSilentSwitch });
-        }}>
+        }}
+      >
         <Text
           style={[
             styles.controlOption,
             { fontWeight: isSelected ? 'bold' : 'normal' },
-          ]}>
+          ]}
+        >
           {ignoreSilentSwitch}
         </Text>
       </TouchableOpacity>
@@ -230,10 +248,10 @@ class VideoPlayer extends Component<
     return (
       <View style={styles.container}>
         <Video
-          ref={ref => {
+          ref={(ref) => {
             this.player = ref;
           }}
-          source={{ uri: this.props.uri, type: 'mp4' }}
+          source={require('../assets/bach-handel-corelli.mp4')}
           style={styles.normal}
           rate={this.state.rate}
           paused={this.state.paused}
@@ -241,8 +259,8 @@ class VideoPlayer extends Component<
           muted={this.state.muted}
           ignoreSilentSwitch={this.state.ignoreSilentSwitch}
           resizeMode={this.state.resizeMode}
-          onLoad={data => this.onLoad(data)}
-          onProgress={data => this.onProgress(data)}
+          onLoad={(data) => this.onLoad(data)}
+          onProgress={(data) => this.onProgress(data)}
           onEnd={() => {}}
           repeat={true}
         />
@@ -311,10 +329,10 @@ class VideoPlayer extends Component<
       <View style={styles.container}>
         <View style={styles.normal}>
           <Video
-            ref={ref => {
+            ref={(ref) => {
               this.player = ref;
             }}
-            source={{ uri: this.props.uri, type: 'mp4' }}
+            source={require('../assets/bach-handel-corelli.mp4')}
             style={videoStyle}
             rate={this.state.rate}
             paused={this.state.paused}
@@ -322,8 +340,8 @@ class VideoPlayer extends Component<
             muted={this.state.muted}
             ignoreSilentSwitch={this.state.ignoreSilentSwitch}
             resizeMode={this.state.resizeMode}
-            onLoad={data => this.onLoad(data)}
-            onProgress={data => this.onProgress(data)}
+            onLoad={(data) => this.onLoad(data)}
+            onProgress={(data) => this.onProgress(data)}
             onEnd={() => {
               AlertIOS.alert('Done!');
             }}
@@ -475,4 +493,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = VideoPlayer;
+export default VideoPlayer;

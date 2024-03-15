@@ -67,7 +67,7 @@ class SlideShow extends Component<
     return (
       <Image
         resizeMode="contain"
-        source={{ uri: 'thankyou' }}
+        source={require('../assets/images/thankyou.png')}
         style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
       />
     );
@@ -89,4 +89,4 @@ class SlideShow extends Component<
   }
 }
 
-module.exports = SlideShow;
+export default SlideShow;

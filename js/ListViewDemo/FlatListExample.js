@@ -22,13 +22,13 @@ const {
   SeparatorComponent,
   genItemData,
   getItemLayout,
-  pressItem
+  pressItem,
 } = require('./ListExampleShared');
 
 const VIEWABILITY_CONFIG = {
   minimumViewTime: 3000,
   viewAreaCoveragePercentThreshold: 100,
-  waitForInteraction: true
+  waitForInteraction: true,
 };
 
 type Props = $ReadOnly<{||}>;
@@ -41,7 +41,7 @@ type State = {|
   fixedHeight: boolean,
   logViewable: boolean,
   virtualized: boolean,
-  empty: boolean
+  empty: boolean,
 |};
 
 class FlatListExample extends React.PureComponent<Props, State> {
@@ -54,28 +54,30 @@ class FlatListExample extends React.PureComponent<Props, State> {
     fixedHeight: true,
     logViewable: false,
     virtualized: true,
-    empty: false
+    empty: false,
   };
 
   _scrollPos = new Animated.Value(0);
 
   _scrollSinkX = Animated.event(
     [{ nativeEvent: { contentOffset: { x: this._scrollPos } } }],
-    { useNativeDriver: true }
+    { useNativeDriver: true },
   );
 
   _scrollSinkY = Animated.event(
     [{ nativeEvent: { contentOffset: { y: this._scrollPos } } }],
-    { useNativeDriver: true }
+    { useNativeDriver: true },
   );
 
   _listRef: Animated.FlatList;
 
   componentDidUpdate() {
-    this._listRef.getNode().recordInteraction(); // e.g. flipping logViewable switch
+    this._listRef &&
+      this._listRef.getNode &&
+      this._listRef.getNode().recordInteraction(); // e.g. flipping logViewable switch
   }
 
-  _captureRef = ref => {
+  _captureRef = (ref) => {
     this._listRef = ref;
   };
 
@@ -91,8 +93,8 @@ class FlatListExample extends React.PureComponent<Props, State> {
     if (this.state.data.length >= 1000) {
       return;
     }
-    this.setState(state => ({
-      data: state.data.concat(genItemData(100, state.data.length))
+    this.setState((state) => ({
+      data: state.data.concat(genItemData(100, state.data.length)),
     }));
   };
 
@@ -117,8 +119,8 @@ class FlatListExample extends React.PureComponent<Props, State> {
       isViewable: boolean,
       item: any,
       index: ?number,
-      section?: any
-    }>
+      section?: any,
+    }>,
   }) => {
     // Impressions can be logged here
     if (this.state.logViewable) {
@@ -128,13 +130,14 @@ class FlatListExample extends React.PureComponent<Props, State> {
 
   render() {
     const filterRegex = new RegExp(String(this.state.filterText), 'i');
-    const filter = item =>
+    const filter = (item) =>
       filterRegex.test(item.text) || filterRegex.test(item.title);
     const filteredData = this.state.data.filter(filter);
     return (
       <View style={styles.container}>
         <SeparatorComponent />
         <Animated.FlatList
+          contentContainerStyle={styles.list}
           ItemSeparatorComponent={ItemSeparatorComponent}
           ListEmptyComponent={ListEmptyComponent}
           data={this.state.empty ? [] : filteredData}
@@ -173,21 +176,20 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgb(239, 239, 244)',
     width: '100%',
-    height: 500
   },
   list: {
     backgroundColor: 'white',
     width: '100%',
-    flexGrow: 1
+    flexGrow: 1,
   },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   searchRow: {
-    paddingHorizontal: 10
-  }
+    paddingHorizontal: 10,
+  },
 });
 
 module.exports = FlatListExample;

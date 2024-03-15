@@ -192,18 +192,18 @@ class Spindicator extends React.PureComponent<$FlowFixMeProps> {
 }
 
 const THUMB_URLS = [
-  { uri: 'like' },
-  { uri: 'dislike' },
-  { uri: 'call' },
-  { uri: 'fist' },
-  { uri: 'bandaged' },
-  { uri: 'flowers' },
-  { uri: 'heart' },
-  { uri: 'liking' },
-  { uri: 'party' },
-  { uri: 'poke' },
-  { uri: 'superlike' },
-  { uri: 'victory' }
+  require('../../assets/images/like.png'),
+  require('../../assets/images/dislike.png'),
+  require('../../assets/images/call.png'),
+  require('../../assets/images/fist.png'),
+  require('../../assets/images/bandaged.png'),
+  require('../../assets/images/flowers.png'),
+  require('../../assets/images/heart.png'),
+  require('../../assets/images/liking.png'),
+  require('../../assets/images/party.png'),
+  require('../../assets/images/poke.png'),
+  require('../../assets/images/superlike.png'),
+  require('../../assets/images/victory.png')
 ];
 
 const LOREM_IPSUM =

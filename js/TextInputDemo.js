@@ -57,4 +57,4 @@ class TextInputDemo extends Component<{}> {
   }
 }
 
-module.exports = TextInputDemo;
+export default TextInputDemo;

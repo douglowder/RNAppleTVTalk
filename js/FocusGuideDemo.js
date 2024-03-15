@@ -159,7 +159,7 @@ class FocusGuideDemo extends Component<
       case '1':
         return (
           <TouchableOpacity
-            ref={ref => this._setButton1(ref)}
+            ref={(ref) => this._setButton1(ref)}
             onFocus={() => this._setDestination([this._button2], 'FG -> 2')}
             onPress={() => {}}
             style={[cellStyle, controlStyle]}
@@ -170,7 +170,7 @@ class FocusGuideDemo extends Component<
       case '2':
         return (
           <TouchableOpacity
-            ref={ref => this._setButton2(ref)}
+            ref={(ref) => this._setButton2(ref)}
             onFocus={() => this._setDestination([this._button1], 'FG -> 1')}
             onPress={() => {}}
             style={[cellStyle, controlStyle]}
@@ -211,7 +211,7 @@ class FocusGuideDemo extends Component<
           data={data}
           extraData={this.state}
           numColumns={5}
-          renderItem={s => this._renderRow(s)}
+          renderItem={(s) => this._renderRow(s)}
           keyExtractor={(s, i) => `${i}`}
         />
       </View>
@@ -219,4 +219,4 @@ class FocusGuideDemo extends Component<
   }
 }
 
-module.exports = FocusGuideDemo;
+export default FocusGuideDemo;
