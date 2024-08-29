@@ -2,23 +2,23 @@
   "name": "rnappletvtalk",
   "version": "1.0.0",
   "dependencies": {
-    "expo": "^50.0.11",
-    "expo-splash-screen": "~0.26.4",
-    "expo-status-bar": "~1.11.1",
+    "expo": "^51.0.31",
+    "expo-splash-screen": "~0.27.5",
+    "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "npm:react-native-tvos@^0.73.6-0",
-    "react-native-svg": "^15.1.0",
-    "react-native-video": "^5.2.1",
+    "react-native": "npm:react-native-tvos@0.75.2-0rc1",
+    "react-native-svg": "^15.6.0",
+    "react-native-video": "^6.4.5",
     "victory-native": "^35.3.3"
   },
   "devDependencies": {
-    "@babel/core": "~7.20.0",
-    "@react-native-tvos/config-tv": "^0.0.7",
-    "@types/react": "~18.2.45",
+    "@babel/core": "^7.24.0",
+    "@react-native-tvos/config-tv": "^0.0.10",
+    "@types/react": "~18.2.79",
     "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0",
-    "typescript": "^5.3.0"
+    "typescript": "~5.3.3"
   },
   "expo": {
     "install": {
@@ -30,9 +30,10 @@
   "private": true,
   "scripts": {
     "postinstall": "patch-package",
-    "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
+    "prebuild": "EXPO_TV=1 expo prebuild --clean",
+    "start": "EXPO_TV=1 expo start",
+    "android": "EXPO_TV=1 expo run:android",
+    "ios": "EXPO_TV=1 expo run:ios",
     "web": "expo start --web"
   }
 }
