@@ -31,7 +31,7 @@ class VideoPlayer extends Component<
 > {
   player: any;
 
-  _tvEventHandler: any;
+  _tvEventHandlerSubscription: any;
 
   constructor(props: Object) {
     super(props);
@@ -77,18 +77,19 @@ class VideoPlayer extends Component<
   }
 
   _enableTVEventHandler() {
-    this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, (cmp, evt) => {
-      if (evt && evt.eventType === 'playPause') {
-        cmp.setState({ paused: !cmp.state.paused });
-      }
-    });
+    this._tvEventHandlerSubscription = TVEventHandler.addListener(
+      (cmp, evt) => {
+        if (evt && evt.eventType === 'playPause') {
+          cmp.setState({ paused: !cmp.state.paused });
+        }
+      },
+    );
   }
 
   _disableTVEventHandler() {
-    if (this._tvEventHandler) {
-      this._tvEventHandler.disable();
-      delete this._tvEventHandler;
+    if (this._tvEventHandlerSubscription) {
+      this._tvEventHandlerSubscription.remove();
+      delete this._tvEventHandlerSubscription;
     }
   }
 

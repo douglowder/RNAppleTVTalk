@@ -85,7 +85,7 @@ class Tile extends React.Component<{}, {}> {
     this.state = {
       opacity: new Animated.Value(0),
       top: new Animated.Value(Tile._getPosition(tile.toRow())),
-      left: new Animated.Value(Tile._getPosition(tile.toColumn()))
+      left: new Animated.Value(Tile._getPosition(tile.toColumn())),
     };
   }
 
@@ -95,24 +95,24 @@ class Tile extends React.Component<{}, {}> {
     const offset = {
       top: this.state.top,
       left: this.state.left,
-      opacity: this.state.opacity
+      opacity: this.state.opacity,
     };
 
     if (tile.isNew()) {
       Animated.timing(this.state.opacity, {
         duration: 100,
-        toValue: 1
+        toValue: 1,
       }).start();
     } else {
       Animated.parallel([
         Animated.timing(offset.top, {
           duration: 100,
-          toValue: Tile._getPosition(tile.toRow())
+          toValue: Tile._getPosition(tile.toRow()),
         }),
         Animated.timing(offset.left, {
           duration: 100,
-          toValue: Tile._getPosition(tile.toColumn())
-        })
+          toValue: Tile._getPosition(tile.toColumn()),
+        }),
       ]).start();
     }
     return offset;
@@ -124,14 +124,14 @@ class Tile extends React.Component<{}, {}> {
     const tileStyles = [
       styles.tile,
       styles[`tile${tile.value}`],
-      this.calculateOffset()
+      this.calculateOffset(),
     ];
 
     const textStyles = [
       styles.value,
       tile.value > 4 && styles.whiteText,
       tile.value > 100 && styles.threeDigits,
-      tile.value > 1000 && styles.fourDigits
+      tile.value > 1000 && styles.fourDigits,
     ];
 
     return (
@@ -166,19 +166,19 @@ class GameEndOverlay extends React.Component {
 class Game2048 extends React.Component<
   {},
   {
-    board: GameBoard
-  }
+    board: GameBoard,
+  },
 > {
   startX: number;
 
   startY: number;
 
-  _tvEventHandler: any;
+  _tvEventHandlerSubscription: any;
 
   constructor(props: Object) {
     super(props);
     this.state = {
-      board: new GameBoard()
+      board: new GameBoard(),
     };
     this.startX = 0;
     this.startY = 0;
@@ -224,46 +224,47 @@ class Game2048 extends React.Component<
     }
 
     if (direction !== -1) {
-      this.setState(prevState => {
+      this.setState((prevState) => {
         prevState.board.move(direction);
       });
     }
   }
 
   _enableTVEventHandler() {
-    this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, (cmp, evt) => {
-      if (evt && evt.eventType === 'right') {
-        cmp.setState({ board: cmp.state.board.move(2) });
-      } else if (evt && evt.eventType === 'up') {
-        cmp.setState({ board: cmp.state.board.move(1) });
-      } else if (evt && evt.eventType === 'left') {
-        cmp.setState({ board: cmp.state.board.move(0) });
-      } else if (evt && evt.eventType === 'down') {
-        cmp.setState({ board: cmp.state.board.move(3) });
-      } else if (evt && evt.eventType === 'playPause') {
-        cmp.restartGame();
-      }
-    });
+    this._tvEventHandlerSubscription = TVEventHandler.addListener(
+      (cmp, evt) => {
+        if (evt && evt.eventType === 'right') {
+          cmp.setState({ board: cmp.state.board.move(2) });
+        } else if (evt && evt.eventType === 'up') {
+          cmp.setState({ board: cmp.state.board.move(1) });
+        } else if (evt && evt.eventType === 'left') {
+          cmp.setState({ board: cmp.state.board.move(0) });
+        } else if (evt && evt.eventType === 'down') {
+          cmp.setState({ board: cmp.state.board.move(3) });
+        } else if (evt && evt.eventType === 'playPause') {
+          cmp.restartGame();
+        }
+      },
+    );
   }
 
   _disableTVEventHandler() {
-    if (this._tvEventHandler) {
-      this._tvEventHandler.disable();
-      delete this._tvEventHandler;
+    if (this._tvEventHandlerSubscription) {
+      this._tvEventHandlerSubscription.remove();
+      delete this._tvEventHandlerSubscription;
     }
   }
 
   render() {
     const tiles = this.state.board.tiles
-      .filter(tile => tile.value)
-      .map(tile => <Tile ref={tile.id} key={tile.id} tile={tile} />);
+      .filter((tile) => tile.value)
+      .map((tile) => <Tile ref={tile.id} key={tile.id} tile={tile} />);
 
     return (
       <View
         style={styles.container}
-        onTouchStart={event => this.handleTouchStart(event)}
-        onTouchEnd={event => this.handleTouchEnd(event)}
+        onTouchStart={(event) => this.handleTouchStart(event)}
+        onTouchEnd={(event) => this.handleTouchEnd(event)}
       >
         <Board>{tiles}</Board>
         <GameEndOverlay
@@ -279,12 +280,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   board: {
     padding: BOARD_PADDING,
     backgroundColor: '#bbaaaa',
-    borderRadius: BORDER_RADIUS
+    borderRadius: BORDER_RADIUS,
   },
   overlay: {
     position: 'absolute',
@@ -296,31 +297,31 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   overlayMessage: {
     fontSize: SIZE_40,
-    marginBottom: SIZE_20
+    marginBottom: SIZE_20,
   },
   tryAgain: {
     backgroundColor: '#887761',
     padding: SIZE_20,
-    borderRadius: BORDER_RADIUS
+    borderRadius: BORDER_RADIUS,
   },
   tryAgainText: {
     color: '#ffffff',
     fontSize: SIZE_20,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   cell: {
     width: CELL_SIZE,
     height: CELL_SIZE,
     borderRadius: BORDER_RADIUS,
     backgroundColor: '#ddccbb',
-    margin: CELL_MARGIN
+    margin: CELL_MARGIN,
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   tile: {
     position: 'absolute',
@@ -330,56 +331,56 @@ const styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS,
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   value: {
     fontSize: SIZE_24,
     color: '#776666',
     fontFamily: Platform.isTVOS ? 'Helvetica' : 'Verdana',
-    fontWeight: '500'
+    fontWeight: '500',
   },
   tile2: {
-    backgroundColor: '#eeeeee'
+    backgroundColor: '#eeeeee',
   },
   tile4: {
-    backgroundColor: '#eeeecc'
+    backgroundColor: '#eeeecc',
   },
   tile8: {
-    backgroundColor: '#ffbb87'
+    backgroundColor: '#ffbb87',
   },
   tile16: {
-    backgroundColor: '#ff9966'
+    backgroundColor: '#ff9966',
   },
   tile32: {
-    backgroundColor: '#ff7755'
+    backgroundColor: '#ff7755',
   },
   tile64: {
-    backgroundColor: '#ff5533'
+    backgroundColor: '#ff5533',
   },
   tile128: {
-    backgroundColor: '#eecc77'
+    backgroundColor: '#eecc77',
   },
   tile256: {
-    backgroundColor: '#eecc66'
+    backgroundColor: '#eecc66',
   },
   tile512: {
-    backgroundColor: '#eecc55'
+    backgroundColor: '#eecc55',
   },
   tile1024: {
-    backgroundColor: '#eecc33'
+    backgroundColor: '#eecc33',
   },
   tile2048: {
-    backgroundColor: '#eecc22'
+    backgroundColor: '#eecc22',
   },
   whiteText: {
-    color: '#ffffff'
+    color: '#ffffff',
   },
   threeDigits: {
-    fontSize: SIZE_20
+    fontSize: SIZE_20,
   },
   fourDigits: {
-    fontSize: SIZE_18
-  }
+    fontSize: SIZE_18,
+  },
 });
 
 module.exports = Game2048;

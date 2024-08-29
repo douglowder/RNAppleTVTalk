@@ -32,7 +32,7 @@ import {
   View,
   TouchableOpacity,
   TVEventHandler,
-  TVMenuControl,
+  TVEventControl,
 } from 'react-native';
 
 const styles = require('../styles').default;
@@ -43,7 +43,7 @@ class CustomEventDemo extends Component<
     eventFired: string,
   },
 > {
-  _tvEventHandler: any;
+  _tvEventHandlerSubscription: any;
 
   constructor(props: Object) {
     super(props);
@@ -62,22 +62,23 @@ class CustomEventDemo extends Component<
   }
 
   _enableTVEventHandler() {
-    this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, (cmp, evt) => {
-      evt &&
-        evt.eventType &&
-        evt.eventType !== 'blur' &&
-        evt.eventType !== 'focus' &&
-        cmp.setState({
-          eventFired: evt.eventType,
-        });
-    });
+    this._tvEventHandlerSubscription = TVEventHandler.addListener(
+      (cmp, evt) => {
+        evt &&
+          evt.eventType &&
+          evt.eventType !== 'blur' &&
+          evt.eventType !== 'focus' &&
+          cmp.setState({
+            eventFired: evt.eventType,
+          });
+      },
+    );
   }
 
   _disableTVEventHandler() {
-    if (this._tvEventHandler) {
-      this._tvEventHandler.disable();
-      delete this._tvEventHandler;
+    if (this._tvEventHandlerSubscription) {
+      this._tvEventHandlerSubscription.remove();
+      delete this._tvEventHandlerSubscription;
     }
   }
 
@@ -103,12 +104,12 @@ class CustomEventDemo extends Component<
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
-            <Text style={styles.titleSmall}>TVMenuControl</Text>
+            <Text style={styles.titleSmall}>TVEventControl</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={TVMenuControl.enableTVMenuKey}>
+          <TouchableOpacity onPress={TVEventControl.enableTVMenuKey}>
             <Text style={styles.body}>Enable menu</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={TVMenuControl.disableTVMenuKey}>
+          <TouchableOpacity onPress={TVEventControl.disableTVMenuKey}>
             <Text style={styles.body}>Disable menu</Text>
           </TouchableOpacity>
         </View>

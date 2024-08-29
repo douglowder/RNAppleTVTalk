@@ -281,7 +281,7 @@ const pages = [
     body: (
       <View>
         <View style={{ flex: 1 }}>
-          <SlideText extraStyle={styles.titleSmall} text="TVMenuControl" />
+          <SlideText extraStyle={styles.titleSmall} text="TVEventControl" />
           <BulletedList
             lines={[
               'Enables and disables gesture handler for menu key navigation',
