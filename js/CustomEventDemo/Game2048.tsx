@@ -7,18 +7,21 @@
  *
  */
 
-const React = require('react');
-const ReactNative = require('react-native');
-const Platform = require('Platform');
-const TVEventHandler = require('TVEventHandler');
+import React from 'react';
+import {
+  Animated,
+  Platform,
+  StyleSheet,
+  Text,
+  TVEventHandler,
+  TouchableOpacity,
+  View,
+  EventSubscription,
+} from 'react-native';
 
-const { StyleSheet, Text, View } = ReactNative;
+import GameBoard from './GameBoard';
 
-const Animated = require('Animated');
-const TouchableBounce = require('TouchableBounce');
-const GameBoard = require('./GameBoard');
-
-const SCALE = Platform.isTVOS ? 1.5 : 1;
+const SCALE = Platform.isTV && Platform.OS === 'ios' ? 1.5 : 1;
 
 const BOARD_PADDING = SCALE * 3;
 const CELL_MARGIN = SCALE * 4;
@@ -36,7 +39,7 @@ class Cell extends React.Component {
   }
 }
 
-class Board extends React.Component {
+class Board extends React.Component<any> {
   render() {
     return (
       <View style={styles.board}>
@@ -70,14 +73,14 @@ class Board extends React.Component {
   }
 }
 
-class Tile extends React.Component<{}, {}> {
-  static _getPosition(index): number {
+class Tile extends React.Component<{ tile: any }, any> {
+  static _getPosition(index: number): number {
     return (
       BOARD_PADDING + (index * (CELL_SIZE + CELL_MARGIN * 2) + CELL_MARGIN)
     );
   }
 
-  constructor(props: {}) {
+  constructor(props: any) {
     super(props);
 
     const tile = this.props.tile;
@@ -89,7 +92,7 @@ class Tile extends React.Component<{}, {}> {
     };
   }
 
-  calculateOffset(): { top: number, left: number, opacity: number } {
+  calculateOffset(): { top: number; left: number; opacity: number } {
     const tile = this.props.tile;
 
     const offset = {
@@ -102,16 +105,19 @@ class Tile extends React.Component<{}, {}> {
       Animated.timing(this.state.opacity, {
         duration: 100,
         toValue: 1,
+        useNativeDriver: false,
       }).start();
     } else {
       Animated.parallel([
         Animated.timing(offset.top, {
           duration: 100,
           toValue: Tile._getPosition(tile.toRow()),
+          useNativeDriver: false,
         }),
         Animated.timing(offset.left, {
           duration: 100,
           toValue: Tile._getPosition(tile.toColumn()),
+          useNativeDriver: false,
         }),
       ]).start();
     }
@@ -142,7 +148,7 @@ class Tile extends React.Component<{}, {}> {
   }
 }
 
-class GameEndOverlay extends React.Component {
+class GameEndOverlay extends React.Component<any> {
   render() {
     const board = this.props.board;
 
@@ -155,25 +161,28 @@ class GameEndOverlay extends React.Component {
     return (
       <View style={styles.overlay}>
         <Text style={styles.overlayMessage}>{message}</Text>
-        <TouchableBounce onPress={this.props.onRestart} style={styles.tryAgain}>
+        <TouchableOpacity
+          onPress={this.props.onRestart}
+          style={styles.tryAgain}
+        >
           <Text style={styles.tryAgainText}>Try Again?</Text>
-        </TouchableBounce>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
-class Game2048 extends React.Component<
+export default class Game2048 extends React.Component<
   {},
   {
-    board: GameBoard,
-  },
+    board: GameBoard;
+  }
 > {
   startX: number;
 
   startY: number;
 
-  _tvEventHandlerSubscription: any;
+  _tvEventHandlerSubscription: EventSubscription | undefined;
 
   constructor(props: Object) {
     super(props);
@@ -196,7 +205,7 @@ class Game2048 extends React.Component<
     this.setState({ board: new GameBoard() });
   }
 
-  handleTouchStart(event: Object) {
+  handleTouchStart(event: any) {
     if (this.state.board.hasWon()) {
       return;
     }
@@ -205,7 +214,7 @@ class Game2048 extends React.Component<
     this.startY = event.nativeEvent.pageY;
   }
 
-  handleTouchEnd(event: Object) {
+  handleTouchEnd(event: any) {
     if (this.state.board.hasWon()) {
       return;
     }
@@ -232,17 +241,17 @@ class Game2048 extends React.Component<
 
   _enableTVEventHandler() {
     this._tvEventHandlerSubscription = TVEventHandler.addListener(
-      (cmp, evt) => {
+      (evt: { eventType: string }) => {
         if (evt && evt.eventType === 'right') {
-          cmp.setState({ board: cmp.state.board.move(2) });
+          this.setState({ board: this.state.board.move(2) });
         } else if (evt && evt.eventType === 'up') {
-          cmp.setState({ board: cmp.state.board.move(1) });
+          this.setState({ board: this.state.board.move(1) });
         } else if (evt && evt.eventType === 'left') {
-          cmp.setState({ board: cmp.state.board.move(0) });
+          this.setState({ board: this.state.board.move(0) });
         } else if (evt && evt.eventType === 'down') {
-          cmp.setState({ board: cmp.state.board.move(3) });
+          this.setState({ board: this.state.board.move(3) });
         } else if (evt && evt.eventType === 'playPause') {
-          cmp.restartGame();
+          this.restartGame();
         }
       },
     );
@@ -336,7 +345,8 @@ const styles = StyleSheet.create({
   value: {
     fontSize: SIZE_24,
     color: '#776666',
-    fontFamily: Platform.isTVOS ? 'Helvetica' : 'Verdana',
+    fontFamily:
+      Platform.isTV && Platform.OS === 'ios' ? 'Helvetica' : 'Verdana',
     fontWeight: '500',
   },
   tile2: {
@@ -382,5 +392,3 @@ const styles = StyleSheet.create({
     fontSize: SIZE_18,
   },
 });
-
-module.exports = Game2048;

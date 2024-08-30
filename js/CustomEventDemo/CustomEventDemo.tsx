@@ -33,17 +33,20 @@ import {
   TouchableOpacity,
   TVEventHandler,
   TVEventControl,
+  EventSubscription,
 } from 'react-native';
 
-const styles = require('../styles').default;
+import styles from '../styles';
+import Game2048 from './Game2048';
 
 class CustomEventDemo extends Component<
   {},
   {
-    eventFired: string,
-  },
+    eventFired: string;
+    tvRemoteControlEvent: string;
+  }
 > {
-  _tvEventHandlerSubscription: any;
+  _tvEventHandlerSubscription: EventSubscription | undefined;
 
   constructor(props: Object) {
     super(props);
@@ -62,17 +65,15 @@ class CustomEventDemo extends Component<
   }
 
   _enableTVEventHandler() {
-    this._tvEventHandlerSubscription = TVEventHandler.addListener(
-      (cmp, evt) => {
-        evt &&
-          evt.eventType &&
-          evt.eventType !== 'blur' &&
-          evt.eventType !== 'focus' &&
-          cmp.setState({
-            eventFired: evt.eventType,
-          });
-      },
-    );
+    this._tvEventHandlerSubscription = TVEventHandler.addListener((evt) => {
+      evt &&
+        evt.eventType &&
+        evt.eventType !== 'blur' &&
+        evt.eventType !== 'focus' &&
+        this.setState({
+          eventFired: evt.eventType,
+        });
+    });
   }
 
   _disableTVEventHandler() {
@@ -96,11 +97,7 @@ class CustomEventDemo extends Component<
           </View>
         </View>
         <View style={styles.listViewDemoContainer}>
-          <View style={styles.listViewDemoContainer}>
-            <Text style={styles.body}>
-              {this.state ? this.state.tvRemoteControlEvent : ''}
-            </Text>
-          </View>
+          <Game2048 />
         </View>
         <View style={styles.listViewDemoContainer}>
           <TouchableOpacity>
